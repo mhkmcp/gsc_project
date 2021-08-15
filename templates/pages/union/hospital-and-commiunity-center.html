@@ -1,0 +1,121 @@
+{% extends 'base.html' %}
+{% block title %}My Blog {% endblock %}
+{% load static %}
+
+{% block content %}
+
+    <div class="container-fluid">
+        {% comment %} brudcrumb {% endcomment %}
+        <div class="row breadcrumb p-2">
+            <div class="col-md-8">
+                <h5>হাসপাতাল/কমিউনিটি সেন্টার তথ্য</h5>
+            </div>
+            <div class="col-md-4">
+                <h6>You are here: <a href="{% url 'home' %}">হোম >></a> হাসপাতাল/কমিউনিটি সেন্টার তথ্য</h6>
+            </div>
+        </div>
+
+        {% comment %} main content {% endcomment %}
+        <div class="row">
+            <div class="intro-main col-9">
+                <div class="card mb-5">
+                    <div class="card-header border-bottom-0 text-center">
+                        <h4>উপ স্বাস্থ্য কেন্দ্র/হাসপাতাল, স্বাস্থ্য ও পরিবার কল্যাণ কেন্দ্র ও কমিউনিটি ক্লিনিক</h4>
+                    </div>
+                    <div class="card-body">
+                        <h5>উপ স্বাস্থ্য কেন্দ্র/হাসপাতাল</h5>
+                        <div class="table-responsive">
+                            <table class="table table-striped table-bordered">
+                                <thead class="bg-navy-blue text-white">
+                                    <tr>
+                                        <th>ক্রমিক নং</th>
+                                        <th>উপ স্বাস্থ্য কেন্দ্র/হাসপাতাল</th>
+                                        <th>গ্রাম</th>
+                                        <th>উপ স্বাস্থ্য কেন্দ্র ডাক্তারের নাম</th>
+                                        <th>মোবাইল নম্বর</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>১</td>
+                                        <td>দিগপাইত উপ স্বাস্থ্য কেন্দ্র</td>
+                                        <td>দিগপাইত</td>
+                                        <td>দিগপাইত</td>
+                                        <td>01713591870</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                        
+                        <h5 class="mt-4">স্বাস্থ্য ও পরিবার কল্যাণ কেন্দ্র</h5>
+                        <div class="table-responsive">
+                            <table class="table table-striped table-bordered">
+                                <thead class="bg-navy-blue text-white">
+                                    <tr>
+                                        <th>ক্রমিক নং</th>
+                                        <th>উপ স্বাস্থ্য কেন্দ্র/হাসপাতাল</th>
+                                        <th>গ্রাম</th>
+                                        <th>উপ স্বাস্থ্য কেন্দ্র ডাক্তারের নাম</th>
+                                        <th>মোবাইল নম্বর</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>১</td>
+                                        <td>দিগপাইত উপ স্বাস্থ্য কেন্দ্র</td>
+                                        <td>দিগপাইত</td>
+                                        <td>দিগপাইত</td>
+                                        <td>01713591870</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                        
+                        <h5 class="mt-4">কমিউনিটি ক্লিনিক</h5>
+                        <div class="table-responsive">
+                            <table class="table table-striped table-bordered">
+                                <thead class="bg-navy-blue text-white">
+                                    <tr>
+                                        <th>ক্রমিক নং</th>
+                                        <th>উপ স্বাস্থ্য কেন্দ্র/হাসপাতাল</th>
+                                        <th>গ্রাম</th>
+                                        <th>উপ স্বাস্থ্য কেন্দ্র ডাক্তারের নাম</th>
+                                        <th>মোবাইল নম্বর</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>১</td>
+                                        <td>দিগপাইত উপ স্বাস্থ্য কেন্দ্র</td>
+                                        <td>দিগপাইত</td>
+                                        <td>দিগপাইত</td>
+                                        <td>01713591870</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="intro-right col-3">
+                <h6>Bruchurms</h6>
+                <div class="member-login">
+                    <!-- login -->
+                    {% include "snippets/member_login.html" %}
+                </div>
+                <div class="notice-board">
+                    <!-- notice board -->
+                    {% include "snippets/notice_board.html" %}
+                </div>
+                <div class="visitor-count">
+                    <!-- visitor count -->
+                    {% include "snippets/visitor_count.html" %}
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+
+
+{% endblock content %}

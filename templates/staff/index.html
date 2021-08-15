@@ -1,0 +1,132 @@
+{% extends 'base.html' %}
+
+{% load static %}
+{% block content %}
+
+<h2 class="text-center">সদস্যবৃন্দ</h2>
+
+{% if message %}
+<p>{{message}}</p>
+{% endif %}
+
+{% if members %}
+<table class="table bg-light text-navy-blue">
+  <thead>
+    <tr>
+      <th scope="col">ছবি</th>
+      <th scope="col">নাম</th>
+      <th scope="col">ইউজার আইডি</th>
+      <th scope="col">মোবাইল</th>
+      <th scope="col">অবস্থা</th>
+      <th scope="col">এপ্রুভ</th>
+    </tr>
+  </thead>
+  <tbody class="text-blue">
+    {% for member in members %}
+        <div class="member">
+            <tr class="table-success {% if member.is_approved %} {% else %} table-warning {% endif %}">
+              <th scope="row"><img class="rounded-circle" src="{% static 'img/adviser.jpg'%}" alt="Photo" width="25px"></th>
+              <th>{{member.full_name}}</th>
+              <td>{{member.user.username }}</td>
+              <td>{{member.phone}}</td>
+              <td>{% if member.is_approved %} এপ্রুভ হয়েছে {% else %} এপ্রুভ হয়নি {% endif %} </td>
+
+              <td>
+                {% if member.is_approved %}
+                  <a href="{%url 'unapprove' member.id %}">এপ্রুভ বাতিল করুন</a>
+                {% else %}
+                  <a href="{%url 'approve' member.id %}">এপ্রুভ করুন</a>
+                {% endif %}
+              </td>
+            </tr>
+        </div>
+    {% endfor %}
+  </tbody>
+
+</table>
+{% else %}
+<p>No Unapproved Members</p>
+{% endif %}
+
+
+<h3 class="text-center">Query & Analytics</h3>
+
+
+<div class="analytics d-flex flex-row justify-content-between" style="height: 270px;">
+
+  <form class='ml-4' action="{% url 'staff-index' %}" method="post">
+    {% csrf_token %}
+
+    <div class="form-group row">
+    <label for="" class="col-sm-4 col-form-label">মাস</label>
+    <div class="col-sm-8">
+      {{ query_form.month }}
+    </div>
+  </div>
+    <div class="form-group row">
+    <label for="" class="col-sm-4 col-form-label">সাল</label>
+    <div class="col-sm-8">
+      {{ query_form.year }}
+    </div>
+  </div>
+    <button type="submit" class="btn btn-primary mb-2">Submit</button>
+  </form>
+
+
+  {% if subscriptions %}
+
+    <div id="container" style="width: 40%; height: 120px;">
+        <canvas id="pie-chart"></canvas>
+      </div>
+</div>
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@2.9.3/dist/Chart.min.js"></script>
+    <script>
+
+      var config = {
+        type: 'doughnut',
+        data: {
+          datasets: [{
+            data: [{{ count_not_paid }}, {{ count_paid|safe }} ],
+            backgroundColor: ['#23364B', '#009FE1'],
+            label: 'Population'
+          }],
+          labels: ['পরিশোধ করেনি', 'পরিশোধ করেছে']
+        },
+        options: {
+          responsive: true
+        }
+      };
+
+      window.onload = function() {
+        var ctx = document.getElementById('pie-chart').getContext('2d');
+        window.myPie = new Chart(ctx, config);
+      };
+
+    </script>
+
+
+
+
+  <table class="table">
+    <thead class="bg-dark text-white">
+      <tr>
+        <th scope="col">Member Name</th>
+        <th scope="col">Amount</th>
+        <th scope="col">Date</th>
+      </tr>
+    </thead>
+    <tbody class="text-blue">
+      {% for sub in subscriptions %}
+        <tr class="table-success">
+            <th>{{sub.member}}</th>
+            <td>{{sub.amount }}</td>
+            <td>{{sub.payment_date}}</td>
+        </tr>
+      {% endfor %}
+     </tbody>
+  </table>
+
+{% endif %}
+
+{% endblock %}
