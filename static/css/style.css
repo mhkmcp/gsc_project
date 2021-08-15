@@ -205,6 +205,16 @@ footer {
 
 
 /************************\
-RESPONSIVENESS
+    RESPONSIVENESS
 \************************/
+
+@media (min-width: 576px) {
+    .logo-menu-left {
+        width: 80%;
+    }
+    .logo-menu-left > img {
+        width: 80%;
+        height: 100px;
+    }
+ }
 
