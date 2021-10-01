@@ -1,0 +1,88 @@
+header .logo-menu-left img {
+    margin-bottom: 10px;
+}
+
+
+@media (max-width: 575.98px) {
+/****************************\
+    HEADER RESPONSIVE
+\****************************/
+    header  .top-menu {
+        height: 55px;
+        width: 100%;
+    }
+    header .fa-bars {
+        padding-top: 5px;
+    }
+    header .top-menu ul li {
+        line-height: normal;
+    }
+    header .logo-menu-left {
+        height: 120px;
+        margin-bottom: -10px;
+    }
+    header .quran_ayat {
+        margin: 0 10px;
+        margin-bottom: -15px;
+    }
+    header .ayat {
+        font-size: 14px;
+        line-height: 1.3;
+    }
+    header .source {
+        font-size: 14px;
+        margin-right: 20px;
+    }
+    header .main-menu {
+        width: 100%;
+    }
+    header .header {
+        margin-bottom: 20px;
+    }
+    header .header  .btn {
+        margin-top: -12px;
+    }
+   
+}
+
+@media (min-width: 576px) and (max-width: 767.98px) { 
+    header  .top-menu {
+        height: 70px;
+        width: 100%;
+    }
+    header .quran_ayat {
+        margin: 0 10px;
+    }
+    header .source {
+        margin-right: 20px;
+    }
+    header .main-menu {
+        width: 100%;
+    }
+    header .header {
+        margin-bottom: 20px;
+    }
+    header .header  .btn {
+        margin-top: -12px;
+    }
+
+ }
+
+@media (min-width: 768px) and (max-width: 1049.98px) { 
+    header .logo-menu-left {
+        height: 120px;
+        margin-bottom: 15px;
+    }
+    header .source {
+        margin-right: 20px;
+    }
+    header .main-menu {
+        width: 100%;
+    }
+    header .header {
+        margin-bottom: 20px;
+    }
+    header .header  .btn {
+        margin-top: -12px;
+    }
+}

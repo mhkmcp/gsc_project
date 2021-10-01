@@ -1,65 +1,58 @@
 {% load static %}
 
 <header>
-		<div class="container-fluid">
-			<!-- Top Menu  -->
-			<div class="row d-flex flex-column">
-				<div class="top-menu d-flex flex-row">
-					<!-- Top Menu Left Side  -->
-					<div class="top-menu-left pl-2">
-						<ul class="d-flex flex-row justify-content-between ml-3">
-							<li><a href="#">+966571804996 (WhatsApp), +8801835102672</a></li>
-							<li><a href="mailto:brihattarchandlaipskp@gmail.com">brihattarchandlaipskp@gmail.com</a></li>
-							<li><a href="#">চান্দলা, ব্রাহ্মণ পাড়া, কুমিল্লা।</a></li>
-						</ul>
-					</div>
-					<!-- /Top Menu Left Side  -->
-					<!-- Top Menu Right Side  -->
-<!--					<div class="top-menu-right d-flex flex-row pr-2">-->
-<!--						<ul class="d-flex flex-row justify-content-between">-->
-<!--							<li><a href="#">icon1</a></li>-->
-<!--							<li><a href="#">icon2</a></li>-->
-<!--							<li><a href="#">icon3</a></li>-->
-<!--							<li><a href="#">icon4</a></li>-->
-<!--						</ul>-->
-<!--					</div>-->
-					<!-- /Top Menu Right Side  -->
-				</div>
-				<!-- /Top Menu  -->
+	<div class="container-fluid">
+		<!-- Top Menu  -->
+		<div class="row wrapper">
+			<div class="top-menu d-flex flex-row justify-content-between w-100 px-3">
+				<!-- Top Menu Left Side  -->
+				<ul class="top-menu-left d-flex flex-column flex-md-row">
+					<li><a href="#">+966571804996 (WhatsApp)</a></li>
+					<li><a href="#">+8801835102672</a></li>
+				</ul>
+				<!--  /Top Menu Left Side  -->
 
-
-				<!-- Logo Menu  -->
-				<div class="row logo-menu d-flex flex-row justify-content-between">
-					<!-- Logo Menu Left  -->
-					<div class="logo-menu-left pl-3 col-md-12 col-lg-7">
-						<!-- <img src="" alt="Logo"> -->
-						<img src="{% static 'img/update_logo.png' %}" alt="Logo"
-							 height="150px"
-						>
-					</div>
-					<!-- /Logo Menu Left  -->
-
-					<!-- Logo Menu Right  -->
-					<div class="logo-menu-right mt-2 col-md-12 col-lg-5">
-						<div class="quran_ayat mt-4 pull-right text-left px-2 text-green">
-							<p class="ayat text-success">"তোমরা সবাই মিলে আল্লাহর রশি (কোরআন) -কে শক্ত করে আকড়েঁ ধরো এবং কখনো পরস্পর বিচ্ছিন্ন হয়ো নাহ।" </p>
-							<p class="source text-right" style="color: #009FE1">- আল-কোরআন (০২ঃ১০৩)</p>
-						</div>
-					</div>
-					<!-- Logo Menu Right  -->
-				</div>
-				<!-- Logo Menu  -->
-
-
-				<!-- Main Menu  -->
-				<div class="main-menu">
-
-					<!-- Content  -->
-					{% include "snippets/navbar.html" %}
-					<!-- /Content  -->
-
-				</div>
-				<!-- /Main Menu  -->
+				<!-- Top Menu Right Side  -->
+				<ul class="top-menu-right  d-flex flex-column flex-md-row">
+					<li><a href="mailto:brihattarchandlaipskp@gmail.com">brihattarchandlaipskp@gmail.com</a></li>
+					<li><a href="#">চান্দলা, ব্রাহ্মণ পাড়া, কুমিল্লা।</a></li>
+				</ul>
+				<!-- /Top Menu Right Side  -->
 			</div>
+			<!-- /Top Menu  -->
+
+
+			<!-- Logo Menu  -->
+			<div class="row logo-menu d-flex flex-column flex-md-row justify-content-between">
+				<!-- Logo Menu Left  -->
+				<div class="logo-menu-left pl-3 col-md-12 col-lg-7">
+					<!-- <img src="" alt="Logo"> -->
+					<img class="img-fluid" src="{% static 'img/update_logo.png' %}" alt="Logo">
+				</div>
+				<!-- /Logo Menu Left  -->
+
+				<!-- Logo Menu Right  -->
+				<div class="logo-menu-right mt-2 col-md-12 col-lg-5">
+					<div class="quran_ayat mt-0 mt-md-4 pull-right text-left px-2 text-green">
+						<p class="ayat text-success">"তোমরা সবাই মিলে আল্লাহর রশি (কোরআন) -কে শক্ত করে আকড়েঁ ধরো এবং
+							কখনো পরস্পর বিচ্ছিন্ন হয়ো নাহ।" </p>
+						<p class="source text-right" style="color: #009FE1">- আল-কোরআন (০২ঃ১০৩)</p>
+					</div>
+				</div>
+				<!-- Logo Menu Right  -->
+			</div>
+			<!-- Logo Menu  -->
+
+
+			<!-- Main Menu  -->
+			<div class="main-menu">
+
+				<!-- Content  -->
+				{% include "snippets/navbar.html" %}
+				<!-- /Content  -->
+
+			</div>
+			<!-- /Main Menu  -->
 		</div>
-	</header>
+	</div>
+</header>
