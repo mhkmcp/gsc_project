@@ -1,4 +1,4 @@
-#!/Users/macboookpro/django-work/gsc/venv/bin/python
+#!/home/raju/Documents/Django/gsc_project/venv/bin/python
 # -*- coding: utf-8 -*-
 import re
 import sys

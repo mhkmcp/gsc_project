@@ -1,0 +1,99 @@
+.show {
+    display: block;
+}
+
+.mainmenu,
+.mainmenu ul {
+    list-style: none;
+}
+
+.mainmenu a {
+    text-decoration: none;
+    color: #fff;
+}
+
+.dropdown {
+    position: relative;
+}
+
+
+
+.drop-menu li {
+    padding: 5px 20px;
+}
+
+.drop-menu>li:hover {
+    background-color: #23364B;
+}
+
+/* large screen menu */
+
+.menu--large-screen .mainmenu li a {
+    display: block;
+}
+
+.menu--large-screen .mainmenu {
+    margin: 0 auto;
+}
+
+.menu--large-screen .mainmenu>li {
+    padding: 10px 15px;
+}
+
+.menu--large-screen .drop-menu {
+    display: none;
+    position: absolute;
+    z-index: 1;
+    background-color: #34485f;
+    left: 0;
+    min-width: 250px;
+    margin-top: 10px;
+}
+
+.menu--large-screen .mainmenu>li:hover {
+    background-color: #34485f;
+}
+
+.menu--large-screen .mainmenu>li:hover .drop-menu {
+    display: inline-block;
+}
+
+/* small screen menu */
+
+.mobile-menu {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 80%;
+    height: 100%;
+    z-index: 50;
+}
+
+.hide-menu {
+    margin-top: 5px;
+}
+
+/* .menu--small-screen .mainmenu>.dropdown::after {
+    content: '\f078';
+    font: normal normal normal 17px/1 FontAwesome;
+    color: #fff;
+    right: 0;
+    top: -5px;
+    height: 34px;
+    padding: 15px;
+    position: absolute;
+} */
+
+.menu--small-screen .mainmenu>li {
+    padding: 5px 20px;
+    width: 80%;
+}
+
+.menu--small-screen .mainmenu>li:hover {
+    background-color: #34485f;
+}
+
+.menu--small-screen .drop-menu {
+    display: none;
+    background-color: #34485f;
+}

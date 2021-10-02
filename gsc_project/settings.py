@@ -78,8 +78,8 @@ DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
         'NAME': 'gsc_db',
-        'USER': 'root',
-        'PASSWORD': '',
+        'USER': 'raju',
+        'PASSWORD': '7772588',
         'HOST': '127.0.0.1',   # Or an IP Address that your DB is hosted on
         'PORT': '',
     }

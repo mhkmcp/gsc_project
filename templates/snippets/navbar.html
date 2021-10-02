@@ -1,121 +1,22 @@
-	<div class="header">
-        <div>
-            <button class="btn btn-primary" id="btnBar">
-                <i class="fas fa-bars"></i>
-            </button>
-            <button class="btn btn-primary" id="btnClose">
-                <i class="fas fa-times"></i>
-            </button>
-        </div>
-        <ul id="mainmenu">
-                <li><a href="{% url 'home' %}">হোম</a></li>
-                <li><a href="#">আমাদের সম্পর্কে</a>
-                    <ul>
-                        <li><a href="{% url 'intro' %}">পরিচিতি</a></li>
-                        <li><a href="{% url 'purpose' %}">লক্ষ্য ও উদ্দেশ্য</a></li>
-                        <li><a href="{% url 'president_speech' %}">সভাপতির বক্তব্য</a></li>
-                    </ul>
-                </li>
-                <li><a href="#">পরিষদ</a>
-                    <ul>
-                        <li><a href="{% url 'adviser' %}">উপদেষ্টা পরিষদ</a>
-                        </li>
-                        <li><a href="{% url 'management' %}">কার্য্যনির্বাহী পরিষদ</a>
-                        </li>
-                        <li><a href="{% url 'general' %}">ওয়ার্ড কমিটি</a>
-                        </li>
-                        <li><a href="{% url 'election' %}">নির্বাচন কমিশন</a>
-                        </li>
-                    </ul>
-                </li>
-                <li><a href="#">সদস্য</a>
-                    <ul>
-                        <li><a href="{% url 'requirements' %}">সদস্য হওয়ার যোগ্যতা</a>
-                        </li>
-                        <li><a href="{% url 'how_to_be_member' %}">কিভাবে সদস্য হবেন</a>
-                        </li>
-                        <li><a href="{% url 'admission_form' %}">সদস্য ভর্তি ফর্ম</a>
-                        </li>
-                        <li><a href="{% url 'admission_form' %}">প্রতিষ্টানা সদস্য</a>
-                        </li>
-                        <li><a href="{% url 'admission_form' %}">উপদেষ্টা সদস্য</a>
-                        </li>
-                        <li><a href="{% url 'general_member' %}">সাধারন সদস্য</a>
-                        </li>
-                        <li><a href="{% url 'lifetime_member' %}">আজীবন সদস্য</a>
-                        </li>
-                    </ul>
-                </li>
+	<div class="shadow">
+		<!-- large screen menu -->
+		<div class="menu--large-screen d-none d-lg-block bg-blue">
+			<nav class="nav">
+				{% include "./mainmenu.html" %}
+			</nav>
+		</div>
 
-                <li><a href="#">অনুদান সংগ্রহ </a>
-                </li>
+		<!-- mobile screen menu -->
+		<div class="menu--small-screen d-lg-none">
+			<button class="btn bg-blue" id="showMenu">
+				<i class="fas fa-bars"></i>
+			</button>
+			<div class="mobile-menu bg-blue p-2 d-none shadow" id="mobileMenu">
+				<button class="btn bg-blue border-white float-right mr-2 hide-menu" id="hideMenu">
+					<i class="fas fa-times"></i>
+				</button>
+				{% include "./mainmenu.html" %}
+			</div>
+		</div>
 
-                <li><a href="#">কল্যান </a>
-                    <ul>
-                        <li><a href="{% url 'scholarship' %}">কোরআন প্রশিক্ষণ</a>
-                        </li>
-                        <li><a href="{% url 'treatment' %}">শিক্ষা বৃত্তি</a>
-                        </li>
-                        <li><a href="{% url 'training' %}">কর্জে হাসানা</a>
-                        </li>
-                        <li><a href="{% url 'training' %}">চিকিৎসা সহায়তা</a>
-                        </li>
-                        <li><a href="{% url 'training' %}">দক্ষতা উন্নয়ন ও প্রশিক্ষণ</a>
-                        </li>
-                        <li><a href="{% url 'training' %}">বেকারত্ব দূরীকরণ</a>
-                        </li>
-                        <li><a href="{% url 'training' %}">বিবিধ</a>
-                        </li>
-                    </ul>
-                </li>
-                <li><a href="#">ডাউনলোড </a>
-                    <ul>
-                        <li><a href="#">গঠনতন্ত্র</a>
-                        </li>
-                        <li><a href="#">সদস্য ভর্তি ফর্ম ডাউনলোড</a>
-                        </li>
-                        <li><a href="#">সাময়িকী</a>
-                        </li>
-                        <li><a href="#">কুইজ-স্কুল</a>
-                        </li>
-                        <li><a href="#">কুইজ-মাদ্রাসা</a>
-                        </li>
-                    </ul>
-                </li>
-
-                <li><a href="#">ফটোগ্যালারী</a></li>
-                <li><a href="#">নিউজ ও ইভেন্টস্</a></li>
-                <li><a href="#">বৃহত্তর চান্দলা</a>
-                    <ul>
-                        <li><a href="{% url 'union_history' %}">এক নজরে বৃহত্তর চান্দলা</a>
-                        </li>
-                        <li><a href="{% url 'union_employees' %}">মসজিদ তালিকা</a>
-                        </li>
-                        <li><a href="{% url 'union_at_a_glance' %}">ওয়ার্ড ও গ্রাম</a>
-                        </li>
-                        <li><a href="{% url 'union_info' %}">শিক্ষা প্রতিষ্ঠানসমূহ</a>
-                        </li>
-                        <li><a href="{% url 'union_freedom_fighter' %}">স্মরণীয় ব্যক্তিত্ব</a>
-                        </li>
-                        <li><a href="{% url 'union_village' %}">মুক্তিযোদ্ধা তালিকা</a>
-                        </li>
-                    </ul>
-                </li>
-                <li><a href="{% url 'contact' %}">যোগাযোগ</a></li>
-                {% if request.user %}
-                    {% if request.user.groups.all %}
-                        <li><a href="{% url 'staff-index' %}">এডমিন</a>
-                            <ul class="wsmenu-submenu">
-                                <li><a href="{% url 'logout' %}">লগ আউট</a>
-                                </li>
-                            </ul>
-                        </li>
-                    {% else %}
-                        <li><a href="{% url 'logout' %}">সদস্য লগইন</a></li>
-                    {% endif %}
-
-                {% else %}
-                    <li><a href="{% url 'login' %}">সদস্য লগইন</a></li>
-                {% endif %}
-            </ul>
-    </div>
+	</div>
