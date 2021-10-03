@@ -1,3 +1,5 @@
 *Procfile
 README.md
 .idea
+__pycache__
+venv/

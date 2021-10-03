@@ -1,0 +1,76 @@
+{% extends 'base.html' %}
+{% block title %}Member Details {% endblock %}
+{% load static %}
+
+{% block content %}
+
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-8">
+            <h4 class="text-center mb-4">সদস্যের বিস্তারিত তথ্য</h4>
+            <div class="">
+                <div class="card">
+                    <div class="card-header bg-blue">
+                        <h6 class="text-center">সদস্যের ব্যক্তিগত তথ্য</h6>
+                    </div>
+                    <div class="card-body">
+                        <table class="table table-bordered">
+                            <tbody>
+                                <tr>
+                                    <td>নাম:</td>
+                                    <td>{{ member.full_name }}</td>
+                                    <td>সদস্য ধরণ:</td>
+                                    <td></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+            <div class="mt-5">
+                <div class="card">
+                    <div class="card-header bg-blue">
+                        <h6 class="text-center">চাকরির তথ্য</h6>
+                    </div>
+                    <div class="card-body">
+                        <table class="table table-bordered">
+                            <tbody>
+                                <tr>
+                                    <td>প্রতিষ্ঠানের নাম::</td>
+                                    <td>{{ member }}</td>
+                                    <td>পেশা:</td>
+                                    <td></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+            <div class="mt-5">
+                <div class="card">
+                    <div class="card-header bg-blue">
+                        <h6 class="text-center">সদস্যের শিক্ষ্যাগত যোগ্যতা</h6>
+                    </div>
+                    <div class="card-body">
+                        <table class="table table-bordered">
+                            <tbody>
+                                <tr>
+                                    <td>প্রতিষ্ঠানের নাম::</td>
+                                    <td>{{ member }}</td>
+                                    <td>পেশা:</td>
+                                    <td></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-4"></div>
+    </div>
+
+</div>
+
+
+
+{% endblock content %}
