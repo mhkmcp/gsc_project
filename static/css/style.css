@@ -49,6 +49,13 @@ body {
 	color: #545959;
 }
 
+ul {
+	list-style: none;
+	margin: 0 !important;
+	padding: 0 !important;
+}
+
+/* header */
 header .logo-menu-left img {
 	margin-bottom: 10px;
 }
