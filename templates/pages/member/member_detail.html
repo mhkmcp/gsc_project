@@ -14,51 +14,43 @@
                         <h6 class="text-center">সদস্যের ব্যক্তিগত তথ্য</h6>
                     </div>
                     <div class="card-body">
+                        <div class="float-right mb-2">
+                            <a class="btn blue-btn btn-sm" href="{{member.fb_link}}" target="_blank"
+                                rel="noopener noreferrer">
+                                <i class="fab fa-facebook-square"></i> Facebook
+                            </a>
+                        </div>
                         <table class="table table-bordered">
                             <tbody>
                                 <tr>
-                                    <td>নাম:</td>
+                                    <th>নাম:</th>
                                     <td>{{ member.full_name }}</td>
-                                    <td>সদস্য ধরণ:</td>
-                                    <td></td>
+                                    <th>সদস্য ধরণ:</th>
+                                    <td>{{ member.member_type }}</td>
                                 </tr>
-                            </tbody>
-                        </table>
-                    </div>
-                </div>
-            </div>
-            <div class="mt-5">
-                <div class="card">
-                    <div class="card-header bg-blue">
-                        <h6 class="text-center">চাকরির তথ্য</h6>
-                    </div>
-                    <div class="card-body">
-                        <table class="table table-bordered">
-                            <tbody>
                                 <tr>
-                                    <td>প্রতিষ্ঠানের নাম::</td>
-                                    <td>{{ member }}</td>
-                                    <td>পেশা:</td>
-                                    <td></td>
+                                    <th>পিতার নাম:</th>
+                                    <td>{{ member.father_name }}</td>
+                                    <th>মাতার নাম:</th>
+                                    <td>{{ member.mother_name }}</td>
                                 </tr>
-                            </tbody>
-                        </table>
-                    </div>
-                </div>
-            </div>
-            <div class="mt-5">
-                <div class="card">
-                    <div class="card-header bg-blue">
-                        <h6 class="text-center">সদস্যের শিক্ষ্যাগত যোগ্যতা</h6>
-                    </div>
-                    <div class="card-body">
-                        <table class="table table-bordered">
-                            <tbody>
                                 <tr>
-                                    <td>প্রতিষ্ঠানের নাম::</td>
-                                    <td>{{ member }}</td>
-                                    <td>পেশা:</td>
-                                    <td></td>
+                                    <th>গ্রাম:</th>
+                                    <td>{{ member.city }}</td>
+                                    <th>বর্তমান ঠিকানা:</th>
+                                    <td>{{ member.current_address }}</td>
+                                </tr>
+                                <tr>
+                                    <th>মোবাইল নম্বর:</th>
+                                    <td>{{ member.phone }}</td>
+                                    <th>হোয়াটসঅ্যাপ নম্বর:</th>
+                                    <td>{{ member.whatsapp_number }}</td>
+                                </tr>
+                                <tr>
+                                    <th>ইমেইল:</th>
+                                    <td>{{ member.email }}</td>
+                                    <th>জন্ম তারিখ:</th>
+                                    <td>{{ member.date_of_birth }}</td>
                                 </tr>
                             </tbody>
                         </table>
