@@ -5,7 +5,12 @@ from django.contrib.auth.models import User
 
 from django.contrib.auth.models import AbstractBaseUser, BaseUserManager
 
-choice = (("g", "General Member"), ("l", "Lifetime Member"), ("a", "Admin"))
+choice = (
+    ("g", "General Member"),
+    ("l", "Lifetime Member"),
+    ("f", "Founding Member"),
+    ("a", "Admin"),
+)
 
 
 class Member(models.Model):
@@ -15,9 +20,10 @@ class Member(models.Model):
     full_name = models.CharField(max_length=255, blank=True, default="")
     father_name = models.CharField(max_length=255, blank=True, default="")
     mother_name = models.CharField(max_length=255, blank=True, default="")
-    city = models.CharField(max_length=63, blank=True, default="")
-    current_address = models.CharField(max_length=63, blank=True, default="")
+    zilla = models.CharField(max_length=63, blank=True, default="")
+    upazilla = models.CharField(max_length=63, blank=True, default="")
     country = models.CharField(max_length=127, blank=True, default="")
+    image = models.ImageField(upload_to="member/images", blank=True, null=True)
     phone = models.CharField(max_length=32, blank=True, default="")
     whatsapp_number = models.CharField(max_length=32, blank=True, default="")
     fb_link = models.URLField(blank=True, default="")
@@ -26,6 +32,7 @@ class Member(models.Model):
     email = models.EmailField(blank=True, default="")
     image = models.ImageField(upload_to="img/members", blank=True, null=True)
     member_type = models.CharField(choices=choice, max_length=24, default="")
+    is_agreed = models.BooleanField(default=False)
     is_approved = models.BooleanField(default=False)
 
     class Meta:

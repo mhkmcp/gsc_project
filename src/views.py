@@ -87,7 +87,7 @@ def how_to_be_member(request):
 
 def admission_form(request):
     if request.method == "POST":
-        member_form = MemberForm(request.POST or None)  # member form
+        member_form = MemberForm(request.POST, request.FILES or None)  # member form
         user_creation_form = CustomUserCreationForm(request.POST or None)  # signup form
 
         if user_creation_form.is_valid() and member_form.is_valid():
