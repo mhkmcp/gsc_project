@@ -1,6 +1,7 @@
 from django.shortcuts import get_object_or_404, redirect, render
 from django.contrib.auth.models import User
 from django.contrib.auth import login, logout, authenticate
+from django.contrib import messages
 
 from .forms import MemberForm, CustomUserCreationForm, LoginForm
 from django.contrib import messages
@@ -91,20 +92,22 @@ def admission_form(request):
         user_creation_form = CustomUserCreationForm(request.POST or None)  # signup form
 
         if user_creation_form.is_valid() and member_form.is_valid():
+            # create new Member
+            member = member_form.save(commit=False)
+
             # create new User
             user = user_creation_form.save(commit=False)
             passport = member_form.cleaned_data.get("passport")
             username = passport[:6]
-            # print(username)
             user.username = username
             user.is_active = False
             user.save()
-            print(user)
 
-            # create new Member
-            member = member_form.save(commit=False)
+            # save member
             member.user = user
             member.save()
+
+            messages.success(request, "Member was registered successfully.")
             return redirect("admission_form")
         else:
             print(user_creation_form.errors.as_data)

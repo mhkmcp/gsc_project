@@ -29,7 +29,7 @@ class Member(models.Model):
     fb_link = models.URLField(blank=True, default="")
     passport = models.CharField(max_length=63, blank=True, default="")
     date_of_birth = models.DateField(blank=True, null=True)
-    email = models.EmailField(blank=True, default="")
+    # email = models.EmailField(blank=True, default="")
     image = models.ImageField(upload_to="img/members", blank=True, null=True)
     member_type = models.CharField(choices=choice, max_length=24, default="")
     is_agreed = models.BooleanField(default=False)
