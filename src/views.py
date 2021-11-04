@@ -123,10 +123,11 @@ def admission_form(request):
 
 def member_list(request):
     members = Member.objects.filter(
-        member_type__in=["l", "g"], is_approved=True
+        member_type__in=["f", "l", "g"], is_approved=True
     ).order_by("-id")
 
     context = {
+        "founding_members": members.filter(member_type="f"),
         "lifetime_members": members.filter(member_type="l"),
         "general_members": members.filter(member_type="g"),
     }

@@ -8,6 +8,7 @@ Baseic Set Up
 
 :root {
 	--mainColor: #23364B;
+	--darkBlue: #17283d;
 }
 
 *,
@@ -22,6 +23,11 @@ Baseic Set Up
 .bg-blue {
 	color: #fff;
 	background-color: var(--mainColor);
+}
+
+.bg-dark-blue {
+	color: #fff;
+	background-color: var(--darkBlue);
 }
 
 .text-blue {
@@ -71,11 +77,11 @@ header .logo-menu-left img {
 	margin: 0;
 }
 
-.home-main h5 {
+/* .home-main h5 {
 	background: #23364B;
 	color: #fff;
 	padding: 10px 20px;
-}
+} */
 
 
 /* slide  */
