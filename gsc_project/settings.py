@@ -17,7 +17,7 @@ SECRET_KEY = 'r=v_j34opf@$6fx&tu^871f+m=fq^zt4ajmu+ejdv&@x%chp=6'
 
 DEBUG = True
 
-ALLOWED_HOSTS = ['127.0.0.1', 'bcpiskp.herokuapp.com']
+ALLOWED_HOSTS = ['127.0.0.1', 'bcpiskp.herokuapp.com', 'bcpiskp.org', 'www.bcpiskp.org', 'http://www.bcpiskp.org']
 
 
 # Application definition
