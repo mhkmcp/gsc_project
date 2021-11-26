@@ -74,7 +74,9 @@
 		}
 		function hideMenu() {
 			console.log("Hide Menu");
-			// document.getElementById('mainmenu').style.display = 'none';
+			if(window.screen.availWidth < 1049) {
+				document.getElementById('mainmenu').style.display = 'none';
+			}
 			document.getElementById('btnBar').style.display = 'block';
 			document.getElementById('btnClose').style.display = 'none';
 		}
