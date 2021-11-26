@@ -4,4 +4,6 @@ README.md
 __pycache__
 __pycache__/
 venv/
+.pyc
+.cpython
 .vscode/

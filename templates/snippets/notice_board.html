@@ -1,22 +1,22 @@
-<h5 class="notice">নোটিশ বোর্ড</h5>
-    <div class="accordion" id="accordionExample">
+<div class="card border-0">
+  <h5 class="card-header bg-blue">নোটিশ বোর্ড</h5>
+  <div class="card-body p-0 accordion" id="accordionExample">
     {% for notice in notices %}
-      <div class="card">
-        <div class="card-header" id="heading{{notice.id}}">
-          <h2 class="mb-0">
-            <button class="btn btn-link btn-block text-left" type="button" data-toggle="collapse" data-target="#collapse{{notice.id}}" aria-expanded="true" aria-controls="collapseOne">
-              {{notice.title}}
-            </button>
-          </h2>
-        </div>
+    <div class="card border-0">
+      <div class="card-header p-1 bg-white" id="heading{{notice.id}}">
+        <a href="" class="px-2 d-block" type="button" data-toggle="collapse" data-target="#collapse{{notice.id}}"
+          aria-expanded="true" aria-controls="collapseOne">
+          {{notice.title}}
+        </a>
+      </div>
 
-        <div id="collapse{{notice.id}}"
-             class="collapse {% if forloop.counter0 == 0 %} show {% endif %}"
-             aria-labelledby="heading{{notice.id}}" data-parent="#accordionExample">
-          <div class="card-body">
-            {{notice.description}}
-          </div>
+      <div id="collapse{{notice.id}}" class="collapse {% if forloop.counter0 == 0 %} show {% endif %}"
+        aria-labelledby="heading{{notice.id}}" data-parent="#accordionExample">
+        <div class="card-body">
+          {{notice.description}}
         </div>
       </div>
-    {% endfor %}
     </div>
+    {% endfor %}
+  </div>
+</div>

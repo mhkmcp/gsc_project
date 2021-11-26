@@ -1,123 +1,83 @@
 {% extends 'base.html' %}
 {% block title %}My Blog {% endblock %}
 {% load static %}
+{% load crispy_forms_tags %}
 
 {% block content %}
 
-    <div class="container-fluid">
-        <div class="row mt-3">
-            <div class="intro-main col-9">
-                <h3 class="text-center mt-3">সদস্য ভর্তি ফর্ম</h3>
-                <div class="register-form pl-3 mx-4">
-                    <form action="{% url 'admission_form' %}" method="POST">
-                        {% csrf_token %}
+<div class="container-fluid">
+  <div class="row mt-3">
+    <div class="intro-main col-9">
+      <h3 class="text-center my-5">সদস্য ভর্তি ফর্ম</h3>
+      <div class="register-form pl-3 mx-4">
+        <form action="{% url 'admission_form' %}" method="POST" enctype="multipart/form-data">
+          {% csrf_token %}
 
-                        <div class="form-group row">
-                            <label for="id_full_name" class="col-sm-6 col-md-3 col-form-label">নাম</label>
-                            <div class="col-sm-6 col-md-9">
-                              <input type="text" class="form-control" id="id_full_name" name="full_name">
-                            </div>
-                          </div>
+          <div class="row">
+            <div class="col-md-6">{{ member_form.full_name|as_crispy_field }}</div>
+            <div class="col-md-6">{{ user_form.email|as_crispy_field }}</div>
+          </div>
 
-                        <div class="form-group row">
-                            <label for="id_father_name" class="col-sm-6 col-md-3 col-form-label">বাবার নাম</label>
-                            <div class="col-sm-6 col-md-9">
-                              <input type="text"  class="form-control" id="id_father_name" name="father_name">
-                            </div>
-                          </div>
+          <div class="row">
+            <div class="col-md-6">{{ member_form.father_name|as_crispy_field }}</div>
+            <div class="col-md-6">{{ member_form.mother_name|as_crispy_field }}</div>
+          </div>
 
-                        <div class="form-group row">
-                            <label for="id_mother_name" class="col-sm-6 col-md-3 col-form-label">মায়ের নাম</label>
-                            <div class="col-sm-6 col-md-9">
-                              <input type="text" class="form-control" id="id_mother_name" name="mother_name">
-                            </div>
-                          </div>
+          <div class="row">
+            <div class="col-md-6">{{ member_form.passport|as_crispy_field }}</div>
+            <div class="col-md-6">{{ member_form.date_of_birth|as_crispy_field }}</div>
+          </div>
 
-                        <div class="form-group row">
-                            <label for="id_passport" class="col-sm-6 col-md-3 col-form-label">পাসপোর্ট</label>
-                            <div class="col-sm-6 col-md-9">
-                              <input type="text"  class="form-control" id="id_passport" name="passport">
-                            </div>
-                          </div>
+          <div class="row">
+            <div class="col-md-6">{{ member_form.phone|as_crispy_field }}</div>
+            <div class="col-md-6">{{ member_form.member_type|as_crispy_field }}</div>
+          </div>
 
-                        <div class="form-group row">
-                            <label for="id_date_of_birth" class="col-sm-6 col-md-3 col-form-label">জন্ম তারিখ</label>
-                            <div class="col-sm-6 col-md-9">
-                              <input type="date"  class="form-control" id="id_date_of_birth" name="date_of_birth">
-                            </div>
-                          </div>
+          <div class="row">
+            <div class="col-md-6">{{ member_form.zilla|as_crispy_field }}</div>
+            <div class="col-md-6">{{ member_form.upazilla|as_crispy_field }}</div>
+          </div>
 
-                        <div class="form-group row">
-                            <label for="id_phone" class="col-sm-6 col-md-3 col-form-label">মোবাইল/ফোন নং</label>
-                            <div class="col-sm-6 col-md-9">
-                              <input type="text" class="form-control" id="id_phone" name="phone">
-                            </div>
-                          </div>
+          <div class="row">
+            <div class="col-md-6">{{ member_form.country|as_crispy_field }}</div>
+            <div class="col-md-6">{{ member_form.image|as_crispy_field }}</div>
+          </div>
 
-                        <div class="form-group row">
-                            <label for="id_member_type" class="col-sm-6 col-md-3 col-form-label">সদস্যের ধরন</label>
-                                <div class="col-sm-6 col-md-9">
-                                    <select class="form-select form-select" name="member_type" id="id_member_type"
-                                        class="col-sm-6 col-md-9">
-                                        <option value="g">সাধারণ সদস্য</option>
-                                        <option value="l">আজীবন সদস্য</option>
-                                    </select>
-                                </div>
-                          </div>
+          <div class="row">
+            <div class="col-md-6">{{ user_form.password1|as_crispy_field }}</div>
+            <div class="col-md-6">{{ user_form.password2|as_crispy_field }}</div>
+          </div>
 
-                        <div class="form-group row">
-                            <label for="id_city" class="col-sm-6 col-md-3 col-form-label">জেলা</label>
-                            <div class="col-sm-6 col-md-9">
-                              <input type="text"  class="form-control" id="id_city" name="city">
-                            </div>
-                          </div>
+          <div class="row ml-2">
+            {{ member_form.is_agreed|as_crispy_field }}
+          </div>
 
-                        <div class="form-group row">
-                            <label for="id_country" class="col-sm-6 col-md-3 col-form-label">দেশ</label>
-                            <div class="col-sm-6 col-md-9">
-                              <input type="text" class="form-control" id="id_country" name="country">
-                            </div>
-                          </div>
-
-                        <div class="form-group row">
-                            <label for="id_password1" class="col-sm-6 col-md-3 col-form-label">পাসওয়ার্ড</label>
-                            <div class="col-sm-6 col-md-9">
-                                <input type="password" id="id_password1" name="password1" class="form-control">
-                            </div>
-                        </div>
-
-                        <div class="form-group row">
-                            <label for="id_password2" class="col-sm-6 col-md-3 col-form-label">পাসওয়ার্ড নিশ্চিত করুন</label>
-                            <div class="col-sm-6 col-md-9">
-                                <input type="password" id="id_password2" name="password2" class="form-control">
-                            </div>
-                        </div>
-
-                        <div class="d-flex justify-content-end">
-                            <button class="btn bg-navy-blue text-white btn-lg" type="submit">রেজিস্টার</button>
-                        </div>
-                    </form>
-                </div>
-            </div>
-            <div class="intro-right col-3">
-                <h6>Bruchurms</h6>
-                <div class="member-login">
-                    <!-- login -->
-                    {% include "snippets/member_login.html" %}
-                </div>
-                <div class="notice-board">
-                    <!-- notice board -->
-                    {% include "snippets/notice_board.html" %}
-                </div>
-                <div class="visitor-count">
-                    <!-- visitor count -->
-                    {% include "snippets/visitor_count.html" %}
-                </div>
-            </div>
-        </div>
-
+          <div class="d-flex justify-content-end">
+            <button id="submitBtn" class="btn bg-navy-blue text-white btn-lg btn-block my-3"
+              type="submit">রেজিস্টার</button>
+          </div>
+        </form>
+      </div>
     </div>
+    <div class="intro-right col-3">
+      <h6>Bruchurms</h6>
+      <div class="member-login">
+        <!-- login -->
+        {% include "snippets/member_login.html" %}
+      </div>
+      <div class="notice-board">
+        <!-- notice board -->
+        {% include "snippets/notice_board.html" %}
+      </div>
+      <div class="visitor-count">
+        <!-- visitor count -->
+        {% include "snippets/visitor_count.html" %}
+      </div>
+    </div>
+  </div>
+
+</div>
 
 
-
+<script src="{% static 'js/admission_form.js' %}"></script>
 {% endblock content %}
