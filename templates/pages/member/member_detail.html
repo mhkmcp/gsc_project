@@ -1,0 +1,68 @@
+{% extends 'base.html' %}
+{% block title %}Member Details {% endblock %}
+{% load static %}
+
+{% block content %}
+
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-8">
+            <h4 class="text-center mb-4">সদস্যের বিস্তারিত তথ্য</h4>
+            <div class="">
+                <div class="card">
+                    <div class="card-header bg-blue">
+                        <h6 class="text-center">সদস্যের ব্যক্তিগত তথ্য</h6>
+                    </div>
+                    <div class="card-body">
+                        <div class="float-right mb-2">
+                            <a class="btn blue-btn btn-sm" href="{{member.fb_link}}" target="_blank"
+                                rel="noopener noreferrer">
+                                <i class="fab fa-facebook-square"></i> Facebook
+                            </a>
+                        </div>
+                        <table class="table table-bordered">
+                            <tbody>
+                                <tr>
+                                    <th>নাম:</th>
+                                    <td>{{ member.full_name }}</td>
+                                    <th>সদস্য ধরণ:</th>
+                                    <td>{{ member.member_type }}</td>
+                                </tr>
+                                <tr>
+                                    <th>পিতার নাম:</th>
+                                    <td>{{ member.father_name }}</td>
+                                    <th>মাতার নাম:</th>
+                                    <td>{{ member.mother_name }}</td>
+                                </tr>
+                                <tr>
+                                    <th>জেলা:</th>
+                                    <td>{{ member.zilla }}</td>
+                                    <th>বর্তমান ঠিকানা:</th>
+                                    <td>{{ member.upazilla }}</td>
+                                </tr>
+                                <tr>
+                                    <th>মোবাইল নম্বর:</th>
+                                    <td>{{ member.phone }}</td>
+                                    <th>হোয়াটসঅ্যাপ নম্বর:</th>
+                                    <td>{{ member.whatsapp_number }}</td>
+                                </tr>
+                                <tr>
+                                    <th>ইমেইল:</th>
+                                    <td>{{ member.email }}</td>
+                                    <th>জন্ম তারিখ:</th>
+                                    <td>{{ member.date_of_birth }}</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-4"></div>
+    </div>
+
+</div>
+
+
+
+{% endblock content %}
