@@ -46,11 +46,13 @@ def introduction(request):
 
 
 def purpose(request):
-    return render(request, "pages/about-us/purpose.html")
+    context = {"notices": Notice.objects.filter(is_active=True).order_by("-id")}
+    return render(request, "pages/about-us/purpose.html", context)
 
 
 def president_speech(request):
-    return render(request, "pages/about-us/purpose.html")
+    context = {"notices": Notice.objects.filter(is_active=True).order_by("-id")}
+    return render(request, "pages/about-us/president_speech.html", context)
 
 
 def courtesy_speech(request):
@@ -61,7 +63,9 @@ def courtesy_speech(request):
 
 
 def adviser(request):
-    return render(request, "pages/commiittee/adviser.html")
+    advisory_members = AdvisoryMember.objects.filter(is_active=True)
+    context = {"advisory_members": advisory_members}
+    return render(request, "pages/commiittee/adviser.html", context)
 
 
 def management(request):

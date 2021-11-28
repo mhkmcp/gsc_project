@@ -4,31 +4,80 @@
 
 {% block content %}
 
-    <div class="container-fluid">
-        <h4>সভাপতির বক্তব্য</h4>
-        <div class="row">
-            <div class="intro-main col-9">
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aspernatur aut facere maiores quidem saepe. Asperiores autem consectetur dolorum illum nesciunt nisi nobis perspiciatis quaerat quam, quos sed temporibus veritatis. Nesciunt.</p>
+<div class="container-fluid">
+    <!-- brudcrumb -->
+    <div class="row breadcrumb p-2">
+        <div class="col-md-8">
+            <h5>সভাপতির বক্তব্য</h5>
+        </div>
+        <div class="col-md-4">
+            <h6>You are here: <a href="{% url 'home' %}">হোম >></a> সভাপতির বক্তব্য</h6>
+        </div>
+    </div>
 
-            </div>
-            <div class="intro-right col-3">
-                <h6>Bruchurms</h6>
-                <div class="member-login">
-                    <!-- login -->
-                    {% include "snippets/member_login.html" %}
+    <div class="row">
+        <div class="intro-main col-md-9">
+            <h4 class="text-center">সভাপতির কথা</h4>
+            <hr>
+            <div class="row">
+                <div class="col-md-8">
+                    <p>
+                        চাকরিজীবী সমবায় সমিতি লিমিটেড এর উদ্যোগে ওয়েব সাইট প্রকাশের উদ্যোক্তাদের আন্তরিক ধন্যবাদ জানাই।
+                        যাঁরা
+                        অক্লান্ত পরিশ্রম ও আন্তরিকতা দিয়ে ওয়েব সাইটটি প্রকাশে কাজ করছেন তাঁদেরকে জানাই গভীর কৃতজ্ঞতা। যে
+                        লক্ষ্য-উদ্দেশ্য অর্জন এবং কার্যাবলী সম্পাদনের জন্য এ সমিতি গঠিত হয়েছে তা সফল হোক এ কামনা করি।
+                    </p>
+                    <p>
+                        চাকরিজীবীদের দীর্ঘ ও বিশেষায়িত অভিজ্ঞতা নিজ কর্মক্ষেত্রে কাজে লাগানোর পাশাপাশি নিজ নিজ এলাকার
+                        আর্থ-সামাজিক উন্নয়ন ও নতুন প্রজন্মের মেধা বিকাশে প্রয়োগ করার যে প্রচেষ্টা এ সমিতির মাধ্যমে নেয়া
+                        হয়েছে তা
+                        প্রশংসার দাবী রাখে। দেশের অভ্যন্তরে বিভিন্ন স্থানে এবং বিদেশে কর্মরত ইউনিয়নবাসীদের মধ্যে এ
+                        সমিতির
+                        উদ্যোগে মিলন ঘটবে এবং দেখা সাক্ষাৎ ও ভাব বিনিময়ের মাধ্যমে পারস্পরিক সম্প্রীতি ও সৌহার্দ সৃষ্টি
+                        হবে। এর
+                        মাধ্যমে এলাকায় বসবাসরত নানা পেশার মানুষের সাথেও চাকরিজীবীদের যোগাযোগের ক্ষেত্র সৃষ্টি হবে বলে
+                        আমি
+                        বিশ্বাস করি। এ উদ্যোগ ও মিতস্ক্রিয়ার ফলে সকলের জন্য মঙ্গল এবং প্রশান্তি বয়ে আনবে এ আমার অন্তিম
+                        বাসনা।
+                    </p>
+                    <p>
+                        সমিতির উদ্যোক্তা, সদস্য, শুভাকাঙ্খী ও সকল সহযোগীকে স্বতঃস্ফুর্ত সহযোগিতার জন্য আমার আন্তরিক
+                        ধন্যবাদ ও
+                        কৃতজ্ঞতা।
+                    </p>
+                    <img src="{% static 'img/presidents_sign.png' %}" alt="মোঃ ফজলুল হক">
+                    <p>(মোঃ ফজলুল হক)</p>
                 </div>
-                <div class="notice-board">
-                    <!-- notice board -->
-                    {% include "snippets/notice_board.html" %}
-                </div>
-                <div class="visitor-count">
-                    <!-- visitor count -->
-                    {% include "snippets/visitor_count.html" %}
+                <div class="col-md-4">
+                    <div class="card">
+                        <div class="card-body">
+                            <img class="img-fluid" src="{% static 'img/president.jpg' %}" alt="মোঃ ফজলুল হক">
+                        </div>
+                        <div class="card-footer text-center">
+                            <h4 class="text-blue">সভাপতি</h4>
+                            চাকরিজীবী সমবায় সমিতি লিমিটেড
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
-
+        <div class="intro-right col-md-3">
+            <div class="member-login">
+                <!-- login -->
+                {% include "snippets/member_login.html" %}
+            </div>
+            <div class="notice-board">
+                <!-- notice board -->
+                {% include "snippets/notice_board.html" %}
+            </div>
+            <div class="visitor-count">
+                <!-- visitor count -->
+                {% include "snippets/visitor_count.html" %}
+            </div>
+        </div>
     </div>
+
+</div>
 
 
 

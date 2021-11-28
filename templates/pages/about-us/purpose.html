@@ -4,31 +4,124 @@
 
 {% block content %}
 
-    <div class="container-fluid">
-        <h4>লক্ষ্য ও উদ্দেশ্য</h4>
-        <div class="row">
-            <div class="intro-main col-9">
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aspernatur aut facere maiores quidem saepe. Asperiores autem consectetur dolorum illum nesciunt nisi nobis perspiciatis quaerat quam, quos sed temporibus veritatis. Nesciunt.</p>
+<div class="container-fluid">
+    <!-- brudcrumb -->
+    <div class="row breadcrumb p-2">
+        <div class="col-md-8">
+            <h5>লক্ষ্য ও উদ্দেশ্য</h5>
+        </div>
+        <div class="col-md-4">
+            <h6>You are here: <a href="{% url 'home' %}">হোম >></a> লক্ষ্য ও উদ্দেশ্য</h6>
+        </div>
+    </div>
 
+    <div class="row">
+        <div class="intro-main col-md-9">
+            <div class="card">
+                <div class="card-header text-blue">
+                    <h5>চাকরিজীবী সমবায় সমিতি লিমিটেড- এর লক্ষ্য ও উদ্দেশ্যঃ</h5>
+                </div>
+                <div class="card-body">
+                    <ul class="list-group list-group-flush">
+                        <li class="list-group-item">
+                            (ক) সমিতির সদস্য এবং সদস্য পরিবারের আর্থ-সামাজিক উন্নয়নসহ সামগ্রিক কল্যাণ সাধন।
+                        </li>
+                        <li class="list-group-item">
+                            (খ) সম্ভাব্য সকল সহযোগিতা ও কর্মকান্ডের মাধ্যমে ইউনিয়নের সকল বাসিন্দাদের আর্থ-সামাজিক
+                            উন্নয়নে সহায়তা প্রদান।
+                        </li>
+                        <li class="list-group-item">
+                            (গ) সমিতির সদস্য এবং তাহাদের পরিবারের সদস্যদের মাঝে পারস্পরিক ভাতৃত্ববোধ, সহমর্মিতা ও
+                            আন্তরিকতা বৃদ্ধি এবং সকলের মধ্যে শুদ্ধাচার অনুশীলনে প্রবৃত্ত করা।
+                        </li>
+                        <li class="list-group-item">
+                            (ঘ) সদস্যদের পেশাগত দক্ষতা ও উৎকর্ষতা সাধন এবং পারস্পরিক মিথষ্ক্রিয়ার মাধ্যমে চাকুরির
+                            ক্যারিয়ার উন্নয়নে সহায়তা করা।
+                        </li>
+                        <li class="list-group-item">
+                            (ঙ) এলাকার শিক্ষিত ও বেকার যুবকদের কর্মসংস্থানের লক্ষ্যে দিক নির্দেশনামূলক পরামর্শের মাধ্যমে
+                            উপযুক্ত কর্মে নিয়োগে সহায়তা করা ।
+                        </li>
+                        <li class="list-group-item">
+                            (চ) সদস্যদের জন্য নির্মল বিনোদনের সুযোগ সৃষ্টি করা।
+                        </li>
+                    </ul>
+                </div>
             </div>
-            <div class="intro-right col-3">
-                <h6>Bruchurms</h6>
-                <div class="member-login">
-                    <!-- login -->
-                    {% include "snippets/member_login.html" %}
+
+            <div class="card mt-5">
+                <div class="card-header text-blue">
+                    <h5>চাকরিজীবী সমবায় সমিতি লিমিটেড- এর কার্যাবলীঃ</h5>
                 </div>
-                <div class="notice-board">
-                    <!-- notice board -->
-                    {% include "snippets/notice_board.html" %}
+                <div class="card-body">
+                    <h6>সমিতির লক্ষ্য ও উদ্দেশ্য অর্জনের জন্য সমিতি নিন্ম বর্ণিত কার্যক্রম গ্রহণ করিতে পারিবে:</h6>
+                    <ul class="list-group list-group-flush">
+                        <li class="list-group-item">
+
+
+                            (ক) সময়ে সময়ে পূনর্মিলনী অনুষ্ঠানের আয়োজন করা,
+
+                        </li>
+                        <li class="list-group-item">
+                            (খ) সদস্য পরিবারের সন্তানদের শিক্ষা ক্ষেত্রে উৎসাহিত করার জন্য শিক্ষাবৃত্তি প্রদানের
+                            ব্যবস্থা করা,
+                        </li>
+                        <li class="list-group-item">
+                            (গ) মেধাকে উৎসাহিত করার লক্ষ্যে ইউনিয়নের শিক্ষার্থীদের জন্য মেধা পুরস্কার প্রচলন করা,
+                        </li>
+                        <li class="list-group-item">
+                            (ঘ) বেকারদের জন্য কর্মসংস্থান বিষয়ক সেমিনার/প্রশিক্ষণ/ওয়ার্কসপ আয়োজন এবং ব্যক্তিগত পর্যায়ে
+                            প্রয়োজনীয় সহায়তা প্রদান,
+                        </li>
+                        <li class="list-group-item">
+                            (ঙ) অবসররত সদস্যদের এবং সদস্য পরিবারের বেকারদের জন্য স্বকর্মসংস্থানের জন্য উপযুক্ত প্রকল্প
+                            গ্রহণ,
+                        </li>
+                        <li class="list-group-item">
+                            (চ) অসুস্থ সদস্যদের জন্য চিকিৎসা সহায়তা প্রদান,
+                        </li>
+                        <li class="list-group-item">
+                            (ছ) লাইব্রেরি অথবা বিনোদন কেন্দ্র প্রতিষ্ঠা করা,
+                        </li>
+                        <li class="list-group-item">
+                            (জ) স্মরণিকা বা অন্য কোন প্রকাশনার মাধ্যমে এলাকার কৃষ্টি, সংস্কৃতি, ঐতিহ্য এবং মেধা বিকাশের
+                            ব্যবস্থা করা,
+                        </li>
+                        <li class="list-group-item">
+                            (ঝ) ইউনিয়নের শিক্ষা প্রতিষ্ঠানসমূহকে শিক্ষামূলক সহায়তা প্রদান,
+                        </li>
+                        <li class="list-group-item">
+                            (ঞ) সদস্যদের আর্থিকভাবে স্বচ্ছল করে তোলার লক্ষ্যে উৎপাদনমূলক কর্মকান্ডে অংশগ্রহণ এবং তাদের
+                            মধ্যে সঞ্চয়ের অনুশীলন করার ব্যবস্থা করা।
+                        </li>
+                        <li class="list-group-item">
+                            (ট) জাতীয় দিবসসমূহ উৎযাপন এবং তাতে সক্রিয়ভাবে অংশগ্রহণ করা।
+                        </li>
+                        <li class="list-group-item">
+                            (ঠ) সাধারণ পরিষদের বিবেচনা অনুযায়ী অন্যকোন আর্থ-সামাজিক ও কল্যাণমূখী কার্যক্রম গ্রহণ
+                        </li>
+                    </ul>
                 </div>
-                <div class="visitor-count">
-                    <!-- visitor count -->
-                    {% include "snippets/visitor_count.html" %}
-                </div>
+            </div>
+
+        </div>
+        <div class="intro-right col-md-3">
+            <div class="member-login">
+                <!-- login -->
+                {% include "snippets/member_login.html" %}
+            </div>
+            <div class="notice-board">
+                <!-- notice board -->
+                {% include "snippets/notice_board.html" %}
+            </div>
+            <div class="visitor-count">
+                <!-- visitor count -->
+                {% include "snippets/visitor_count.html" %}
             </div>
         </div>
-
     </div>
+
+</div>
 
 
 

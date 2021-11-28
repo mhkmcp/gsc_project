@@ -103,3 +103,18 @@ class Notice(models.Model):
 
     def __str__(self):
         return self.title
+
+
+class AdvisoryMember(models.Model):
+    name = models.CharField(max_length=255)
+    designation = models.CharField(max_length=255)
+    image = models.ImageField(upload_to="advisory_members/")
+    facebook = models.URLField(default="", blank=True, null=True)
+    linkedin = models.URLField(default="", blank=True, null=True)
+
+    is_active = models.BooleanField(default=True, blank=True, null=True)
+    created_at = models.DateTimeField(auto_now_add=True)
+    updated_at = models.DateTimeField(auto_now=True)
+
+    def __str__(self):
+        return self.name
