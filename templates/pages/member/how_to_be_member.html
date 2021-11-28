@@ -4,31 +4,72 @@
 
 {% block content %}
 
-    <div class="container-fluid">
-        <h4>কিভাবে সদস্য হবেন</h4>
-        <div class="row">
-            <div class="intro-main col-9">
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aspernatur aut facere maiores quidem saepe. Asperiores autem consectetur dolorum illum nesciunt nisi nobis perspiciatis quaerat quam, quos sed temporibus veritatis. Nesciunt.</p>
+<div class="container-fluid">
+    <!-- brudcrumb -->
+    <div class="row breadcrumb p-2">
+        <div class="col-md-8">
+            <h5>কিভাবে সদস্য হবেন</h5>
+        </div>
+        <div class="col-md-4">
+            <h6>You are here: <a href="{% url 'home' %}">হোম >></a> কিভাবে সদস্য হবেন</h6>
+        </div>
+    </div>
 
+    <div class="row">
+        <div class="intro-main col-md-9">
+            <h4>কিভাবে চাকরিজীবী কল্যাণ সমিতি,দিগপাইত ইউনিয়ন এর সদস্য হবেনঃ</h4>
+            <ul class="list-group list-group-flush">
+                <li class="list-group-item">
+                    ১. ওয়েব সদস্য ভর্তি ফর্ম অথবা সদস্যপদ ফর্ম পূরণ করুন;
+                </li>
+                <li class="list-group-item">
+                    ২. আবেদনকারির ১ কপি ছবির প্রদান করুন;
+                </li>
+                <li class="list-group-item">
+                    ৩. নমিনির ১ কপি ছবির প্রদান করুন;
+                </li>
+                <li class="list-group-item">
+                    ৪. শেষ একাডেমিক এর সংযুক্ত কপি- মার্কস শিট বা প্রশংসাপত্র
+                </li>
+                <li class="list-group-item">
+                    ৫. সাধারণ সদস্য হওয়ার জন্য ১৩০০ টাকা
+                </li>
+                <li class="list-group-item">
+                    ৬. আজীবন সদস্যপদের জন্য ১০,০০০ টাকা
+                </li>
+                <li class="list-group-item">
+                    ৭. <strong>বিকাশ করুন</strong> <br> বিকাশ নাম্বারঃ ০১৭১৩৫৯১৮৭০, ০১৭১৬৪৯১৮৭১, ০১৭১৩৫৯৪৬৪২,
+                    ০১৮৬০১৫৫৪৩৯
+                    (বিকাশে টাকা পাঠানোর সময় Refference এ নিজের মোবাইল নাম্বার লিখুন)
+                </li>
+                <li class="list-group-item">
+                    ৮. <strong>রকেট করুন</strong> <br>
+                    রকেট নাম্বারঃ ০১৭১৬৪৯১৮৭১
+                    (রকেটে টাকা পাঠানোর সময় Refference এ নিজের মোবাইল নাম্বার লিখুন)
+                    প্রয়োজনেঃ ০১৭১৬-৪৯১৮৭১, ০১৭১৩-৫৯১৮৭০
+                </li>
+                <li class="list-group-item">
+                    <strong>প্রয়োজনেঃ ০১৭১৬-৪৯১৮৭১, ০১৭১৩-৫৯১৮৭০</strong>
+                </li>
+            </ul>
+        </div>
+        <div class=" intro-right col-md-3">
+            <div class="member-login">
+                <!-- login -->
+                {% include "snippets/member_login.html" %}
             </div>
-            <div class="intro-right col-3">
-                <h6>Bruchurms</h6>
-                <div class="member-login">
-                    <!-- login -->
-                    {% include "snippets/member_login.html" %}
-                </div>
-                <div class="notice-board">
-                    <!-- notice board -->
-                    {% include "snippets/notice_board.html" %}
-                </div>
-                <div class="visitor-count">
-                    <!-- visitor count -->
-                    {% include "snippets/visitor_count.html" %}
-                </div>
+            <div class="notice-board">
+                <!-- notice board -->
+                {% include "snippets/notice_board.html" %}
+            </div>
+            <div class="visitor-count">
+                <!-- visitor count -->
+                {% include "snippets/visitor_count.html" %}
             </div>
         </div>
-
     </div>
+
+</div>
 
 
 

@@ -69,7 +69,9 @@ def adviser(request):
 
 
 def management(request):
-    return render(request, "pages/commiittee/management.html")
+    advisory_members = AdvisoryMember.objects.filter(is_active=True)
+    context = {"advisory_members": advisory_members}
+    return render(request, "pages/commiittee/management.html", context)
 
 
 def general(request):

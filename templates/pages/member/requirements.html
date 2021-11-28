@@ -4,31 +4,76 @@
 
 {% block content %}
 
-    <div class="container-fluid">
-        <h4>সদস্য হওয়ার যোগ্যতা</h4>
-        <div class="row">
-            <div class="intro-main col-9">
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aspernatur aut facere maiores quidem saepe. Asperiores autem consectetur dolorum illum nesciunt nisi nobis perspiciatis quaerat quam, quos sed temporibus veritatis. Nesciunt.</p>
+<div class="container-fluid">
+    <!-- brudcrumb -->
+    <div class="row breadcrumb p-2">
+        <div class="col-md-8">
+            <h5>সদস্য হওয়ার যোগ্যতা</h5>
+        </div>
+        <div class="col-md-4">
+            <h6>You are here: <a href="{% url 'home' %}">হোম >></a> সদস্য হওয়ার যোগ্যতা</h6>
+        </div>
+    </div>
 
+    <h4></h4>
+    <div class="row">
+        <div class="intro-main col-md-9">
+            <h4>সদস্যপদঃ</h4>
+            <p>
+                সমিতিতে ৩ ধরণের সদস্যপদ থাকিবে। যথা-
+                <br />
+                <strong class="mr-2">ক. সাধারণ সদস্যপদ</strong>
+                <strong class="mr-2">খ. আজীবন সদস্যপদ</strong>
+                <strong class="mr-2">গ. অনারারি সদস্য</strong>
+            </p>
+            <h4 class="mt-5">সমিতির সদস্য পদের যোগ্যতা ও শর্তঃ</h4>
+            <ul class="list-group list-group-flush">
+                <li class="list-group-item">
+                    (ক) সমিতির সাধারণ সদস্যপদ কেবলমাত্র দিগপাইত ইউনিয়নের কর্মরত ও অবসররত কর্মকর্তা/কর্মচারিদের মধ্যে
+                    সীমাবদ্ধ থাকিবে;
+                </li>
+                <li class="list-group-item">
+                    (খ) সমিতির সাধারণ সদস্যের মৃত্যুতে তাহার ওয়ারিশ বা ওয়ারিশগণের মনোনীত প্রতিনিধি ওয়ারিশ সমিতির
+                    সদস্যভূক্ত হইতে পারিবেন;
+                </li>
+                <li class="list-group-item">
+                    (গ) সমিতির সাধারণ সদস্যপদের জন্য ২০০.০০ টাকা ভর্তি ফি এবং বাৎসরিক ৬০০/ টাকা সদস্য-চাঁদা প্রদান করিতে
+                    হইবে। এই চাঁদা সর্বোচ্চ ৩ কিস্তিতে পরিশোধ করা যাইবে। তবে বছরের সম্পূর্ণ চাঁদা পরিশোধ না করা পর্যন্ত
+                    ঐ বছরের চাঁদা পরিশোধিত বলিয়া গণ্য হইবে না;
+                </li>
+                <li class="list-group-item">
+                    (ঘ) যাহারা সাধারণ সদস্যরূপে নির্বাচিত হইবেন তাহাদের প্রত্যেককেই ১০০.০০ টাকা মূল্যের কমপক্ষে ৫(পাঁচ)
+                    টি শেয়ার খরিদ করিতে হইবে ও সদস্যের তালিকা বইতে স্বাক্ষর করিতে হইবে এবং সমিতির উপ-আইনসমূহ মানিয়া
+                    চলিবার প্রতিশ্রুতি দিতে হইবে;
+                </li>
+                <li class="list-group-item">
+                    (ঙ) কোন সাধারণ সদস্য সাধারণ পরিষদ কর্তৃক নির্ধারিত এককালিন অর্থ প্রদানপূর্বক আজীবন সদস্য হইতে
+                    পারিবেন। আজীবন সদস্যকে বার্ষিক চাঁদা প্রদান করিতে হইবে না;
+                </li>
+                <li class="list-group-item">
+                    (চ) সাধারণ পরিষদের সুপারিশের প্রেক্ষিতে উপদেষ্টা পরিষদের অনুমোদনক্রমে দেশের কোন জাতীয় খ্যাতিসম্পন্ন
+                    ও বরেণ্য ব্যক্তিত্বকে অনারারি সদস্যপদ প্রদান করা যাইবে। অনারারী সদস্যকে কোন ভর্তি ফি, মাসিক চাঁদা
+                    পরিশোধ বা শেয়ার ক্রয় করিতে হইবে না।
+                </li>
+            </ul>
+        </div>
+        <div class="intro-right col-md-3">
+            <div class="member-login">
+                <!-- login -->
+                {% include "snippets/member_login.html" %}
             </div>
-            <div class="intro-right col-3">
-                <h6>Bruchurms</h6>
-                <div class="member-login">
-                    <!-- login -->
-                    {% include "snippets/member_login.html" %}
-                </div>
-                <div class="notice-board">
-                    <!-- notice board -->
-                    {% include "snippets/notice_board.html" %}
-                </div>
-                <div class="visitor-count">
-                    <!-- visitor count -->
-                    {% include "snippets/visitor_count.html" %}
-                </div>
+            <div class="notice-board">
+                <!-- notice board -->
+                {% include "snippets/notice_board.html" %}
+            </div>
+            <div class="visitor-count">
+                <!-- visitor count -->
+                {% include "snippets/visitor_count.html" %}
             </div>
         </div>
-
     </div>
+
+</div>
 
 
 
