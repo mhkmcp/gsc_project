@@ -3,6 +3,14 @@
     --darkBlue: #17283d;
 }
 
+a {
+    color: var(--mainColor);
+}
+
+a:hover {
+    color: var(--mainColor);
+}
+
 /* utils */
 .bg-blue {
     color: #fff;

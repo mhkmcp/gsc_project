@@ -7,8 +7,9 @@
 
 <div class="container-fluid">
   <div class="row mt-3">
-    <div class="intro-main col-9">
-      <h3 class="text-center my-5">সদস্য ভর্তি ফর্ম</h3>
+    <div class="intro-main col-md-9">
+      <h3 class="text-center mt-5">সদস্য ভর্তি ফর্ম</h3>
+      <hr>
       <div class="register-form pl-3 mx-4">
         <form action="{% url 'admission_form' %}" method="POST" enctype="multipart/form-data">
           {% csrf_token %}
@@ -59,7 +60,7 @@
         </form>
       </div>
     </div>
-    <div class="intro-right col-3">
+    <div class="intro-right col-md-3">
       <h6>Bruchurms</h6>
       <div class="member-login">
         <!-- login -->

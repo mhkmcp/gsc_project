@@ -26,7 +26,7 @@ def index(request):
 
     context = {
         "login_form": LoginForm,
-        "notices": Notice.objects.all(),
+        "notices": Notice.objects.filter(is_active=True).order_by("-id"),
         "slides": Slide.objects.all(),
     }
     return render(request, "pages/home.html", context)
@@ -41,7 +41,8 @@ def logout_user(request):
 
 
 def introduction(request):
-    return render(request, "pages/about-us/introduction.html")
+    context = {"notices": Notice.objects.filter(is_active=True).order_by("-id")}
+    return render(request, "pages/about-us/introduction.html", context)
 
 
 def purpose(request):

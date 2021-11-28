@@ -30,37 +30,33 @@
 	<div class="container-fluid">
 		<div class="row">
 			<div class="col-12">
-				<div class="row logo-menu d-flex flex-column flex-md-row justify-content-between">
+				<div class="row logo-menu d-flex flex-column flex-md-row justify-content-md-between align-items-center">
 					<!-- Logo Menu Left  -->
-					<div class="logo-menu-left pl-3 col-md-12 col-lg-7">
+					<div class="logo-menu-left col-12 col-md-4">
 						<!-- <img src="" alt="Logo"> -->
 						<img class="img-fluid" src="{% static 'img/update_logo.png' %}" alt="Logo">
 					</div>
 					<!-- /Logo Menu Left  -->
 
 					<!-- Logo Menu Right  -->
-					<div class="logo-menu-right mt-2 col-md-12 col-lg-5">
-						<div class="quran_ayat mt-0 mt-md-4 pull-right text-left px-2 text-green">
-							<p class="ayat text-success">"তোমরা সবাই মিলে আল্লাহর রশি (কোরআন) -কে শক্ত করে আকড়েঁ ধরো এবং
-								কখনো পরস্পর বিচ্ছিন্ন হয়ো নাহ।" </p>
-							<p class="source text-right" style="color: #009FE1">- আল-কোরআন (০২ঃ১০৩)</p>
+					<div class="logo-menu-right col-12 col-md-8">
+						<div class="quran_ayat text-center text-md-right">
+							<h5 class="ayat text-info">"
+								তোমরা সবাই মিলে আল্লাহর রশি (কোরআন) -কে শক্ত করে আকড়েঁ ধরো এবং কখনো পরস্পর বিচ্ছিন্ন হয়ো
+								নাহ।"
+							</h5>
+							<h6 class="source text-blue"><strong>- আল-কোরআন (০২ঃ১০৩)</strong></h6>
 						</div>
 					</div>
 					<!-- Logo Menu Right  -->
 				</div>
 				<!-- Logo Menu  -->
-
-
-				<!-- Main Menu  -->
-				<div class="main-menu">
-
-					<!-- Content  -->
-					{% include "snippets/navbar.html" %}
-					<!-- /Content  -->
-
-				</div>
-				<!-- /Main Menu  -->
 			</div>
 		</div>
 	</div>
+	<!-- Main Menu  -->
+	<div class="main-menu">
+		{% include "snippets/navbar.html" %}
+	</div>
+	<!-- /Main Menu  -->
 </header>

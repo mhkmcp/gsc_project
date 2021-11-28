@@ -4,9 +4,9 @@
     {% for notice in notices %}
     <div class="card border-0">
       <div class="card-header p-1 bg-white" id="heading{{notice.id}}">
-        <a href="" class="px-2 d-block" type="button" data-toggle="collapse" data-target="#collapse{{notice.id}}"
+        <a href="" class="px-2 py-2 d-block" type="button" data-toggle="collapse" data-target="#collapse{{notice.id}}"
           aria-expanded="true" aria-controls="collapseOne">
-          {{notice.title}}
+          <i class="far fa-hand-point-right"></i> {{notice.title}}
         </a>
       </div>
 
