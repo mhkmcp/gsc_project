@@ -7,16 +7,28 @@ from .models import Member, Subscription, Notice, Slide
 
 @admin.register(Member)
 class MemberAdmin(admin.ModelAdmin):
+    def make_member_approved(self, request, queryset):
+        queryset.update(is_approved=True)
+
+    def make_member_unapproved(self, request, queryset):
+        queryset.update(is_approved=False)
+
+    make_member_approved.short_description = "Update Member to Approve"
+    make_member_unapproved.short_description = "Update Member to Unapproved"
+
     list_display = [
         "full_name",
         "passport",
         "member_type",
         "phone",
         "zilla",
-        "upazilla",
-        "country",
+        "is_approved",
     ]
-    list_filter = ["member_type", "country"]
+    list_filter = [
+        "is_approved",
+        "member_type",
+    ]
+    actions = [make_member_approved, make_member_unapproved]
 
 
 @admin.register(Subscription)

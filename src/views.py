@@ -148,15 +148,21 @@ def member_detail(request, pk):
 
 
 def general_member(request):
-    return render(request, "pages/member/general_member.html")
+    members = Member.objects.filter(member_type="g", is_approved=True).order_by("-id")
+    context = {"members": members}
+    return render(request, "pages/member/general_member.html", context)
 
 
 def lifetime_member(request):
-    return render(request, "pages/member/lifetime_member.html")
+    members = Member.objects.filter(member_type="l", is_approved=True).order_by("-id")
+    context = {"members": members}
+    return render(request, "pages/member/lifetime_member.html", context)
 
 
-def honorary_member(request):
-    return render(request, "pages/member/honorary_member.html")
+def founding_member(request):
+    members = Member.objects.filter(member_type="f", is_approved=True).order_by("-id")
+    context = {"members": members}
+    return render(request, "pages/member/founding_member.html", context)
 
 
 def member_info(request):

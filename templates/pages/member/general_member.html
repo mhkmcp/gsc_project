@@ -1,18 +1,69 @@
 {% extends 'base.html' %}
-{% block title %}My Blog {% endblock %}
+{% block title %}General Member {% endblock %}
 {% load static %}
 
 {% block content %}
 
-    <div class="container-fluid">
-        <h4>সাধারন সদস্য</h4>
-        <div class="row">
-            <div class="intro-main col-12">
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aspernatur aut facere maiores quidem saepe. Asperiores autem consectetur dolorum illum nesciunt nisi nobis perspiciatis quaerat quam, quos sed temporibus veritatis. Nesciunt.</p>
+<div class="container-fluid">
+    <!-- brudcrumb -->
+    <div class="row breadcrumb p-2">
+        <div class="col-md-8">
+            <h5>সাধারন সদস্য</h5>
+        </div>
+        <div class="col-md-4">
+            <h6>You are here: <a href="{% url 'home' %}">হোম >></a> সাধারন সদস্য</h6>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-8">
+            <div class="row">
+                <!-- general members -->
+                <div class="col-12">
+                    <h4 class="text-center mb-4">সাধারন সদস্যের তালিকা</h4>
+                    <div class="table-responsive">
+                        <table class="table table-bordered">
+                            <thead class="bg-blue">
+                                <tr>
+                                    <!-- <th>ক্রমিক</th> -->
+                                    <th>ছবি</th>
+                                    <th>নাম</th>
+                                    <th>জেলা</th>
+                                    <th>দেশ</th>
+                                    <th>মোবাইল নম্বর</th>
+                                    <th>এ্যাকশন</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                {% for member in members %}
+                                <tr>
+                                    <td>
+                                        <img class="img-thumbnail member-list-imge"
+                                            src="{% if member.image %} {{member.image.url}} {%else%} {% static 'img/default_member.png' %} {% endif %}"
+                                            alt="{{member.name}}">
+                                    </td>
+                                    <td>{{ member.full_name }}</td>
+                                    <td>{{ member.zilla }}</td>
+                                    <td>{{ member.country }}</td>
+                                    <td>{{ member.phone }}</td>
+                                    <td>
+                                        <a class="btn btn-info btn-sm text-white"
+                                            href="{% url 'member_detail' member.pk %}">
+                                            <i class="fa fa-eye"></i>
+                                        </a>
+                                    </td>
+                                </tr>
+                                {% endfor %}
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
             </div>
         </div>
-
+        <div class="col-4"></div>
     </div>
+
+</div>
 
 
 
