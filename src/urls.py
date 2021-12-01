@@ -28,7 +28,7 @@ urlpatterns = [
     path("blood-group-dob", blood_group_dob, name="blood_group_dob"),
     path("financial", financial, name="financial"),
     path("other-way", other_way, name="other_way"),
-    path("scholarship", scholarship, name="scholarship"),
+    path("education-scholarship", education_scholarship, name="education_scholarship"),
     path("treatment", treatment, name="treatment"),
     path("training", training, name="training"),
     # Union

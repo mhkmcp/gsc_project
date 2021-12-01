@@ -199,8 +199,8 @@ def other_way(request):
 # development
 
 
-def scholarship(request):
-    return render(request, "pages/development/scholarship.html")
+def education_scholarship(request):
+    return render(request, "pages/development/education_scholarship.html")
 
 
 def training(request):
