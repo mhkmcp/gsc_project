@@ -20,44 +20,22 @@
         <div class="intro-main col-md-9">
             <h4 class="text-center">চিকিৎসা সহায়তা</h4>
             <hr>
-            <div class="card">
+
+            {% for treatment in treatments %}
+            <div class="card mt-4">
                 <div class="card-header">
-                    <h5>১. বিনামূল্যে চিকিৎসা সেবা</h5>
+                    <h5>{{ treatment.name }}</h5>
                 </div>
                 <div class="card-body">
                     <ul class="list-group-flush">
-                        <li class="list-group-item"><strong>তারিখঃ</strong> ২৬ এপ্রিল, ২০১৮</li>
-                        <li class="list-group-item"><strong>স্থানঃ</strong> ছোনটিয়া বাজার কাচারী মাঠ</li>
-                        <li class="list-group-item"><strong>প্রস্তাবিত বাজেটঃ</strong> ২০,০০০ টাকা</li>
+                        <li class="list-group-item"><strong>তারিখঃ</strong> {{ treatment.name }}</li>
+                        <li class="list-group-item"><strong>স্থানঃ</strong> {{ treatment.venue }}</li>
+                        <li class="list-group-item"><strong>প্রস্তাবিত বাজেটঃ</strong> {{ treatment.budget }} টাকা</li>
                     </ul>
                 </div>
             </div>
 
-            <div class="card mt-4">
-                <div class="card-header">
-                    <h5>২. বিনামূল্যে রক্তের গ্রুপ পরিক্ষা</h5>
-                </div>
-                <div class="card-body">
-                    <ul class="list-group-flush">
-                        <li class="list-group-item"><strong>তারিখঃ</strong> ১৫ আগষ্ট, ২০১৮</li>
-                        <li class="list-group-item"><strong>স্থানঃ</strong> ছোনটিয়া বাজার কাচারী মাঠ</li>
-                        <li class="list-group-item"><strong>প্রস্তাবিত বাজেটঃ</strong> ১০,০০০ টাকা</li>
-                    </ul>
-                </div>
-            </div>
-
-            <div class="card mt-4">
-                <div class="card-header">
-                    <h5>৩. বিনামূল্যে চোখের ছানি চিকিৎসা</h5>
-                </div>
-                <div class="card-body">
-                    <ul class="list-group-flush">
-                        <li class="list-group-item"><strong>তারিখঃ</strong> ১৫ জানুয়ারী, ২০১৮</li>
-                        <li class="list-group-item"><strong>স্থানঃ</strong> ছোনটিয়া বাজার কাচারী মাঠ</li>
-                        <li class="list-group-item"><strong>প্রস্তাবিত বাজেটঃ</strong> ৫০,০০০ টাকা</li>
-                    </ul>
-                </div>
-            </div>
+            {% endfor %}
 
         </div>
         <div class="intro-right col-md-3">

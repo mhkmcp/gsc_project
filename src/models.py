@@ -118,3 +118,48 @@ class AdvisoryMember(models.Model):
 
     def __str__(self):
         return self.name
+
+
+class EducationScholarship(models.Model):
+    name = models.CharField(max_length=255)
+    number = models.PositiveIntegerField(blank=True, null=True, default=0)
+    monthly_amount = models.PositiveIntegerField(blank=True, null=True, default=0)
+    yearly_amount = models.PositiveIntegerField(blank=True, null=True, default=0)
+    description = models.TextField(default="")
+
+    is_active = models.BooleanField(default=True, blank=True, null=True)
+    created_at = models.DateTimeField(auto_now_add=True)
+    updated_at = models.DateTimeField(auto_now=True)
+
+    def __str__(self):
+        return self.name
+
+
+class MedicalAssistance(models.Model):
+    name = models.CharField(max_length=255)
+    date = models.DateField(blank=True, null=True)
+    venue = models.CharField(max_length=255, blank=True, null=True, default="")
+    budget = models.PositiveIntegerField(blank=True, null=True, default=0)
+    description = models.TextField(blank=True, null=True, default="")
+
+    is_active = models.BooleanField(default=True, blank=True, null=True)
+    created_at = models.DateTimeField(auto_now_add=True)
+    updated_at = models.DateTimeField(auto_now=True)
+
+    def __str__(self):
+        return self.name
+
+
+class TrainingAssistance(models.Model):
+    name = models.CharField(max_length=255)
+    duration = models.PositiveIntegerField(blank=True, null=True, default=0)
+    classes = models.CharField(max_length=255, blank=True, null=True, default="")
+    total_trainee = models.PositiveIntegerField(blank=True, null=True, default=0)
+    description = models.TextField(default="")
+
+    is_active = models.BooleanField(default=True, blank=True, null=True)
+    created_at = models.DateTimeField(auto_now_add=True)
+    updated_at = models.DateTimeField(auto_now=True)
+
+    def __str__(self):
+        return self.name

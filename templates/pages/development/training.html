@@ -20,40 +20,25 @@
         <div class="intro-main col-md-9">
             <h4 class="text-center">প্রশিক্ষণ সহায়তা</h4>
             <hr>
-            <div class="card">
-                <div class="card-header">
-                    <h5>Computer Certification Courses & Training Programs</h5>
-                </div>
-                <div class="card-body">
-                    <ul class="list-group-flush">
-                        <li class="list-group-item"><strong>মেয়াদঃ</strong> ৩ মাস</li>
-                        <li class="list-group-item"><strong>ক্লাসঃ</strong> শুক্র ও শনিবার</li>
-                        <li class="list-group-item"><strong>মোট শিক্ষার্থীর সংখ্যাঃ</strong> ৩০ জন</li>
-                    </ul>
-                    <p class="mt-4">
-                        প্রতি ৩ মাস অন্তর এই সার্টিফিকেট কোর্স চলবে। কোর্স ফি মাত্র ১,০০০ টাকা। কোর্স ফি পরিবর্তনীয়।
-                        প্রতি ব্যাচে ৮ জন শিক্ষার্থী থাকবে। শিক্ষার্থী নির্বাচন করবে চাকরিজীবী সমবায় সমিতি লিমিটেড।
-                        বর্তমানে ৪টি ব্যাচে ৩০ জন ছাত্র-ছাত্রী নিয়ে কম্পিউটার প্রশিক্ষণ কোর্স চলছে।
-                    </p>
-                </div>
-            </div>
 
+            {% for training in trainings %}
             <div class="card mt-4">
                 <div class="card-header">
-                    <h5>Women Tailoring Courses & Training Programs</h5>
+                    <h5>{{ training.name }}</h5>
                 </div>
                 <div class="card-body">
                     <ul class="list-group-flush">
-                        <li class="list-group-item"><strong>মেয়াদঃ</strong> ৩ মাস</li>
-                        <li class="list-group-item"><strong>ক্লাসঃ</strong> শুক্র ও শনিবার</li>
-                        <li class="list-group-item"><strong>মোট শিক্ষার্থীর সংখ্যাঃ</strong> ৩০ জন</li>
+                        <li class="list-group-item"><strong>মেয়াদঃ</strong> {{ training.duration }} মাস</li>
+                        <li class="list-group-item"><strong>ক্লাসঃ</strong> {{ training.classes }}</li>
+                        <li class="list-group-item"><strong>মোট শিক্ষার্থীর সংখ্যাঃ</strong>
+                            {{ training.total_trainee }} জন</li>
                     </ul>
                     <p class="mt-4">
-                        প্রতি ৩ মাস অন্তর এই সার্টিফিকেট কোর্স চলবে। কোর্স ফি মাত্র ১,০০০ টাকা। কোর্স ফি পরিবর্তনীয়।
-                        প্রতি ব্যাচে ৮ জন শিক্ষার্থী থাকবে। শিক্ষার্থী নির্বাচন করবে চাকরিজীবী সমবায় সমিতি লিমিটেড।
+                        {{ training.description }}
                     </p>
                 </div>
             </div>
+            {% endfor %}
 
         </div>
         <div class="intro-right col-md-3">

@@ -20,65 +20,26 @@
         <div class="intro-main col-md-9">
             <h4 class="text-center">শিক্ষা বৃত্তি</h4>
             <hr>
-            <div class="card">
-                <div class="card-header">
-                    <h5>১. এডভোকেট খলিলুর রহমান শিক্ষা বৃত্তি</h5>
-                </div>
-                <div class="card-body">
-                    <ul class="list-group-flush">
-                        <li class="list-group-item"><strong>বৃত্তির সংখ্যা:</strong> ০৫</li>
-                        <li class="list-group-item"><strong>টাকার পরিমান(মাসিক):</strong> ৫০০ টাকা</li>
-                        <li class="list-group-item"><strong>মোট টাকা(বার্ষিক):</strong> ৩০,০০০ টাকা</li>
-                    </ul>
-                    <p class="mt-4">
-                        এডভোকেট খলিলুর রহমানের নামে প্রতি বছর ০৫ টি শিক্ষা বৃত্তি দেয়া হবে। দিগপাইত ইউনিয়নের মাধ্যমিক
-                        পর্যায়ের গরীব শিক্ষার্থীরা এই বৃত্তির যোগ্য বলে বিবেচিত হবে।প্রতি বৎসর জানুয়ারী মাসে এই বৃত্তি
-                        দেয়া হবে। শিক্ষার্থীকে অবশ্যই গরীব ও মেধাবী হতে হবে। স্কুলের প্রধান শিক্ষকদের বিচারে বৃত্তির
-                        জন্য শিক্ষার্থী নির্বাচিত হবেন। প্রতি শিক্ষার্থীকে মাসিক ৫০০ টাকা হিসেবে এককালীন ৬০০০ টাকা দেয়া
-                        হবে।চাকরিজীবী কল্যাণ সমিতি, দিগপাইত ইউনিয়ন সার্বিক ব্যবস্থাপনার দায়িত্বে থাকবে।
-                    </p>
-                </div>
-            </div>
 
+            {% for scholarship in scholarships %}
             <div class="card mt-4">
                 <div class="card-header">
-                    <h5>২. ইন্জিনিয়ার মোজাফ্ফর হোসেন শিক্ষা বৃত্তি</h5>
+                    <h5>{{ scholarship.name }}</h5>
                 </div>
                 <div class="card-body">
                     <ul class="list-group-flush">
-                        <li class="list-group-item"><strong>বৃত্তির সংখ্যা:</strong> ১০</li>
-                        <li class="list-group-item"><strong>টাকার পরিমান(মাসিক):</strong> ৫০০ টাকা</li>
-                        <li class="list-group-item"><strong>মোট টাকা(বার্ষিক):</strong> ৬০,০০০ টাকা</li>
+                        <li class="list-group-item"><strong>বৃত্তির সংখ্যা:</strong> {{ scholarship.number }} জন</li>
+                        <li class="list-group-item"><strong>টাকার পরিমান(মাসিক):</strong>
+                            {{ scholarship.monthly_amount }} টাকা</li>
+                        <li class="list-group-item"><strong>মোট টাকা(বার্ষিক):</strong> {{ scholarship.yearly_amount }}
+                            টাকা</li>
                     </ul>
                     <p class="mt-4">
-                        ইন্জিনিয়ার মোজাফ্ফর হোসেন এর নামে প্রতি বছর ১০ টি শিক্ষা বৃত্তি দেয়া হবে। দিগপাইত ইউনিয়নের
-                        মাধ্যমিক পর্যায়ের গরীব শিক্ষার্থীরা এই বৃত্তির যোগ্য বলে বিবেচিত হবে।প্রতি বৎসর জানুয়ারী মাসে এই
-                        বৃত্তি দেয়া হবে। শিক্ষার্থীকে অবশ্যই গরীব ও মেধাবী হতে হবে। স্কুলের প্রধান শিক্ষকদের বিচারে
-                        বৃত্তির জন্য শিক্ষার্থী নির্বাচিত হবেন। প্রতি শিক্ষার্থীকে মাসিক ৫০০ টাকা হিসেবে এককালীন ৬০০০
-                        টাকা দেয়া হবে।চাকরিজীবী কল্যাণ সমিতি, দিগপাইত ইউনিয়ন সার্বিক ব্যবস্থাপনার দায়িত্বে থাকবে।
+                        {{ scholarship.description }}
                     </p>
                 </div>
             </div>
-
-            <div class="card mt-4">
-                <div class="card-header">
-                    <h5>৩. লায়ন মেহেরুন নাহার শিক্ষা বৃত্তি</h5>
-                </div>
-                <div class="card-body">
-                    <ul class="list-group-flush">
-                        <li class="list-group-item"><strong>বৃত্তির সংখ্যা:</strong> ১০</li>
-                        <li class="list-group-item"><strong>টাকার পরিমান(মাসিক):</strong> ৫০০ টাকা</li>
-                        <li class="list-group-item"><strong>মোট টাকা(বার্ষিক):</strong> ৩০,০০০ টাকা</li>
-                    </ul>
-                    <p class="mt-4">
-                        লায়ন মেহেরুন নাহার এর নামে প্রতি বছর ১০ টি শিক্ষা বৃত্তি দেয়া হবে। দিগপাইত ইউনিয়নের মাধ্যমিক
-                        পর্যায়ের গরীব শিক্ষার্থীরা এই বৃত্তির যোগ্য বলে বিবেচিত হবে।প্রতি বৎসর জানুয়ারী মাসে এই বৃত্তি
-                        দেয়া হবে। শিক্ষার্থীকে অবশ্যই গরীব ও মেধাবী হতে হবে। স্কুলের প্রধান শিক্ষকদের বিচারে বৃত্তির
-                        জন্য শিক্ষার্থী নির্বাচিত হবেন। প্রতি শিক্ষার্থীকে মাসিক ৫০০ টাকা হিসেবে এককালীন ৬০০০ টাকা দেয়া
-                        হবে।চাকরিজীবী কল্যাণ সমিতি, দিগপাইত ইউনিয়ন সার্বিক ব্যবস্থাপনার দায়িত্বে থাকবে।
-                    </p>
-                </div>
-            </div>
+            {% endfor %}
 
         </div>
         <div class="intro-right col-md-3">

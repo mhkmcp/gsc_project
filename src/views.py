@@ -200,15 +200,21 @@ def other_way(request):
 
 
 def education_scholarship(request):
-    return render(request, "pages/development/education_scholarship.html")
+    scholarships = EducationScholarship.objects.filter(is_active=True)
+    context = {"scholarships": scholarships}
+    return render(request, "pages/development/education_scholarship.html", context)
 
 
 def training(request):
-    return render(request, "pages/development/training.html")
+    trainings = TrainingAssistance.objects.filter(is_active=True)
+    context = {"trainings": trainings}
+    return render(request, "pages/development/training.html", context)
 
 
 def treatment(request):
-    return render(request, "pages/development/treatment.html")
+    treatments = MedicalAssistance.objects.filter(is_active=True)
+    context = {"treatments": treatments}
+    return render(request, "pages/development/treatment.html", context)
 
 
 # Union
