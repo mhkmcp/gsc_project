@@ -4,31 +4,79 @@
 
 {% block content %}
 
-    <div class="container-fluid">
-        <h4>চিকিৎসা সহায়তা</h4>
-        <div class="row">
-            <div class="intro-main col-9">
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aspernatur aut facere maiores quidem saepe. Asperiores autem consectetur dolorum illum nesciunt nisi nobis perspiciatis quaerat quam, quos sed temporibus veritatis. Nesciunt.</p>
+<div class="container-fluid">
+    <!-- brudcrumb -->
+    <div class="row breadcrumb p-2">
+        <div class="col-md-8">
+            <h5>চিকিৎসা সহায়তা</h5>
+        </div>
+        <div class="col-md-4">
+            <h6>You are here: <a href="{% url 'home' %}">হোম >></a> চিকিৎসা সহায়তা</h6>
+        </div>
+    </div>
 
+    <h4></h4>
+    <div class="row">
+        <div class="intro-main col-md-9">
+            <h4 class="text-center">চিকিৎসা সহায়তা</h4>
+            <hr>
+            <div class="card">
+                <div class="card-header">
+                    <h5>১. বিনামূল্যে চিকিৎসা সেবা</h5>
+                </div>
+                <div class="card-body">
+                    <ul class="list-group-flush">
+                        <li class="list-group-item"><strong>তারিখঃ</strong> ২৬ এপ্রিল, ২০১৮</li>
+                        <li class="list-group-item"><strong>স্থানঃ</strong> ছোনটিয়া বাজার কাচারী মাঠ</li>
+                        <li class="list-group-item"><strong>প্রস্তাবিত বাজেটঃ</strong> ২০,০০০ টাকা</li>
+                    </ul>
+                </div>
             </div>
-            <div class="intro-right col-3">
-                <h6>Bruchurms</h6>
-                <div class="member-login">
-                    <!-- login -->
-                    {% include "snippets/member_login.html" %}
+
+            <div class="card mt-4">
+                <div class="card-header">
+                    <h5>২. বিনামূল্যে রক্তের গ্রুপ পরিক্ষা</h5>
                 </div>
-                <div class="notice-board">
-                    <!-- notice board -->
-                    {% include "snippets/notice_board.html" %}
+                <div class="card-body">
+                    <ul class="list-group-flush">
+                        <li class="list-group-item"><strong>তারিখঃ</strong> ১৫ আগষ্ট, ২০১৮</li>
+                        <li class="list-group-item"><strong>স্থানঃ</strong> ছোনটিয়া বাজার কাচারী মাঠ</li>
+                        <li class="list-group-item"><strong>প্রস্তাবিত বাজেটঃ</strong> ১০,০০০ টাকা</li>
+                    </ul>
                 </div>
-                <div class="visitor-count">
-                    <!-- visitor count -->
-                    {% include "snippets/visitor_count.html" %}
+            </div>
+
+            <div class="card mt-4">
+                <div class="card-header">
+                    <h5>৩. বিনামূল্যে চোখের ছানি চিকিৎসা</h5>
                 </div>
+                <div class="card-body">
+                    <ul class="list-group-flush">
+                        <li class="list-group-item"><strong>তারিখঃ</strong> ১৫ জানুয়ারী, ২০১৮</li>
+                        <li class="list-group-item"><strong>স্থানঃ</strong> ছোনটিয়া বাজার কাচারী মাঠ</li>
+                        <li class="list-group-item"><strong>প্রস্তাবিত বাজেটঃ</strong> ৫০,০০০ টাকা</li>
+                    </ul>
+                </div>
+            </div>
+
+        </div>
+        <div class="intro-right col-md-3">
+            <div class="member-login">
+                <!-- login -->
+                {% include "snippets/member_login.html" %}
+            </div>
+            <div class="notice-board">
+                <!-- notice board -->
+                {% include "snippets/notice_board.html" %}
+            </div>
+            <div class="visitor-count">
+                <!-- visitor count -->
+                {% include "snippets/visitor_count.html" %}
             </div>
         </div>
-
     </div>
+
+</div>
 
 
 
