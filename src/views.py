@@ -3,7 +3,7 @@ from django.contrib.auth.models import User
 from django.contrib.auth import login, logout, authenticate
 from django.contrib import messages
 
-from .forms import MemberForm, CustomUserCreationForm, LoginForm
+from .forms import ContactForm, MemberForm, CustomUserCreationForm, LoginForm
 from django.contrib import messages
 from .models import *
 
@@ -269,4 +269,18 @@ def sonatia(request):
 
 # contact
 def contact(request):
-    return render(request, "pages/contact.html")
+    form = ContactForm()
+    if request.method == "POST":
+        form = ContactForm(request.POST or None)
+        if form.is_valid():
+            form.save()
+            messages.success(
+                request, "Thank you for your interest. We will get back to you soon"
+            )
+            return redirect("contact")
+        else:
+            messages.error(request, "Invalid form data.")
+            form = ContactForm()
+
+    context = {"form": form}
+    return render(request, "pages/contact.html", context)

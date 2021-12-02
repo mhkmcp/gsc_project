@@ -3,7 +3,11 @@ from django.contrib.auth.models import User
 from django.contrib.auth.forms import UserCreationForm, UsernameField
 from django.contrib.auth import password_validation
 
-from .models import Member
+from crispy_forms.helper import FormHelper
+from crispy_forms.layout import Submit
+from django.forms import widgets
+
+from .models import Contact, Member
 
 
 class CustomUserCreationForm(UserCreationForm):
@@ -23,6 +27,19 @@ class CustomUserCreationForm(UserCreationForm):
         model = User
         fields = ["email", "password1", "password2"]
         labels = {"email": "ইমেইল"}
+
+
+class ContactForm(forms.ModelForm):
+    class Meta:
+        model = Contact
+        fields = ["name", "email", "phone", "subject", "message"]
+        widgets = {
+            "message": forms.Textarea(
+                attrs={
+                    "rows": "5",
+                },
+            ),
+        }
 
 
 MEMBER_TYPES = (

@@ -1,94 +1,55 @@
 {% extends 'base.html' %}
 {% block title %}My Blog {% endblock %}
 {% load static %}
+{% load crispy_forms_tags %}
 
 {% block content %}
 
-    <div class="container-fluid">
-        {% comment %} brudcrumb {% endcomment %}
-        <div class="row breadcrumb p-2">
-            <div class="col-md-8">
-                <h5>যোগাযোগ</h5>
-            </div>
-            <div class="col-md-4">
-                <h6>You are here: <a href="{% url 'home' %}">হোম >></a> যোগাযোগ</h6>
-            </div>
+<div class="container-fluid">
+    <!-- brudcrumb -->
+    <div class="row breadcrumb p-2">
+        <div class="col-md-8">
+            <h5>যোগাযোগ</h5>
         </div>
-
-        {% comment %} main content {% endcomment %}
-        <div class="row">
-            <div class="intro-main col-8">
-                <div class="card border-0 mb-5">
-                    <div class="card-header border-dark">
-                        <h4 class="">আমাদের সাথে যোগাযোগ করুন</h4>
-                    </div>
-                    <div class="card-body">
-                        <form action="" method="post">
-                            <label for="name">Name</label>
-                            <input type="text" class="form-control" id="id_name" name="name">
-
-                            <button type="submit" class="btn bg-navy-blue text-white mt-3">SEND EMAIL</button>
-                        </form>
-                    </div>
-                </div>
-            </div>
-            <div class="intro-right col-4">
-                <div class="card border-0 mb-3">
-                    <div class="card-header border-dark">
-                        <h5>যোগাযোগের তথ্য</h5>
-                    </div>
-                    <div class="card-body">
-                        <p><i class="fas fa-map-marker-alt text-dark"></i> নিপা-নাহিদ সুপার মার্কেট,রুম নং-২ ও ৩ (নিচতলা), মাতারপাড়া রোড, ছোনটিয়া বাজার, জামালপুর।</p>
-                        <span><i class="fas fa-envelope text-dark"></i>  cssljamalpur@gmail.com</span> <br>
-                        <span><i class="fas fa-envelope text-dark"></i>  info@cssljamalpur.com</span> <br>
-                        <span><i class="fas fa-envelope text-dark"></i>  president@cssljamalpur.com</span> <br>
-                        <span><i class="fas fa-envelope text-dark"></i>  secretary@cssljamalpur.com</span> <br>
-                        <span><i class="fas fa-envelope text-dark"></i>  organizingsecretary@cssljamalpur.com</span> <br>
-                        <span><i class="fas fa-phone text-dark"></i>  ০১৭১৬৪৯১৮৭১</span> <br>
-                        <span><i class="fas fa-phone text-dark"></i>  ০১৭১৬৪৯১৮৭০</span> <br>
-                    </div>
-                </div>
-
-                <div class="card border-0 mb-3">
-                    <div class="card-header border-dark">
-                        <h5>মোবাইল ব্যাংকিং তথ্য</h5>
-                    </div>
-                    <div class="card-body">
-                        <p><strong>বিকাশ নাম্বারঃ</strong> ০১৭১৩৫৯১৮৭০, ০১৭১৬৪৯১৮৭১, ০১৭১৩৫৯৪৬৪২, ০১৮৬০১৫৫৪৩৯</p>
-                        <p><strong>রকেট নাম্বারঃ</strong> ০১৭১৬৪৯১৮৭১</p>
-                    </div>
-                </div>
-
-                <div class="social-links d-flex justify-content-center mb-3">
-                    <ul class="list-inline">
-                        <li class="list-inline-item"><a href="#"><i class="fab fa-facebook"></i></a></li>
-                        <li class="list-inline-item"><a href="#"><i class="fab fa-twitter"></i></a></li>
-                        <li class="list-inline-item"><a href="#"><i class="fab fa-youtube"></i></a></li>
-                        <li class="list-inline-item"><a href="#"><i class="fab fa-skype"></i></a></li>
-                    </ul>
-                </div>
-
-                <div class="card border-0 mb-3">
-                    <div class="card-header border-dark">
-                        <h5>ব্যাংকের তথ্য</h5>
-                    </div>
-                    <div class="card-body">
-                    <p>
-                        <span><strong>ব্যাংকের নামঃ</strong> ডাচ-বাংলা ব্যাংক লিমিটেড (দিগপাইত শাখা)</span> <br>
-                        <span><strong>হিসাব নামঃ</strong> চাকরিজীবী সমবায় সমিতি লিমিটেড</span> <br>
-                        <span><strong>হিসাব নাম্বারঃ</strong> ২০০.১৫১.১১৮৪৪৯</span> <br>
-                    </p>
-                    <p>
-                        <span><strong>ব্যাংকের নামঃ</strong> বাংলাদেশ কৃষি ব্যাংক লিমিটেড (ছোনটিয়া বাজার শাখা)</span> <br>
-                        <span><strong>হিসাব নামঃ</strong> চাকরিজীবী সমবায় সমিতি লিমিটেড</span> <br>
-                        <span><strong>হিসাব নাম্বারঃ</strong> ২৪৯৩৬ (সঞ্চয়ী হিসাব)</span> <br>
-                    </p>
-                    </div>
-                </div>
-            </div>
+        <div class="col-md-4">
+            <h6>You are here: <a href="{% url 'home' %}">হোম >></a> যোগাযোগ</h6>
         </div>
-
     </div>
+
+    <h4></h4>
+    <div class="row">
+        <div class="intro-main col-md-8">
+            <h4 class="text-center">যোগাযোগ</h4>
+            <hr>
+
+            <div class="card mt-4">
+                <div class="card-body">
+                    <form action="" method="POST">
+                        {% csrf_token %}
+                        {{ form|crispy  }}
+                        <button id="submitBtn" class="btn bg-navy-blue text-white btn-lg btn-block my-3"
+                            type="submit">SEND EMAIL</button>
+                    </form>
+                </div>
+            </div>
+
+        </div>
+        <div class="intro-right col-md-4">
+            <div class="card">
+                <div class="card-header bg-blue">
+                    <h5>যোগাযোগের তথ্য</h5>
+                </div>
+                <div class="card-body">
+                    <h5><i class="fas fa-map-marker-alt text-info"></i> চান্দলা, ব্রাহ্মণ পাড়া, কুমিল্লা। </h5>
+                    <h5><i class="fas fa-envelope text-info"></i> brihattarchandlaipskp@gmail.com</h5>
+                    <h5><i class="fab fa-whatsapp text-info"></i> +966571804996</h5>
+                    <h5><i class="fas fa-phone text-info"></i> +880 1835102672</h5>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>
 
 
 

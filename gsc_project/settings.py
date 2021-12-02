@@ -153,6 +153,7 @@ STATICFILES_FINDERS = (
 
 # crispy forms
 CRISPY_TEMPLATE_PACK = "bootstrap4"
+CRISPY_FAIL_SILENTLY = False
 
 MESSAGE_STORAGE = "django.contrib.messages.storage.cookie.CookieStorage"
 MESSAGE_TAGS = {
