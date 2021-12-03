@@ -2,12 +2,13 @@ from django import forms
 from django.contrib.auth.models import User
 from django.contrib.auth.forms import UserCreationForm, UsernameField
 from django.contrib.auth import password_validation
+from django.forms.models import inlineformset_factory
 
 from crispy_forms.helper import FormHelper
 from crispy_forms.layout import Submit
 from django.forms import widgets
 
-from .models import Contact, Member
+from .models import Candidate, Contact, Election, Member
 
 
 class CustomUserCreationForm(UserCreationForm):
@@ -113,3 +114,20 @@ class LoginForm(forms.ModelForm):
     class Meta:
         model = User
         fields = ["username", "password"]
+
+
+class ElectionForm(forms.ModelForm):
+    class Meta:
+        model = Election
+        fields = ["name"]
+
+
+class CandidateForm(forms.ModelForm):
+    class Meta:
+        model = Candidate
+        fields = "__all__"
+
+
+CandidateFormFormSet = inlineformset_factory(
+    Election, Candidate, form=CandidateForm, fields=["user"], extra=1, can_delete=True
+)

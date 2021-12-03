@@ -1,0 +1,91 @@
+{% extends 'base.html' %}
+{% block title %}Election {% endblock %}
+{% load static %}
+{% load crispy_forms_tags %}
+
+{% block content %}
+
+<div class="container-fluid">
+    <!-- brudcrumb -->
+    <div class="row breadcrumb p-2">
+        <div class="col-md-8">
+            <h5>নির্বাচন পরিষদ</h5>
+        </div>
+        <div class="col-md-4">
+            <h6>You are here: <a href="{% url 'home' %}">হোম >></a> নির্বাচন পরিষদ</h6>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="intro-main col-md-9">
+            <h4 class="text-center">{{ election.name }}</h4>
+            <hr>
+            <div class="card mt-5">
+                <div class="card-header">
+                    <h5>Candidates</h5>
+                </div>
+                <div class="card-body">
+                    {% if user_cant_vote %}
+                    <div class="alert alert-danger" role="alert">
+                        You already voted this election
+                    </div>
+                    {% endif %}
+
+                    <div class="table-responsive">
+                        {% if candidates.count > 0 %}
+                        <table class="table table-hover">
+                            <thead>
+                                <tr>
+                                    <th>Candidate</th>
+                                    <th>Vote</th>
+                                    <th>Action</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                {% for candidate in candidates %}
+                                <tr>
+                                    <th>{{ candidate }}</th>
+                                    <td>{{ candidate.vote_set.count }}</td>
+                                    <td>
+                                        <form method="POST" action="{% url 'vote' election.pk %}">
+                                            {% csrf_token %}
+                                            <input type="hidden" name="candidate" id="candidate"
+                                                value="{{ candidate.pk }}">
+                                            <button type="submit" class="btn blue-btn btn-sm text-white"
+                                                {% if user_cant_vote %}disabled{% endif %}>
+                                                Vote
+                                            </button>
+                                        </form>
+                                    </td>
+                                </tr>
+                                {% endfor %}
+                            </tbody>
+                        </table>
+                        {% endif %}
+
+                    </div>
+                </div>
+            </div>
+
+        </div>
+        <div class="intro-right col-md-3">
+            <div class="member-login">
+                <!-- login -->
+                {% include "snippets/member_login.html" %}
+            </div>
+            <div class="notice-board">
+                <!-- notice board -->
+                {% include "snippets/notice_board.html" %}
+            </div>
+            <div class="visitor-count">
+                <!-- visitor count -->
+                {% include "snippets/visitor_count.html" %}
+            </div>
+        </div>
+    </div>
+
+</div>
+
+
+
+{% endblock content %}

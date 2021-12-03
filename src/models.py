@@ -180,3 +180,45 @@ class TrainingAssistance(models.Model):
 
     def __str__(self):
         return self.name
+
+
+class Election(models.Model):
+    name = models.CharField(max_length=255)
+    description = models.TextField(default="", blank=True, null=True)
+
+    created_by = models.ForeignKey(
+        User, on_delete=models.SET_NULL, blank=True, null=True
+    )
+    is_active = models.BooleanField(default=True)
+    created_at = models.DateTimeField(auto_now_add=True)
+    updated_at = models.DateTimeField(auto_now=True)
+
+    def __str__(self):
+        return self.name
+
+    def user_can_vote(self, user):
+        """
+        Return False if user already voted
+        """
+        user_votes = user.vote_set.all()
+        qs = user_votes.filter(election=self)
+        if qs.exists():
+            return False
+        return True
+
+
+class Candidate(models.Model):
+    election = models.ForeignKey(Election, on_delete=models.CASCADE)
+    user = models.ForeignKey(User, on_delete=models.CASCADE)
+
+    def __str__(self):
+        return str(self.user)
+
+
+class Vote(models.Model):
+    voter = models.ForeignKey(User, on_delete=models.CASCADE)
+    election = models.ForeignKey(Election, on_delete=models.CASCADE)
+    candidate = models.ForeignKey(Candidate, on_delete=models.CASCADE)
+
+    def __str__(self):
+        return str(self.election)

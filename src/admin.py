@@ -2,7 +2,7 @@ from django.contrib.admin.sites import AlreadyRegistered
 from django.contrib import admin
 from django.apps import apps
 
-from .models import Member, Subscription, Notice, Slide
+from .models import Member, Subscription, Notice, Slide, Election, Candidate
 
 
 @admin.register(Member)
@@ -47,6 +47,19 @@ class NoticeAdmin(admin.ModelAdmin):
 class SlideAdmin(admin.ModelAdmin):
     list_display = ["name", "caption", "photo"]
     list_filter = ["is_active", "created_at"]
+
+
+class CandidateInLine(admin.TabularInline):
+    model = Candidate
+    extra = 1
+
+
+@admin.register(Election)
+class ElectionAdmin(admin.ModelAdmin):
+    fieldsets = [
+        (None, {"fields": ["name", "description"]}),
+    ]
+    inlines = [CandidateInLine]
 
 
 """ 
