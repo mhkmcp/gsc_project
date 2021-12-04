@@ -273,6 +273,13 @@ def treatment(request):
     return render(request, "pages/development/treatment.html", context)
 
 
+# Download
+
+
+def policies(request):
+    return render(request, "pages/downloads/policies.html")
+
+
 # Union
 
 
