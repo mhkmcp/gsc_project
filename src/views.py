@@ -103,6 +103,8 @@ def election_details(request, pk):
         .annotate(count_vote=Count("vote"))
         .order_by("-count_vote")
     )
+
+    user_cant_vote = False
     if not election.user_can_vote(request.user):
         user_cant_vote = True
 
@@ -111,8 +113,6 @@ def election_details(request, pk):
         "candidates": candidates,
         "user_cant_vote": user_cant_vote,
     }
-
-    print("aaaaaaaaaaaaaaaa")
 
     return render(request, "pages/commiittee/election_details.html", context)
 
