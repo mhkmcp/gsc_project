@@ -277,7 +277,9 @@ def treatment(request):
 
 
 def policies(request):
-    return render(request, "pages/downloads/policies.html")
+    content = DownloadPolicy.objects.all()[0]
+    context = {"content": content}
+    return render(request, "pages/downloads/policies.html", context)
 
 
 # Union

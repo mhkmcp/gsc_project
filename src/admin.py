@@ -2,7 +2,15 @@ from django.contrib.admin.sites import AlreadyRegistered
 from django.contrib import admin
 from django.apps import apps
 
-from .models import Member, Subscription, Notice, Slide, Election, Candidate
+from .models import (
+    DownloadPolicy,
+    Member,
+    Subscription,
+    Notice,
+    Slide,
+    Election,
+    Candidate,
+)
 
 
 @admin.register(Member)
@@ -60,6 +68,15 @@ class ElectionAdmin(admin.ModelAdmin):
         (None, {"fields": ["name", "description"]}),
     ]
     inlines = [CandidateInLine]
+
+
+@admin.register(DownloadPolicy)
+class DownloadPolicyAdmin(admin.ModelAdmin):
+    class Media:
+        # css = {
+        #     "all": ()
+        # }
+        js = ("js/admin/policies.js",)
 
 
 """ 

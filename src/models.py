@@ -222,3 +222,10 @@ class Vote(models.Model):
 
     def __str__(self):
         return str(self.election)
+
+
+class DownloadPolicy(models.Model):
+    content = models.TextField(blank=True, null=True, default="")
+
+    def __str__(self):
+        return self.content[:50]
