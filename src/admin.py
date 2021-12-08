@@ -45,7 +45,7 @@ class NoticeAdmin(admin.ModelAdmin):
 
 @admin.register(Slide)
 class SlideAdmin(admin.ModelAdmin):
-    list_display = ["name", "caption", "photo"]
+    list_display = ["title"]
     list_filter = ["is_active", "created_at"]
 
 

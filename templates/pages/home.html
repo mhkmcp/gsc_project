@@ -17,14 +17,14 @@
 			</ol>
 			<div class="carousel-inner">
 
-				<!--					slides -->
+				<!-- slides -->
 				{% for slide in slides %}
 				<div class="carousel-item {% if forloop.counter0 == 0 %} active {% endif %}">
-					<img class="d-block w-100" src="{{slide.photo.url}}" alt="{{slide.name}}" width="100%"
-						height=400px">
+					<img class="d-block w-100" src="{{slide.photo.url}}" alt="{{slide.title}}" width="100%"
+						height="400px">
 					<div class="carousel-caption d-none d-md-block">
-						<h5>{{slide.name.capitalize}}</h5>
-						<p>{{slide.caption}}</p>
+						<h5>{{slide.title.capitalize}}</h5>
+						<p>{{slide.text}}</p>
 					</div>
 				</div>
 				{% endfor %}
@@ -47,9 +47,6 @@
 	<div class=home-body>
 		<div class="home-top mt-3">
 			<h4>সাম্প্রতিক কার্যক্রম</h4>
-			<p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Cum nihil accusantium aspernatur sit
-				adipisci alias possimus. Illum eligendi iure alias, adipisci quod, eaque cumque, exercitationem
-				consectetur dicta assumenda ea itaque.</p>
 		</div>
 		<div class="home-main">
 			<div class="row">
@@ -74,6 +71,7 @@
 					</div>
 
 				</div>
+
 				<div class="home-center col-12 col-sm-12 col-md-6">
 					<h3>আমাদের ওয়েবসাইটে স্বাগতম</h3>
 					<p>আসসালামু আলাইকুম ওয়া রাহমাতুল্লাহি ওয়াবারকাতুহু, </p>
@@ -99,19 +97,24 @@
 						আমীন।।
 					</p>
 
+					<iframe class="w-100 mt-5" height="315" src="https://www.youtube.com/embed/K4TOrB7at0Y"
+						title="YouTube video player" frameborder="0"
+						allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+						allowfullscreen>
+					</iframe>
+
 					<!-- <div class="bank_image text-center">
 						<img class="img-fluid" src="{% static 'img/bank_i.jpeg' %}" alt="Bank Image">
 					</div> -->
 
 				</div>
+
 				<div class="home-right col-12 col-sm-12 col-md-3">
 					<div class="card border-0">
 						<h5 class="card-header bg-blue">সভাপতি</h5>
 						<div class="card-body text-center">
 							<img class="img-fluid" src="{% static 'img/president.jpg' %}" alt="">
-							<h5 class="text-blue mt-2">মোঃ ফজলুল হক</h5>
-							<div>চাকরিজীবী সমবায় সমিতি লিমিটেড <br>
-								অতিরিক্ত সচিব, অর্থ মন্ত্রণালয়</div>
+							<div class="card-footer p-0 pt-2"><strong>চাকরিজীবী সমবায় সমিতি লিমিটেড</strong></div>
 						</div>
 					</div>
 
@@ -123,16 +126,29 @@
 									<li data-target="#advisorCarousel" data-slide-to="0" class="active"></li>
 									<li data-target="#advisorCarousel" data-slide-to="1"></li>
 									<li data-target="#advisorCarousel" data-slide-to="2"></li>
+									<li data-target="#advisorCarousel" data-slide-to="3"></li>
+									<li data-target="#advisorCarousel" data-slide-to="4"></li>
 								</ol>
 								<div class="carousel-inner">
 									<div class="carousel-item active">
-										<img src="{% static 'img/advisor-1.jpg' %}" class="d-block w-100" alt="...">
+										<img src="{% static 'img/default_member.png' %}" class="d-block w-100"
+											alt="...">
 									</div>
 									<div class="carousel-item">
-										<img src="{% static 'img/advisor-2.jpg' %}" class="d-block w-100" alt="...">
+										<img src="{% static 'img/default_member.png' %}" class="d-block w-100"
+											alt="...">
 									</div>
 									<div class="carousel-item">
-										<img src="{% static 'img/advisor-3.jpg' %}" class="d-block w-100" alt="...">
+										<img src="{% static 'img/default_member.png' %}" class="d-block w-100"
+											alt="...">
+									</div>
+									<div class="carousel-item">
+										<img src="{% static 'img/default_member.png' %}" class="d-block w-100"
+											alt="...">
+									</div>
+									<div class="carousel-item">
+										<img src="{% static 'img/default_member.png' %}" class="d-block w-100"
+											alt="...">
 									</div>
 								</div>
 								<a class="carousel-control-prev" href="#advisorCarousel" role="button"

@@ -98,16 +98,16 @@ class Subscription(models.Model):
 
 
 class Slide(models.Model):
-    caption = models.CharField(max_length=255, blank=True, null=True)
     photo = models.FileField(upload_to="slides")
-    name = models.CharField(max_length=255, blank=True, null=True)
+    title = models.CharField(max_length=255, blank=True, null=True)
+    text = models.CharField(max_length=255, blank=True, null=True)
 
     is_active = models.BooleanField(default=True, blank=True, null=True)
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
 
     def __str__(self):
-        return self.name
+        return self.title
 
 
 class Notice(models.Model):

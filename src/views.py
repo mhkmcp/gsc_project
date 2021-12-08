@@ -10,22 +10,35 @@ from .models import *
 
 def index(request):
     if request.method == "POST":
-        username = request.POST.get("username")
-        password = request.POST.get("password")
+        login_form = LoginForm(request.POST or None)
+        if login_form.is_valid():
+            member = get_object_or_404(
+                Member, passport=login_form.cleaned_data.get("passport")
+            )
+            if member:
+                if member.is_approved:
+                    user = authenticate(
+                        request,
+                        username=member.user.username,
+                        password=login_form.cleaned_data.get("password"),
+                    )
+                    if user is not None:
+                        login(request, user)
+                        messages.success(request, "Login Success")
+                    else:
+                        messages.info(request, "Login Failed!")
+                else:
+                    messages.warning(request, "Member is not approved.")
+            else:
+                messages.error(request, "Member not found")
 
-        user = authenticate(request, username=username, password=password)
-
-        if user is not None:
-            login(request, user)
-            messages.success(request, "Login Success")
             return redirect("home")
-
         else:
-            messages.info(request, "Login Failed!")
+            messages.error(request, "Invalid form data")
             return redirect("home")
 
     context = {
-        "login_form": LoginForm,
+        "login_form": LoginForm(),
         "notices": Notice.objects.filter(is_active=True).order_by("-id"),
         "slides": Slide.objects.all(),
     }

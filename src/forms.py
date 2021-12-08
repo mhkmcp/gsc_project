@@ -107,9 +107,10 @@ class QueryForm(forms.Form):
     year = forms.IntegerField(min_value=2000, max_value=3000)
 
 
-class LoginForm(forms.ModelForm):
-    password = forms.PasswordInput()
-
-    class Meta:
-        model = User
-        fields = ["username", "password"]
+class LoginForm(forms.Form):
+    passport = forms.CharField(
+        widget=forms.TextInput(attrs={"placeholder": "পাসপোর্ট"}), label=""
+    )
+    password = forms.CharField(
+        widget=forms.PasswordInput(attrs={"placeholder": "পাসওয়ার্ড"}), label=""
+    )
