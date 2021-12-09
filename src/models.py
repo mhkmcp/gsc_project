@@ -31,24 +31,23 @@ choice = (
 
 
 class Member(models.Model):
-    user = models.OneToOneField(
-        User, on_delete=models.CASCADE, blank=True, related_name="member"
-    )
-    full_name = models.CharField(max_length=255, blank=True, default="")
-    father_name = models.CharField(max_length=255, blank=True, default="")
-    mother_name = models.CharField(max_length=255, blank=True, default="")
-    zilla = models.CharField(max_length=63, blank=True, default="")
-    upazilla = models.CharField(max_length=63, blank=True, default="")
-    country = models.CharField(max_length=127, blank=True, default="")
-    image = models.ImageField(upload_to="member/images", blank=True, null=True)
-    phone = models.CharField(max_length=32, blank=True, default="")
-    whatsapp_number = models.CharField(max_length=32, blank=True, default="")
+    user = models.OneToOneField(User, on_delete=models.CASCADE, related_name="member")
+    full_name = models.CharField(max_length=255)
+    father_name = models.CharField(max_length=255)
+    mother_name = models.CharField(max_length=255)
+    zilla = models.CharField(max_length=63)
+    upazilla = models.CharField(max_length=63)
+    country = models.CharField(max_length=127)
+    image = models.ImageField(upload_to="member/images")
+    phone = models.CharField(max_length=32)
+    passport = models.CharField(max_length=63)
+    date_of_birth = models.DateField()
+    image = models.ImageField(upload_to="img/members")
+    member_type = models.CharField(choices=choice, max_length=24)
+
     fb_link = models.URLField(blank=True, default="")
-    passport = models.CharField(max_length=63, blank=True, default="")
-    date_of_birth = models.DateField(blank=True, null=True)
-    # email = models.EmailField(blank=True, default="")
-    image = models.ImageField(upload_to="img/members", blank=True, null=True)
-    member_type = models.CharField(choices=choice, max_length=24, default="")
+    whatsapp_number = models.CharField(max_length=32, blank=True, default="")
+
     is_agreed = models.BooleanField(default=False)
     is_approved = models.BooleanField(default=False)
 

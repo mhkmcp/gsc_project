@@ -11,11 +11,12 @@
                 <!-- lifetime members -->
                 <div class="col-12">
                     <h4 class="text-center mb-4">প্রতিষ্ঠাতা সদস্যের তালিকা</h4>
-                    <div class="table-responsive">
+                    {% include "snippets/member_list.html"  with members=founding_members %}
+
+                    <!-- <div class="table-responsive">
                         <table class="table table-bordered">
                             <thead class="bg-blue">
                                 <tr>
-                                    <!-- <th>ক্রমিক</th> -->
                                     <th>ছবি</th>
                                     <th>নাম</th>
                                     <th>জেলা</th>
@@ -46,16 +47,16 @@
                                 {% endfor %}
                             </tbody>
                         </table>
-                    </div>
+                    </div> -->
                 </div>
                 <!-- lifetime members -->
                 <div class="col-12 mt-5">
                     <h4 class="text-center mb-4">আজীবন সদস্যের তালিকা</h4>
-                    <div class="table-responsive">
+                    {% include "snippets/member_list.html"  with members=lifetime_members %}
+                    <!-- <div class="table-responsive">
                         <table class="table table-bordered">
                             <thead class="bg-blue">
                                 <tr>
-                                    <!-- <th>ক্রমিক</th> -->
                                     <th>ছবি</th>
                                     <th>নাম</th>
                                     <th>জেলা</th>
@@ -86,16 +87,16 @@
                                 {% endfor %}
                             </tbody>
                         </table>
-                    </div>
+                    </div> -->
                 </div>
                 <!-- general members -->
                 <div class="col-12 mt-5">
                     <h4 class="text-center mb-4">সাধারন সদস্যের তালিকা</h4>
-                    <div class="table-responsive">
+                    {% include "snippets/member_list.html"  with members=general_members %}
+                    <!-- <div class="table-responsive">
                         <table class="table table-bordered">
                             <thead class="bg-blue">
                                 <tr>
-                                    <!-- <th>ক্রমিক</th> -->
                                     <th>ছবি</th>
                                     <th>নাম</th>
                                     <th>জেলা</th>
@@ -126,7 +127,7 @@
                                 {% endfor %}
                             </tbody>
                         </table>
-                    </div>
+                    </div> -->
                 </div>
             </div>
         </div>

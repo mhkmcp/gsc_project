@@ -11,11 +11,12 @@ from .models import Contact, Member
 
 
 class CustomUserCreationForm(UserCreationForm):
+    email = forms.EmailField(required=False, label="ইমেইল (Optional)")
     password1 = forms.CharField(
         label="পাসওয়ার্ড",
         strip=False,
         widget=forms.PasswordInput,
-        # help_text=password_validation.password_validators_help_text_html(),
+        help_text=password_validation.password_validators_help_text_html(),
     )
     password2 = forms.CharField(
         label="পাসওয়ার্ড নিশ্চিত",
@@ -70,7 +71,7 @@ class MemberForm(forms.ModelForm):
             "upazilla": "উপজেলা",
             "country": "দেশ",
             "image": "ছবি",
-            "is_agreed": "অঙ্গীকারনামায় টিক মার্ক  ",
+            "is_agreed": "",
         }
 
         widgets = {

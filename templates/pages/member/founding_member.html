@@ -21,42 +21,7 @@
                 <!-- founding members -->
                 <div class="col-12">
                     <h4 class="text-center mb-4">প্রতিষ্ঠাতা সদস্যের তালিকা</h4>
-                    <div class="table-responsive">
-                        <table class="table table-bordered">
-                            <thead class="bg-blue">
-                                <tr>
-                                    <!-- <th>ক্রমিক</th> -->
-                                    <th>ছবি</th>
-                                    <th>নাম</th>
-                                    <th>জেলা</th>
-                                    <th>দেশ</th>
-                                    <th>মোবাইল নম্বর</th>
-                                    <th>এ্যাকশন</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                {% for member in members %}
-                                <tr>
-                                    <td>
-                                        <img class="img-thumbnail member-list-imge"
-                                            src="{% if member.image %} {{member.image.url}} {%else%} {% static 'img/default_member.png' %} {% endif %}"
-                                            alt="{{member.name}}">
-                                    </td>
-                                    <td>{{ member.full_name }}</td>
-                                    <td>{{ member.zilla }}</td>
-                                    <td>{{ member.country }}</td>
-                                    <td>{{ member.phone }}</td>
-                                    <td>
-                                        <a class="btn btn-info btn-sm text-white"
-                                            href="{% url 'member_detail' member.pk %}">
-                                            <i class="fa fa-eye"></i>
-                                        </a>
-                                    </td>
-                                </tr>
-                                {% endfor %}
-                            </tbody>
-                        </table>
-                    </div>
+                    {% include "snippets/member_list.html"  with members=members %}
                 </div>
             </div>
         </div>
