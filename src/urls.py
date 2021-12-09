@@ -13,6 +13,9 @@ urlpatterns = [
     path("management", management, name="management"),
     path("general", general, name="general"),
     path("election", election, name="election"),
+    path("election/<int:pk>", election_details, name="election_details"),
+    path("vote/<int:election_id>", vote, name="vote"),
+    # member
     path("requirements", requirements, name="requirements"),
     path("how-to-be-member", how_to_be_member, name="how_to_be_member"),
     path("admission-form", admission_form, name="admission_form"),
@@ -23,6 +26,9 @@ urlpatterns = [
     path("honorary-member", founding_member, name="founding_member"),
     path("member-info", member_info, name="member_info"),
     path("member-share", member_share, name="member_share"),
+    #  downloads
+    path("policies", policies, name="policies"),
+    #
     path("collection-info", collection_info, name="collection_info"),
     path("audit-report", audit_report, name="audit_report"),
     path("blood-group-dob", blood_group_dob, name="blood_group_dob"),

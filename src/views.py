@@ -1,9 +1,20 @@
+from django.contrib.auth.decorators import login_required
+from django.http.response import Http404, HttpResponseRedirect
 from django.shortcuts import get_object_or_404, redirect, render
 from django.contrib.auth.models import User
 from django.contrib.auth import login, logout, authenticate
 from django.contrib import messages
+from django.urls import reverse
+from django.db.models import Count
 
-from .forms import ContactForm, MemberForm, CustomUserCreationForm, LoginForm
+from .forms import (
+    CandidateFormFormSet,
+    ContactForm,
+    ElectionForm,
+    MemberForm,
+    CustomUserCreationForm,
+    LoginForm,
+)
 from django.contrib import messages
 from .models import *
 
@@ -92,7 +103,52 @@ def general(request):
 
 
 def election(request):
-    return render(request, "pages/commiittee/election.html")
+    elections = Election.objects.filter(is_active=True).order_by("-created_at")
+    context = {"elections": elections}
+    return render(request, "pages/commiittee/election.html", context)
+
+
+@login_required(login_url="election")
+def election_details(request, pk):
+    election = get_object_or_404(Election, pk=pk)
+    candidates = (
+        election.candidate_set.all()
+        .annotate(count_vote=Count("vote"))
+        .order_by("-count_vote")
+    )
+
+    user_cant_vote = False
+    if not election.user_can_vote(request.user):
+        user_cant_vote = True
+
+    context = {
+        "election": election,
+        "candidates": candidates,
+        "user_cant_vote": user_cant_vote,
+    }
+
+    return render(request, "pages/commiittee/election_details.html", context)
+
+
+@login_required
+def vote(request, election_id):
+    election = get_object_or_404(Election, pk=election_id)
+    selected_candidate = election.candidate_set.get(pk=request.POST.get("candidate"))
+
+    if not election.user_can_vote(request.user):
+        messages.error(request, "You already voted this election")
+    else:
+        if selected_candidate:
+            new_vote = Vote(
+                voter=request.user, election=election, candidate=selected_candidate
+            )
+            new_vote.save()
+            messages.success(request, "Voted successfully.")
+        else:
+            messages.error(request, "You didn't vote.")
+            return redirect(reverse("election_details", args=(election.pk,)))
+
+    return HttpResponseRedirect(reverse("election_details", args=(election.pk,)))
 
 
 # member
@@ -228,6 +284,15 @@ def treatment(request):
     treatments = MedicalAssistance.objects.filter(is_active=True)
     context = {"treatments": treatments}
     return render(request, "pages/development/treatment.html", context)
+
+
+# Download
+
+
+def policies(request):
+    content = DownloadPolicy.objects.all()[0]
+    context = {"content": content}
+    return render(request, "pages/downloads/policies.html", context)
 
 
 # Union
