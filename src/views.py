@@ -290,7 +290,7 @@ def treatment(request):
 
 
 def policies(request):
-    content = DownloadPolicy.objects.all()[0]
+    content = DownloadPolicy.objects.all().first()
     context = {"content": content}
     return render(request, "pages/downloads/policies.html", context)
 

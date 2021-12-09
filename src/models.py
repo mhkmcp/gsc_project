@@ -226,5 +226,8 @@ class Vote(models.Model):
 class DownloadPolicy(models.Model):
     content = models.TextField(blank=True, null=True, default="")
 
+    class Meta:
+        verbose_name_plural = "Download Policies"
+
     def __str__(self):
         return self.content[:50]
