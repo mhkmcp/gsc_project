@@ -18,11 +18,11 @@
 
     <div class="row">
         <div class="intro-main col-md-9">
-            <h4 class="text-center">Start a new election</h4>
+            <h4 class="text-center">নির্বাচন পরিষদ</h4>
             <hr>
             <div class="card mt-5">
                 <div class="card-body">
-                    {% if elections.count > 0 %}
+                    {% if elections %}
                     <h5>Running Elections</h5>
                     <ul class="list-group-flush"></ul>
                     {% for election in elections %}
@@ -31,6 +31,8 @@
                         <a class="btn blue-btn" href="{% url 'election_details' election.pk %}">Vote Now</a>
                     </li>
                     {% endfor %}
+                    {% else %}
+                    <h4 class="text-danger">Please log in as a member of election commision.</h4>
                     {% endif %}
                 </div>
             </div>

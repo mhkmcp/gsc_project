@@ -1,7 +1,7 @@
 from django.contrib.auth.decorators import login_required
 from django.http.response import Http404, HttpResponseRedirect
 from django.shortcuts import get_object_or_404, redirect, render
-from django.contrib.auth.models import User
+from django.contrib.auth.models import User, Group
 from django.contrib.auth import login, logout, authenticate
 from django.contrib import messages
 from django.urls import reverse
@@ -50,7 +50,6 @@ def index(request):
 
     context = {
         "login_form": LoginForm(),
-        "notices": Notice.objects.filter(is_active=True).order_by("-id"),
         "slides": Slide.objects.all(),
     }
     return render(request, "pages/home.html", context)
@@ -65,17 +64,17 @@ def logout_user(request):
 
 
 def introduction(request):
-    context = {"notices": Notice.objects.filter(is_active=True).order_by("-id")}
+    context = {}
     return render(request, "pages/about-us/introduction.html", context)
 
 
 def purpose(request):
-    context = {"notices": Notice.objects.filter(is_active=True).order_by("-id")}
+    context = {}
     return render(request, "pages/about-us/purpose.html", context)
 
 
 def president_speech(request):
-    context = {"notices": Notice.objects.filter(is_active=True).order_by("-id")}
+    context = {}
     return render(request, "pages/about-us/president_speech.html", context)
 
 
@@ -103,7 +102,13 @@ def general(request):
 
 
 def election(request):
-    elections = Election.objects.filter(is_active=True).order_by("-created_at")
+    member_of_commision = request.user.groups.filter(
+        name="Election Commission"
+    ).exists()
+    if member_of_commision:
+        elections = Election.objects.filter(is_active=True).order_by("-created_at")
+    else:
+        elections = None
     context = {"elections": elections}
     return render(request, "pages/commiittee/election.html", context)
 

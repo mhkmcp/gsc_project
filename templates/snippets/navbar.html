@@ -103,7 +103,8 @@
 				</ul>
 			</li>
 			<li><a href="{% url 'contact' %}">যোগাযোগ</a></li>
-			{% if request.user %}
+
+			<!-- {% if request.user %}
 			{% if request.user.groups.all %}
 			<li><a href="{% url 'staff-index' %}">এডমিন</a>
 				<ul class="wsmenu-submenu">
@@ -117,6 +118,16 @@
 
 			{% else %}
 			<li><a href="{% url 'login' %}">সদস্য লগইন</a></li>
+			{% endif %} -->
+
+			{% if not request.user.is_authenticated %}
+			<li><a href="">সদস্য লগইন</a></li>
+			{% else %}
+			<li><a href="#">{{ request.user.username }}</a>
+				<ul>
+					<li><a href="{% url 'logout' %}">লগআউট</a></li>
+				</ul>
+			</li>
 			{% endif %}
 		</ul>
 	</div>
