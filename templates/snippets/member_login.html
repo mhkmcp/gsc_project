@@ -13,14 +13,17 @@
     <form class='' action="{% url 'home' %}" method="post">
       {% csrf_token %}
 
-      {{ login_form|crispy }}
+      <!-- {{ login_form|crispy }} -->
 
-      <!-- <div class="mb-2">
-        <input type="text" placeholder="ব্যবহারকারীর নাম" class="form-control" name="username" id="is_username">
+      <div id="div_id_passport" class="form-group">
+        <input type="text" name="passport" placeholder="পাসপোর্ট" class="textinput textInput form-control" required=""
+          id="id_passport">
       </div>
-      <div class="mb-2">
-        <input type="password" placeholder="পাসওয়ার্ড" class="form-control" name="password" id="is_password">
-      </div> -->
+      <div id="div_id_password" class="form-group">
+        <input type="password" name="password" placeholder="পাসওয়ার্ড" class="textinput textInput form-control"
+          required="" id="id_password">
+      </div>
+
       <button type="submit" class="btn blue-btn btn-block mt-3">লগইন <i class="fas fa-sign-in-alt"></i></button>
     </form>
     {% endif %}
