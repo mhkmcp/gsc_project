@@ -1,0 +1,58 @@
+:root {
+    --mainColor: #23364B;
+    --darkBlue: #17283d;
+}
+
+a {
+    color: var(--mainColor);
+}
+
+a:hover {
+    color: var(--mainColor);
+}
+
+/* utils */
+.bg-blue {
+    color: #fff;
+    background-color: var(--mainColor);
+}
+
+.bg-dark-blue {
+    color: #fff;
+    background-color: var(--darkBlue);
+}
+
+.text-blue {
+    color: var(--mainColor);
+}
+
+.blue-btn {
+    color: #fff;
+    background-color: var(--mainColor);
+}
+
+.blue-btn:hover {
+    color: #fff;
+    text-decoration: none;
+}
+
+/* .bg-navy-blue {
+    background-color: #23364B;
+} */
+
+ul {
+    list-style: none;
+    margin: 0 !important;
+    padding: 0 !important;
+}
+
+.social-links ul li a {
+    color: #23364B;
+    font-size: 25px;
+    padding: 5px;
+}
+
+/* member */
+.member-list-imge {
+    width: 50px;
+}
