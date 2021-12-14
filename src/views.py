@@ -179,7 +179,7 @@ def admission_form(request):
             # create new User
             user = user_creation_form.save(commit=False)
             passport = member_form.cleaned_data.get("passport")
-            # username = passport[:6]
+            username = passport
             user.username = username
             user.is_active = False
             user.save()
