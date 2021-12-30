@@ -102,14 +102,19 @@ def general(request):
 
 
 def election(request):
+    elections = Election.objects.filter(is_active=True).order_by("-created_at")
+    election_member = False
+
     member_of_commision = request.user.groups.filter(
         name="Election Commission"
     ).exists()
     if member_of_commision:
-        elections = Election.objects.filter(is_active=True).order_by("-created_at")
-    else:
-        elections = None
-    context = {"elections": elections}
+        election_member = True
+
+    context = {
+        "elections": elections,
+        "election_member": election_member,
+    }
     return render(request, "pages/commiittee/election.html", context)
 
 

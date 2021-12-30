@@ -23,16 +23,16 @@
             <div class="card mt-5">
                 <div class="card-body">
                     {% if elections %}
-                    <h5>Running Elections</h5>
-                    <ul class="list-group-flush"></ul>
-                    {% for election in elections %}
-                    <li class="list-group-item">
-                        <h4>{{ election.name }}</h4>
-                        <a class="btn blue-btn" href="{% url 'election_details' election.pk %}">Vote Now</a>
-                    </li>
-                    {% endfor %}
+                        <h5>Running Elections</h5>
+                        <ul class="list-group-flush"></ul>
+                        {% for election in elections %}
+                        <li class="list-group-item">
+                            <h4>{{ election.name }}</h4>
+                            <a class="btn blue-btn" href="{% url 'election_details' election.pk %}">Vote Now</a>
+                        </li>
+                        {% endfor %}
                     {% else %}
-                    <h4 class="text-danger">Please log in as a member of election commision.</h4>
+                        <h4 class="text-danger">No election.</h4>
                     {% endif %}
                 </div>
             </div>
