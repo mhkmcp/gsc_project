@@ -37,6 +37,7 @@ INSTALLED_APPS = [
     "django.contrib.staticfiles",
     # third party
     "crispy_forms",
+    "django_htmx",
     # local
     "src",
     "staff",
@@ -51,6 +52,7 @@ MIDDLEWARE = [
     "django.contrib.auth.middleware.AuthenticationMiddleware",
     "django.contrib.messages.middleware.MessageMiddleware",
     "django.middleware.clickjacking.XFrameOptionsMiddleware",
+    "django_htmx.middleware.HtmxMiddleware",  # HTMX
 ]
 
 ROOT_URLCONF = "gsc_project.urls"

@@ -102,14 +102,44 @@ def general(request):
 
 
 def election(request):
+    elections = Election.objects.filter(is_active=True).order_by("-created_at")
+    election_member = False
     member_of_commision = request.user.groups.filter(
         name="Election Commission"
     ).exists()
     if member_of_commision:
-        elections = Election.objects.filter(is_active=True).order_by("-created_at")
-    else:
-        elections = None
-    context = {"elections": elections}
+        election_member = True
+    form = ElectionForm()
+    formset = CandidateFormFormSet()
+
+    if request.method == "POST":
+        # print(request.POST)
+        form = ElectionForm(request.POST or None)
+        formset = CandidateFormFormSet(request.POST or None)
+
+        if form.is_valid() and formset.is_valid():
+            election_instance = form.save(commit=False)
+            # election_instance.save()
+
+            formset = formset.save(commit=False)
+
+            # import pdb
+
+            # pdb.set_trace()
+
+            for candidate in formset:
+                candidate.election = election_instance
+                print("candidate ==>", candidate)
+                # candidate.save()
+
+            messages.success(request, "Election saved successfully.")
+
+    context = {
+        "elections": elections,
+        "election_member": election_member,
+        "formset": formset,
+        "form": form,
+    }
     return render(request, "pages/commiittee/election.html", context)
 
 

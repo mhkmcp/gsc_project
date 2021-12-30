@@ -129,7 +129,9 @@ class CandidateForm(forms.ModelForm):
         model = Candidate
         fields = "__all__"
 
+        labels = {"user": "Candidate"}
+
 
 CandidateFormFormSet = inlineformset_factory(
-    Election, Candidate, form=CandidateForm, fields=["user"], extra=1, can_delete=True
+    Election, Candidate, form=CandidateForm, fields=["user"], extra=0, can_delete=True
 )
