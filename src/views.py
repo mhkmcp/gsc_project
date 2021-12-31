@@ -6,6 +6,7 @@ from django.contrib.auth import login, logout, authenticate
 from django.contrib import messages
 from django.urls import reverse
 from django.db.models import Count
+from django.urls.base import reverse_lazy
 
 from .forms import (
     CandidateFormFormSet,
@@ -112,34 +113,28 @@ def election(request):
     form = ElectionForm()
     formset = CandidateFormFormSet()
 
-    if request.method == "POST":
-        # print(request.POST)
-        form = ElectionForm(request.POST or None)
-        formset = CandidateFormFormSet(request.POST or None)
-
-        if form.is_valid() and formset.is_valid():
-            election_instance = form.save(commit=False)
-            # election_instance.save()
-
-            formset = formset.save(commit=False)
-
-            # import pdb
-
-            # pdb.set_trace()
-
-            for candidate in formset:
-                candidate.election = election_instance
-                print("candidate ==>", candidate)
-                # candidate.save()
-
-            messages.success(request, "Election saved successfully.")
-
     context = {
         "elections": elections,
         "election_member": election_member,
         "formset": formset,
         "form": form,
     }
+
+    if request.method == "POST":
+        form = ElectionForm(request.POST or None)
+        formset = CandidateFormFormSet(request.POST or None)
+        if all([form.is_valid(), formset.is_valid()]):
+            election_instance = form.save(commit=False)
+            election_instance.save()
+            for form in formset:
+                candidate = form.save(commit=False)
+                candidate.election = election_instance
+                print("candidate ==>", candidate)
+                candidate.save()
+            messages.success(request, "Election saved successfully.")
+        else:
+            messages.error(request, form.errors and formset.errors)
+
     return render(request, "pages/commiittee/election.html", context)
 
 

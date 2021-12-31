@@ -29,6 +29,8 @@
                             {% csrf_token %}
 
                             {{ form|crispy }}
+                            {% comment %} {{ formset|crispy }} {% endcomment %}
+
                             <div id="candidateFormset">
                                 {% if formset %}
                                     {% for form in formset %}
@@ -46,7 +48,8 @@
                                 </div>
                             </div>
 
-                            <button id="addCandidateBtn" class="btn btn-sm btn-outline-secondary" type="button">Add Candidate</button>
+                            <button id="addCandidateBtn" class="btn btn-sm btn-secondary" type="button">Add Candidate</button>
+                            <button id="removeCandidateBtn" class="btn btn-outline-secondary btn-sm" type="button"><i class="fa fa-minus"></i></button>
                             <div class="d-flex justify-content-end">
                                 <button class="btn blue-btn" type="submit">Start Election</button>
                             </div>
@@ -86,8 +89,5 @@
 
 </div>
 
-<script>
-    var totalFormSetCount = '{{ formset.total_form_count }}'
-</script>
 <script src="{% static 'js/election.js' %}"></script>
 {% endblock content %}

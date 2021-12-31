@@ -133,5 +133,5 @@ class CandidateForm(forms.ModelForm):
 
 
 CandidateFormFormSet = inlineformset_factory(
-    Election, Candidate, form=CandidateForm, fields=["user"], extra=0, can_delete=True
+    Election, Candidate, form=CandidateForm, fields=["user"], extra=0, can_delete=False
 )
