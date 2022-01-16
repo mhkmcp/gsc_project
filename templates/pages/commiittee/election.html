@@ -22,17 +22,23 @@
             <hr>
             <div class="card mt-5">
                 <div class="card-body">
+                    {% if not request.user.is_authenticated %}
+                    <div class="alert alert-danger" role="alert">
+                        Please login to vote.
+                    </div>
+                    {% endif %}
+
                     {% if elections %}
-                        <h5>Running Elections</h5>
-                        <ul class="list-group-flush"></ul>
-                        {% for election in elections %}
-                        <li class="list-group-item">
-                            <h4>{{ election.name }}</h4>
-                            <a class="btn blue-btn" href="{% url 'election_details' election.pk %}">Vote Now</a>
-                        </li>
-                        {% endfor %}
+                    <h5>Running Elections</h5>
+                    <ul class="list-group list-group-flush mt-4"></ul>
+                    {% for election in elections %}
+                    <li class="list-group-item">
+                        <h4>{{ election.name }}</h4>
+                        <a class="btn blue-btn" href="{% url 'election_details' election.pk %}">Vote Now</a>
+                    </li>
+                    {% endfor %}
                     {% else %}
-                        <h4 class="text-danger">No election.</h4>
+                    <h4 class="text-danger">No election.</h4>
                     {% endif %}
                 </div>
             </div>
