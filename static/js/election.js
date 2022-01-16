@@ -4,6 +4,9 @@ const candidateFormset = document.getElementById("candidateFormset");
 const totalNewForms = document.getElementById("id_candidate_set-TOTAL_FORMS");
 const emptyForm = document.getElementById("emptyForm");
 
+console.log("emptyForm", emptyForm);
+console.log("totalNewForms", totalNewForms);
+
 // add new field
 addCandidateBtn.addEventListener("click", () => {
 	const currentCandidateForm =
@@ -35,4 +38,5 @@ removeCandidateBtn.addEventListener("click", () => {
 	document
 		.querySelectorAll(".candidate-form:last-child")
 		.forEach((e) => e.remove());
+	totalNewForms.setAttribute("value", currentCandidateFormCount + 1);
 });

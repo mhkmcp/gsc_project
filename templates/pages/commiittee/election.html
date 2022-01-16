@@ -24,7 +24,7 @@
                 <div class="card-body">
                     <div class="mb-5">
                         <h5>Start New Election</h5>
-                        <form action="{% url 'election' %}" method="POST">
+                        <form action="" method="POST">
                             {{ formset.management_form }}
                             {% csrf_token %}
 
@@ -33,11 +33,11 @@
 
                             <div id="candidateFormset">
                                 {% if formset %}
-                                    {% for form in formset %}
-                                        <div class="candidate-form">
-                                            {{ form|crispy }}
-                                        </div>
-                                    {% endfor %}
+                                {% for form in formset %}
+                                <div class="candidate-form">
+                                    {{ form|crispy }}
+                                </div>
+                                {% endfor %}
                                 {% endif %}
                             </div>
 
@@ -48,24 +48,26 @@
                                 </div>
                             </div>
 
-                            <button id="addCandidateBtn" class="btn btn-sm btn-secondary" type="button">Add Candidate</button>
-                            <button id="removeCandidateBtn" class="btn btn-outline-secondary btn-sm" type="button"><i class="fa fa-minus"></i></button>
+                            <button id="addCandidateBtn" class="btn btn-sm btn-secondary" type="button">Add
+                                Candidate</button>
+                            <button id="removeCandidateBtn" class="btn btn-outline-secondary btn-sm" type="button"><i
+                                    class="fa fa-minus"></i></button>
                             <div class="d-flex justify-content-end">
                                 <button class="btn blue-btn" type="submit">Start Election</button>
                             </div>
                         </form>
                     </div>
                     {% if elections %}
-                        <h5>Running Elections</h5>
-                        <ul class="list-group-flush"></ul>
-                        {% for election in elections %}
-                        <li class="list-group-item">
-                            <h4>{{ election.name }}</h4>
-                            <a class="btn blue-btn" href="{% url 'election_details' election.pk %}">Vote Now</a>
-                        </li>
-                        {% endfor %}
+                    <h5>Running Elections</h5>
+                    <ul class="list-group-flush"></ul>
+                    {% for election in elections %}
+                    <li class="list-group-item">
+                        <h4>{{ election.name }}</h4>
+                        <a class="btn blue-btn" href="{% url 'election_details' election.pk %}">Vote Now</a>
+                    </li>
+                    {% endfor %}
                     {% else %}
-                        <h4 class="text-danger">No elections.</h4>
+                    <h4 class="text-danger">No elections.</h4>
                     {% endif %}
                 </div>
             </div>
