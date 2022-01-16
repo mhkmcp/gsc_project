@@ -1,6 +1,10 @@
 from django.contrib.admin.sites import AlreadyRegistered
+from django.contrib.auth.models import Group, User
+from django.contrib.auth.admin import UserAdmin
 from django.contrib import admin
 from django.apps import apps
+
+from .forms import GroupAdminForm
 
 from .models import (
     DownloadPolicy,
@@ -11,6 +15,45 @@ from .models import (
     Election,
     Candidate,
 )
+
+# unregister default Group model
+admin.site.unregister(Group)
+
+# unregister default User model
+admin.site.unregister(User)
+
+
+@admin.register(Group)
+class GroupAdmin(admin.ModelAdmin):
+    form = GroupAdminForm
+    filter_horizontal = ["permissions"]
+
+
+@admin.register(User)
+class GroupAdmin(admin.ModelAdmin):
+    list_display = [
+        "username",
+        "email",
+        "member_passport",
+        "is_active",
+        "is_staff",
+    ]
+    list_display_links = [
+        "username",
+        "email",
+        "member_passport",
+    ]
+    search_fields = ["username", "email"]
+    list_filter = [
+        "is_active",
+        "is_staff",
+    ]
+    date_hierarchy = "date_joined"
+
+    def member_passport(self, x):
+        return x.member.passport
+
+    member_passport.short_description = "Passport"
 
 
 @admin.register(Member)
@@ -73,9 +116,6 @@ class ElectionAdmin(admin.ModelAdmin):
 @admin.register(DownloadPolicy)
 class DownloadPolicyAdmin(admin.ModelAdmin):
     class Media:
-        # css = {
-        #     "all": ()
-        # }
         js = ("js/admin/policies.js",)
 
 
