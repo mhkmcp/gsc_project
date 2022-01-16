@@ -38,7 +38,7 @@ INSTALLED_APPS = [
     # third party
     "crispy_forms",
     # local
-    "src",
+    "src.apps.SrcConfig",
     "staff",
 ]
 

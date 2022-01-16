@@ -30,13 +30,6 @@ choice = (
 )
 
 
-class Commission(models.Model):
-    name = models.CharField(max_length=100)
-
-    def __str__(self):
-        return self.name
-
-
 class Member(models.Model):
     user = models.OneToOneField(User, on_delete=models.CASCADE, related_name="member")
     full_name = models.CharField(max_length=255)
@@ -51,11 +44,6 @@ class Member(models.Model):
     date_of_birth = models.DateField()
     image = models.ImageField(upload_to="img/members")
     member_type = models.CharField(choices=choice, max_length=24)
-
-    election_commission_member = models.ForeignKey(
-        Commission, on_delete=models.SET_NULL, blank=True, null=True
-    )
-
     fb_link = models.URLField(blank=True, default="")
     whatsapp_number = models.CharField(max_length=32, blank=True, default="")
 
