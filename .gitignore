@@ -8,3 +8,4 @@ venv/
 .cpython
 .vscode/
 .env
+db.sqlite3
