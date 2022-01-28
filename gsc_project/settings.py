@@ -97,6 +97,9 @@ else:
             "HOST": env("DB_HOST"),  # Or an IP Address that your DB is hosted on
             "PORT": "",
             # "OPTION": {"init_command": "SET sql_mode='STRICT_TRANS_TABLE',"},
+            "OPTIONS": {
+                "sql_mode": "traditional",
+            },
         }
     }
 
