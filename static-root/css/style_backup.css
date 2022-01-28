@@ -52,14 +52,14 @@ body {
     margin: 0 auto;
     padding-left: 0px;
     margin-top: -15px;
-    width: 100vw;
+    /* width: 100vw; */
     background: #23364B;
     z-index: 100000 !important;
 }
 
 .header ul {
     display: flex;
-    justify-content: space-between;
+    justify-content: center;
     margin: 0 20px;
     z-index: 100000 !important;
 }
@@ -67,7 +67,7 @@ body {
 .header ul li {
     list-style: none;
     position: relative;
-    padding: 10px 0px;
+    padding: 7px 0px;
     box-sizing: border-box;
     border-right: 1px solid rgba(255, 255, 255, 0.2);
     transition: 0.3s;
@@ -280,11 +280,11 @@ nav ul li ul li ul li {
     margin: 0px 30px;
 }
 
-.home-main .home-left {
-    /* border: 2px solid black; */
+/* .home-main .home-left {
+    border: 2px solid black;
     padding: 0;
     margin: 0;
-}
+} */
 
 .home-main h5 {
     background: #23364B;
