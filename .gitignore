@@ -7,3 +7,5 @@ venv/
 .pyc
 .cpython
 .vscode/
+.env
+.env.dev
