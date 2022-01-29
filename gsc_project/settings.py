@@ -40,6 +40,7 @@ INSTALLED_APPS = [
     "django.contrib.staticfiles",
     # third party
     "crispy_forms",
+    "admin_honeypot",
     # local
     "src.apps.SrcConfig",
     "staff",
