@@ -11,7 +11,7 @@ urlpatterns = [
     path("", include("src.urls")),
     path("staff/", include("staff.urls")),
     # path("admin/", admin.site.urls),
-    # honetpot
+    # honeypot
     path("admin/", include("admin_honeypot.urls", namespace="admin_honeypot")),
     path("controllroom/", admin.site.urls),
     # staticfiles & media files
