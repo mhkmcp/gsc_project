@@ -70,7 +70,7 @@ class MemberForm(forms.ModelForm):
             "upazilla": "উপজেলা",
             "country": "দেশ",
             "image": "ছবি",
-            "is_agreed": "",
+            "is_agreed": "অঙ্গীকারনামা",
         }
 
         widgets = {
