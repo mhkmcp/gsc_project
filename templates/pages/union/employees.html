@@ -8,21 +8,20 @@
     {% comment %} brudcrumb {% endcomment %}
     <div class="row breadcrumb p-2">
         <div class="col-md-8">
-            <h5>দিগপাইত ইউনিয়নের চাকরিজীবীদের নাম, কর্মস্থল ও যোগাযোগের তথ্যাদি</h5>
+            <h5>মসজিদ তালিকা</h5>
         </div>
         <div class="col-md-4">
-            <h6>You are here: <a href="{% url 'home' %}">হোম >></a> দিগপাইত ইউনিয়নের চাকরিজীবীদের নাম, কর্মস্থল ও
-                যোগাযোগের তথ্যাদি</h6>
+            <h6>You are here: <a href="{% url 'home' %}">হোম >></a> মসজিদ তালিকা</h6>
         </div>
     </div>
 
     {% comment %} main content {% endcomment %}
     <div class="row">
         <div class="intro-main col-9">
-            <input type="text" placeholder="Search here..." class="form-control mb-4">
+            <!-- <input type="text" placeholder="Search here..." class="form-control mb-4"> -->
             <div class="card mb-5">
                 <div class="card-body">
-                    <table class="table table-striped table-bordered">
+                    <!-- <table class="table table-striped table-bordered">
                         <thead class="bg-navy-blue text-white">
                             <tr>
                                 <th>ক্রমিক নং</th>
@@ -45,12 +44,11 @@
                                 <td>01713591870</td>
                             </tr>
                         </tbody>
-                    </table>
+                    </table> -->
                 </div>
             </div>
         </div>
         <div class="intro-right col-3">
-            <h6>Bruchurms</h6>
             <div class="member-login">
                 <!-- login -->
                 {% include "snippets/member_login.html" %}

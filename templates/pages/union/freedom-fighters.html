@@ -4,84 +4,91 @@
 
 {% block content %}
 
-    <div class="container-fluid">
-        {% comment %} brudcrumb {% endcomment %}
-        <div class="row breadcrumb p-2">
-            <div class="col-md-8">
-                <h5>ইউনিয়ন মুক্তিযোদ্ধা</h5>
-            </div>
-            <div class="col-md-4">
-                <h6>You are here: <a href="{% url 'home' %}">হোম >></a> ইউনিয়ন মুক্তিযোদ্ধা</h6>
-            </div>
+<div class="container-fluid">
+    {% comment %} brudcrumb {% endcomment %}
+    <div class="row breadcrumb p-2">
+        <div class="col-md-8">
+            <h5>স্মরণীয় ব্যক্তিত্ব</h5>
         </div>
+        <div class="col-md-4">
+            <h6>You are here: <a href="{% url 'home' %}">হোম >></a> স্মরণীয় ব্যক্তিত্ব</h6>
+        </div>
+    </div>
 
-        {% comment %} main content {% endcomment %}
-        <div class="row">
-            <div class="intro-main col-9">
-                <div class="card mb-5">
-                    <div class="card-header border-bottom-0">
-                        <h4 class="text-center">দিগপাইত ইউনিয়ন রাষ্ট্রীয় সম্মানীভাতা প্রাপ্ত ও যুদ্ধাহত মুক্তিযোদ্ধাগন</h4>
-                    </div>
-                    <div class="card-body">
-                        <div class="row">
-                            <div class="col-md-3">
-                                <div class="card">
-                                    <div class="card-body text-center">
-                                        <img class="card-img-top mb-2" src="https://www.cssljamalpur.com/img/preview_images/freedom_fighter/1.jpg" alt="">
-                                        <h6 class="text-primary">মুক্তিযোদ্ধা</h6>
-                                        মোঃ আব্দুল খালেক
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-md-3">
-                                <div class="card">
-                                    <div class="card-body text-center">
-                                        <img class="card-img-top mb-2" src="https://www.cssljamalpur.com/img/preview_images/freedom_fighter/1.jpg" alt="">
-                                        <h6 class="text-primary">মুক্তিযোদ্ধা</h6>
-                                        মোঃ আব্দুল খালেক
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-md-3">
-                                <div class="card">
-                                    <div class="card-body text-center">
-                                        <img class="card-img-top mb-2" src="https://www.cssljamalpur.com/img/preview_images/freedom_fighter/1.jpg" alt="">
-                                        <h6 class="text-primary">মুক্তিযোদ্ধা</h6>
-                                        মোঃ আব্দুল খালেক
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-md-3">
-                                <div class="card">
-                                    <div class="card-body text-center">
-                                        <img class="card-img-top mb-2" src="https://www.cssljamalpur.com/img/preview_images/freedom_fighter/1.jpg" alt="">
-                                        <h6 class="text-primary">মুক্তিযোদ্ধা</h6>
-                                        মোঃ আব্দুল খালেক
-                                    </div>
+    {% comment %} main content {% endcomment %}
+    <div class="row">
+        <div class="intro-main col-9">
+            <div class="card mb-5">
+                <div class="card-header border-bottom-0">
+                    <h4 class="text-center">স্মরণীয় ব্যক্তিত্ব</h4>
+                </div>
+                <div class="card-body">
+                    <!-- <div class="row">
+                        <div class="col-md-3">
+                            <div class="card">
+                                <div class="card-body text-center">
+                                    <img class="card-img-top mb-2"
+                                        src="https://www.cssljamalpur.com/img/preview_images/freedom_fighter/1.jpg"
+                                        alt="">
+                                    <h6 class="text-primary">মুক্তিযোদ্ধা</h6>
+                                    মোঃ আব্দুল খালেক
                                 </div>
                             </div>
                         </div>
-                    </div>
-                </div>
-            </div>
-            <div class="intro-right col-3">
-                <h6>Bruchurms</h6>
-                <div class="member-login">
-                    <!-- login -->
-                    {% include "snippets/member_login.html" %}
-                </div>
-                <div class="notice-board">
-                    <!-- notice board -->
-                    {% include "snippets/notice_board.html" %}
-                </div>
-                <div class="visitor-count">
-                    <!-- visitor count -->
-                    {% include "snippets/visitor_count.html" %}
+                        <div class="col-md-3">
+                            <div class="card">
+                                <div class="card-body text-center">
+                                    <img class="card-img-top mb-2"
+                                        src="https://www.cssljamalpur.com/img/preview_images/freedom_fighter/1.jpg"
+                                        alt="">
+                                    <h6 class="text-primary">মুক্তিযোদ্ধা</h6>
+                                    মোঃ আব্দুল খালেক
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-3">
+                            <div class="card">
+                                <div class="card-body text-center">
+                                    <img class="card-img-top mb-2"
+                                        src="https://www.cssljamalpur.com/img/preview_images/freedom_fighter/1.jpg"
+                                        alt="">
+                                    <h6 class="text-primary">মুক্তিযোদ্ধা</h6>
+                                    মোঃ আব্দুল খালেক
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-3">
+                            <div class="card">
+                                <div class="card-body text-center">
+                                    <img class="card-img-top mb-2"
+                                        src="https://www.cssljamalpur.com/img/preview_images/freedom_fighter/1.jpg"
+                                        alt="">
+                                    <h6 class="text-primary">মুক্তিযোদ্ধা</h6>
+                                    মোঃ আব্দুল খালেক
+                                </div>
+                            </div>
+                        </div>
+                    </div> -->
                 </div>
             </div>
         </div>
-
+        <div class="intro-right col-3">
+            <div class="member-login">
+                <!-- login -->
+                {% include "snippets/member_login.html" %}
+            </div>
+            <div class="notice-board">
+                <!-- notice board -->
+                {% include "snippets/notice_board.html" %}
+            </div>
+            <div class="visitor-count">
+                <!-- visitor count -->
+                {% include "snippets/visitor_count.html" %}
+            </div>
+        </div>
     </div>
+
+</div>
 
 
 

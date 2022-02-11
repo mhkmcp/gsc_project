@@ -4,62 +4,61 @@
 
 {% block content %}
 
-    <div class="container-fluid">
-        <h4>সাধারন পরিষদ</h4>
-        <div class="row">
-            <div class="intro-main col-9">
-                <h3>চাকরিজীবী সমবায় সমিতি লিমিটেড</h3>
-                <h3>সাধারন পরিষদ</h3>
-                <div class="row">
-                    <div class="col-4">
-                        <img src="{% static 'img/adviser.jpg'%}" alt="">
-                        <h6 class="text-center">ডঃ আতিউর রহমান</h6>
-                        <h6 class="text-center">সাবেক গভর্ণর,বাংলাদেশ ব্যাংক</h6>
-                        <hr>
-                        <ul class="d-flex flex-row">
-                            <li> <a href="#" target="_blank" class="facebook"></a> </li>
-                            <li> <a href="#" target="_blank" class="twitter"></a> </li>
-                            <li> <a href="#" target="_blank" class="linkedin"></a> </li>
-                            <li> <a href="#" target="_blank" class="youtube"></a> </li>
-                            <li> <a href="#" target="_blank" class="flickr"></a> </li>
-                        </ul>
-                    </div>
-                    <div class="col-4">
-                        <img src="{% static 'img/adviser.jpg'%}" alt="">
-                    </div>
-                    <div class="col-4">
-                        <img src="{% static 'img/adviser.jpg'%}" alt="">
-                    </div>
-                    <div class="col-4">
-                        <img src="{% static 'img/adviser.jpg'%}" alt="">
-                    </div>
-                    <div class="col-4">
-                        <img src="{% static 'img/adviser.jpg'%}" alt="">
-                    </div>
-                    <div class="col-4">
-                        <img src="{% static 'img/adviser.jpg'%}" alt="">
-                    </div>
+<div class="container-fluid">
+    <h4>সাধারন পরিষদ</h4>
+    <div class="row">
+        <div class="intro-main col-9">
+            <!-- <h3>চাকরিজীবী সমবায় সমিতি লিমিটেড</h3>
+            <h3>সাধারন পরিষদ</h3>
+            <div class="row">
+                <div class="col-4">
+                    <img src="{% static 'img/adviser.jpg'%}" alt="">
+                    <h6 class="text-center">ডঃ আতিউর রহমান</h6>
+                    <h6 class="text-center">সাবেক গভর্ণর,বাংলাদেশ ব্যাংক</h6>
+                    <hr>
+                    <ul class="d-flex flex-row">
+                        <li> <a href="#" target="_blank" class="facebook"></a> </li>
+                        <li> <a href="#" target="_blank" class="twitter"></a> </li>
+                        <li> <a href="#" target="_blank" class="linkedin"></a> </li>
+                        <li> <a href="#" target="_blank" class="youtube"></a> </li>
+                        <li> <a href="#" target="_blank" class="flickr"></a> </li>
+                    </ul>
                 </div>
+                <div class="col-4">
+                    <img src="{% static 'img/adviser.jpg'%}" alt="">
+                </div>
+                <div class="col-4">
+                    <img src="{% static 'img/adviser.jpg'%}" alt="">
+                </div>
+                <div class="col-4">
+                    <img src="{% static 'img/adviser.jpg'%}" alt="">
+                </div>
+                <div class="col-4">
+                    <img src="{% static 'img/adviser.jpg'%}" alt="">
+                </div>
+                <div class="col-4">
+                    <img src="{% static 'img/adviser.jpg'%}" alt="">
+                </div>
+            </div> -->
 
+        </div>
+        <div class="intro-right col-3">
+            <div class="member-login">
+                <!-- login -->
+                {% include "snippets/member_login.html" %}
             </div>
-            <div class="intro-right col-3">
-                <h6>Bruchurms</h6>
-                <div class="member-login">
-                    <!-- login -->
-                    {% include "snippets/member_login.html" %}
-                </div>
-                <div class="notice-board">
-                    <!-- notice board -->
-                    {% include "snippets/notice_board.html" %}
-                </div>
-                <div class="visitor-count">
-                    <!-- visitor count -->
-                    {% include "snippets/visitor_count.html" %}
-                </div>
+            <div class="notice-board">
+                <!-- notice board -->
+                {% include "snippets/notice_board.html" %}
+            </div>
+            <div class="visitor-count">
+                <!-- visitor count -->
+                {% include "snippets/visitor_count.html" %}
             </div>
         </div>
-
     </div>
+
+</div>
 
 
 

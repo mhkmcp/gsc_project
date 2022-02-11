@@ -4,52 +4,51 @@
 
 {% block content %}
 
-    <div class="container-fluid">
-        {% comment %} brudcrumb {% endcomment %}
-        <div class="row breadcrumb p-2">
-            <div class="col-md-8">
-                <h5>এক নজরে ইউনিয়ন</h5>
-            </div>
-            <div class="col-md-4">
-                <h6>You are here: <a href="{% url 'home' %}">হোম >></a> এক নজরে ইউনিয়ন</h6>
-            </div>
+<div class="container-fluid">
+    {% comment %} brudcrumb {% endcomment %}
+    <div class="row breadcrumb p-2">
+        <div class="col-md-8">
+            <h5>এক নজরে ইউনিয়ন</h5>
         </div>
+        <div class="col-md-4">
+            <h6>You are here: <a href="{% url 'home' %}">হোম >></a> এক নজরে ইউনিয়ন</h6>
+        </div>
+    </div>
 
-        {% comment %} main content {% endcomment %}
-        <div class="row">
-            <div class="intro-main col-9">
-                <div class="card mb-5">
-                    <div class="card-body">
-                        <h4 class="text-center">একনজরে ১৪নং দিগপাইত ইউনিয়ন,উপজেলা-জামালপুর সদর</h4>
-                        <table class="table table-bordered">
+    {% comment %} main content {% endcomment %}
+    <div class="row">
+        <div class="intro-main col-9">
+            <div class="card mb-5">
+                <div class="card-body">
+                    <h4 class="text-center">এক নজরে বৃহত্তর চান্দলা</h4>
+                    <!-- <table class="table table-bordered">
                             <tbody>
                                 <tr>
                                     <th>আয়তন</th>
                                     <td>২৮.০৪ বর্গকিলোমিটার (২৮০৪ হেক্টর)</td>
                                 </tr>
                             </tbody>
-                        </table>
-                    </div>
-                </div>
-            </div>
-            <div class="intro-right col-3">
-                <h6>Bruchurms</h6>
-                <div class="member-login">
-                    <!-- login -->
-                    {% include "snippets/member_login.html" %}
-                </div>
-                <div class="notice-board">
-                    <!-- notice board -->
-                    {% include "snippets/notice_board.html" %}
-                </div>
-                <div class="visitor-count">
-                    <!-- visitor count -->
-                    {% include "snippets/visitor_count.html" %}
+                        </table> -->
                 </div>
             </div>
         </div>
-
+        <div class="intro-right col-3">
+            <div class="member-login">
+                <!-- login -->
+                {% include "snippets/member_login.html" %}
+            </div>
+            <div class="notice-board">
+                <!-- notice board -->
+                {% include "snippets/notice_board.html" %}
+            </div>
+            <div class="visitor-count">
+                <!-- visitor count -->
+                {% include "snippets/visitor_count.html" %}
+            </div>
+        </div>
     </div>
+
+</div>
 
 
 
