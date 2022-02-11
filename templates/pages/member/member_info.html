@@ -4,30 +4,31 @@
 
 {% block content %}
 
-    <div class="container-fluid">
-        <h4>সদস্যের তথ্যাবলি</h4>
-        <div class="row">
-            <div class="intro-main col-9">
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aspernatur aut facere maiores quidem saepe. Asperiores autem consectetur dolorum illum nesciunt nisi nobis perspiciatis quaerat quam, quos sed temporibus veritatis. Nesciunt.</p>
+<div class="container-fluid">
+    <h4>সদস্যের তথ্যাবলি</h4>
+    <div class="row">
+        <div class="intro-main col-9">
+            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aspernatur aut facere maiores quidem saepe.
+                Asperiores autem consectetur dolorum illum nesciunt nisi nobis perspiciatis quaerat quam, quos sed
+                temporibus veritatis. Nesciunt.</p>
+        </div>
+        <div class="intro-right col-3">
+            <div class="member-login">
+                <!-- login -->
+                {% include "snippets/member_login.html" %}
             </div>
-            <div class="intro-right col-3">
-                <h6>Bruchurms</h6>
-                <div class="member-login">
-                    <!-- login -->
-                    {% include "snippets/member_login.html" %}
-                </div>
-                <div class="notice-board">
-                    <!-- notice board -->
-                    {% include "snippets/notice_board.html" %}
-                </div>
-                <div class="visitor-count">
-                    <!-- visitor count -->
-                    {% include "snippets/visitor_count.html" %}
-                </div>
+            <div class="notice-board">
+                <!-- notice board -->
+                {% include "snippets/notice_board.html" %}
+            </div>
+            <div class="visitor-count">
+                <!-- visitor count -->
+                {% include "snippets/visitor_count.html" %}
             </div>
         </div>
-
     </div>
+
+</div>
 
 
 
