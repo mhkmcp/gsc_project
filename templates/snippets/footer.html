@@ -10,6 +10,7 @@
 					<strong><i class="fa fa-envelope text-info mr-2"></i></strong> brihattarchandlaipskp@gmail.com <br>
 					<strong><i class="fa fa-phone text-info mr-2"></i></strong> +৮৮ ০১৮৩৫১০২৬৭২
 				</address>
+
 			</div>
 			<div class="col-md-3">
 				<h4 class="border-bottom pb-1 mb-3">IMPORTANT LINK</h4>
@@ -39,6 +40,17 @@
 						সদস্য ফর্ম
 					</a>
 				</div>
+				<h4 class="border-bottom pb-1 mt-4">Follow Us</h4>
+				<div class="">
+					<a class="text-white" href="https://www.facebook.com/bcpiskp" target="_blank">
+						<i class="fab fa-facebook text-info"></i> Facebook
+					</a>
+					<br>
+					<a class="text-white" href="https://www.youtube.com/channel/UCPnZLxNkb4Yh6YYg7xjCdKg"
+						target="_blank">
+						<i class="fab fa-youtube text-info"></i> Youtube
+					</a>
+				</div>
 			</div>
 			<div class="col-md-4">
 				<h4 class="border-bottom pb-1 mb-3">BANK DETAILS</h4>
@@ -58,9 +70,11 @@
 		</div>
 	</div>
 	<div class="footer-bottom bg-dark-blue">
-		<div class="container-fluid py-1 text-center py-2">
-			©{% now 'Y' %} Copyrights <a href="http://127.0.0.1:8000/" class="text-light"><strong>BCPISKP</strong></a> |
-			All rights Reserved
+		<div class="container-fluid py-2">
+			<div class="text-center">
+				©{% now 'Y' %} Copyrights <a href="{% url 'home' %}" class="text-light"><strong>BCPISKP</strong></a> |
+				All rights Reserved
+			</div>
 		</div>
 	</div>
 </footer>
