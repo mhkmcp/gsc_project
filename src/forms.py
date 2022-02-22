@@ -3,8 +3,7 @@ from django.contrib.auth.models import User
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth import password_validation
 from django.forms.models import inlineformset_factory
-from django.contrib.admin.widgets import FilteredSelectMultiple
-from django.contrib.auth.models import Group, User
+from django.contrib.auth.models import User
 
 from .models import Candidate, Contact, Election, Member
 
@@ -66,15 +65,16 @@ class MemberForm(forms.ModelForm):
             "date_of_birth": "জন্ম তারিখ",
             "phone": "মোবাইল/ফোন নং",
             "member_type": "সদস্যের ধরন",
-            "zilla": "জেলা",
+            "village": "গ্রাম",
+            "post_office": "পোস্ট অফিস",
             "upazilla": "উপজেলা",
+            "zilla": "জেলা",
             "country": "দেশ",
             "image": "ছবি",
             "is_agreed": "অঙ্গীকারনামা",
         }
 
         widgets = {
-            # "full_name": forms.TextInput(attrs={"placeholder": "Full name"}),
             "date_of_birth": forms.DateInput(
                 format=("%d/%m/%Y"),
                 attrs={
