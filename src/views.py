@@ -1,7 +1,6 @@
 from django.contrib.auth.decorators import login_required
-from django.http.response import Http404, HttpResponseRedirect
+from django.http.response import HttpResponseRedirect
 from django.shortcuts import get_object_or_404, redirect, render
-from django.contrib.auth.models import User, Group
 from django.contrib.auth import login, logout, authenticate
 from django.contrib import messages
 from django.urls import reverse
@@ -14,6 +13,7 @@ from .forms import (
     MemberForm,
     CustomUserCreationForm,
     LoginForm,
+    UserEditForm,
 )
 from django.contrib import messages
 from .models import *
@@ -53,6 +53,39 @@ def index(request):
         "slides": Slide.objects.all(),
     }
     return render(request, "pages/home.html", context)
+
+
+# def login(request):
+#     login_form = LoginForm()
+#     if request.method == "POST":
+#         login_form = LoginForm(request.POST or None)
+#         if login_form.is_valid():
+#             member = get_object_or_404(
+#                 Member, passport=login_form.cleaned_data.get("passport")
+#             )
+#             if member:
+#                 if member.is_approved:
+#                     user = authenticate(
+#                         request,
+#                         username=member.user.username,
+#                         password=login_form.cleaned_data.get("password"),
+#                     )
+#                     if user is not None:
+#                         login(request, user)
+#                         messages.success(request, "Login Success")
+#                     else:
+#                         messages.info(request, "Login Failed!")
+#                 else:
+#                     messages.warning(request, "Member is not approved.")
+#             else:
+#                 messages.error(request, "Member not found")
+
+#             return redirect("home")
+#         else:
+#             messages.error(request, "Invalid form data")
+#             return redirect("home")
+#     context = {}
+#     return render(request, "pages/login.html", context)
 
 
 def logout_user(request):
@@ -186,9 +219,6 @@ def admission_form(request):
 
             messages.success(request, "Member was registered successfully.")
             return redirect("admission_form")
-        else:
-            print(user_creation_form.errors.as_data)
-            print(member_form.errors.as_data)
     else:
         member_form = MemberForm()
         user_creation_form = CustomUserCreationForm()
@@ -363,3 +393,34 @@ def contact(request):
 
     context = {"form": form}
     return render(request, "pages/contact.html", context)
+
+
+# profile
+@login_required(login_url="home")
+def profile(request):
+    user = request.user
+    context = {"user": user}
+    return render(request, "pages/profile/profile.html", context)
+
+
+@login_required(login_url="home")
+def profile_edit(request):
+    member_form = MemberForm(instance=request.user.member)
+    user_form = UserEditForm(instance=request.user)
+
+    if request.method == "POST":
+        member_form = MemberForm(
+            request.POST, request.FILES, instance=request.user.member
+        )
+        user_form = UserEditForm(request.POST, instance=request.user)
+        if member_form.is_valid() and user_form.is_valid():
+            member_form.save()
+            user_form.save()
+            messages.success(request, "Profile updated successfully.")
+            return redirect("profile")
+
+    context = {
+        "member_form": member_form,
+        "user_form": user_form,
+    }
+    return render(request, "pages/profile/edit-profile.html", context)

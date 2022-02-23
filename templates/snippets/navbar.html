@@ -123,6 +123,7 @@
 			{% else %}
 			<li><a href="#">{{ request.user.username }}</a>
 				<ul>
+					<li><a href="{% url 'profile' %}">প্রোফাইল</a></li>
 					<li><a href="{% url 'logout' %}">লগআউট</a></li>
 				</ul>
 			</li>

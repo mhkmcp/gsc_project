@@ -38,7 +38,7 @@ class Member(models.Model):
     upazilla = models.CharField(max_length=63)
     zilla = models.CharField(max_length=63)
     country = models.CharField(max_length=127)
-    image = models.ImageField(upload_to="member/images")
+    # image = models.ImageField(upload_to="member/images")
     phone = models.CharField(max_length=32)
     passport = models.CharField(max_length=63)
     date_of_birth = models.DateField()

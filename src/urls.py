@@ -60,4 +60,7 @@ urlpatterns = [
     path("union/institute/sonatia/", sonatia, name="institute_sonatia"),
     # contact
     path("contact/", contact, name="contact"),
+    # profile
+    path("profile/", profile, name="profile"),
+    path("profile/edit/", profile_edit, name="profile_edit"),
 ]

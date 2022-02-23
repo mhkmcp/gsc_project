@@ -1,0 +1,79 @@
+{% extends 'base.html' %}
+{% block title %}প্রোফাইল {% endblock %}
+{% load static %}
+{% load crispy_forms_tags %}
+
+{% block content %}
+
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-md-4">
+            <img id="profilePic" src="{{user.member.image.url}}" alt="{{user.member.full_name}}" class="img-thumbnail">
+        </div>
+        <div class="col-md-8">
+            <div class="d-flex justify-content-between align-items-center mb-4">
+                <h1>
+                    <span class="text-info">Hello,</span>
+                    {{user.member.full_name}}
+                </h1>
+            </div>
+
+            <div class="">
+                <form action="{% url 'profile_edit' %}" method="POST" enctype="multipart/form-data">
+                    {% csrf_token %}
+
+                    <div class="row">
+                        <div class="col-md-6">{{ member_form.full_name|as_crispy_field }}</div>
+                        <div class="col-md-6">{{ user_form.email|as_crispy_field }}</div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-md-6">{{ member_form.father_name|as_crispy_field }}</div>
+                        <div class="col-md-6">{{ member_form.mother_name|as_crispy_field }}</div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-md-6">{{ member_form.passport|as_crispy_field }}</div>
+                        <div class="col-md-6">{{ member_form.date_of_birth|as_crispy_field }}</div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-md-6">{{ member_form.phone|as_crispy_field }}</div>
+                        <div class="col-md-6">{{ member_form.member_type|as_crispy_field }}</div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-md-6">{{ member_form.village|as_crispy_field }}</div>
+                        <div class="col-md-6">{{ member_form.post_office|as_crispy_field }}</div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-md-6">{{ member_form.upazilla|as_crispy_field }}</div>
+                        <div class="col-md-6">{{ member_form.zilla|as_crispy_field }}</div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-md-6">{{ member_form.country|as_crispy_field }}</div>
+                        <div class="col-md-6">{{ member_form.image|as_crispy_field }}</div>
+                    </div>
+
+                    <div class="d-flex justify-content-between">
+                        <a href="{% url 'profile' %}" class="btn btn-secondary">
+                            <i class="fa fa-times mr-1"></i>
+                            Cancel
+                        </a>
+                        <button id="submitBtn" class="btn bg-navy-blue text-white" type="submit">
+                            <i class="fa fa-save mr-1"></i>
+                            Save
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+<script src="{% static 'js/edit-profile.js' %}"></script>
+
+{% endblock content %}

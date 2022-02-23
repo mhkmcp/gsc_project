@@ -28,6 +28,15 @@ class CustomUserCreationForm(UserCreationForm):
         labels = {"email": "ইমেইল"}
 
 
+class UserEditForm(forms.ModelForm):
+    email = forms.EmailField(required=False, label="ইমেইল (Optional)")
+
+    class Meta:
+        model = User
+        fields = ["email"]
+        labels = {"email": "ইমেইল"}
+
+
 class ContactForm(forms.ModelForm):
     class Meta:
         model = Contact
@@ -76,7 +85,6 @@ class MemberForm(forms.ModelForm):
 
         widgets = {
             "date_of_birth": forms.DateInput(
-                format=("%d/%m/%Y"),
                 attrs={
                     "type": "date",
                 },
