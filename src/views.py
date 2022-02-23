@@ -1,10 +1,12 @@
 from django.urls import reverse
+from django.core.mail import send_mass_mail
 from django.contrib.auth.decorators import login_required
 from django.shortcuts import get_object_or_404, redirect, render
 from django.contrib.auth import login as auth_login, logout, authenticate
 from django.http.response import HttpResponseRedirect
 from django.contrib import messages
 from django.db.models import Count
+
 
 from .forms import (
     ContactForm,
@@ -13,7 +15,6 @@ from .forms import (
     LoginForm,
     UserEditForm,
 )
-from django.contrib import messages
 from .models import *
 
 
@@ -59,6 +60,36 @@ def login(request):
 def logout_user(request):
     logout(request)
     return redirect("home")
+
+
+def request_rest_password(request):
+    if request.method == "POST":
+        passport = request.POST.get("passport")
+        phone = request.POST.get("phone")
+
+        # find member
+        member = Member.objects.filter(passport=passport, phone=phone).first()
+        if not member:
+            messages.error(request, "No member found with provided information")
+            return redirect("./")
+        else:
+            # find admin user
+            admins = User.objects.filter(is_staff=True)
+            admin_emails = [admin.email for admin in admins]
+
+            # generate message
+            message = f"Name: {member.full_name} \nPassport: {member.passport} \nPhone: {member.phone}"
+            datatuple = (("Reset Password", message, "info@bcpiskp.org", admin_emails),)
+
+            # send email
+            send_mass_mail(datatuple)
+            messages.success(
+                request,
+                "Your query has been submitted. Please wait for admin's response.",
+            )
+            return redirect("./")
+
+    return render(request, "pages/request_rest_password.html")
 
 
 # about us
