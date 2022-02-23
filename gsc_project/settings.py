@@ -173,3 +173,7 @@ MESSAGE_TAGS = {
     messages.WARNING: "alert-warning",
     messages.ERROR: "alert-danger",
 }
+
+# APPEND_SLASH = False
+
+LOGIN_URL = "/login"

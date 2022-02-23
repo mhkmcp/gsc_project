@@ -1,15 +1,13 @@
-from django.contrib.auth.decorators import login_required
-from django.http.response import HttpResponseRedirect
-from django.shortcuts import get_object_or_404, redirect, render
-from django.contrib.auth import login, logout, authenticate
-from django.contrib import messages
 from django.urls import reverse
+from django.contrib.auth.decorators import login_required
+from django.shortcuts import get_object_or_404, redirect, render
+from django.contrib.auth import login as auth_login, logout, authenticate
+from django.http.response import HttpResponseRedirect
+from django.contrib import messages
 from django.db.models import Count
 
 from .forms import (
-    CandidateFormFormSet,
     ContactForm,
-    ElectionForm,
     MemberForm,
     CustomUserCreationForm,
     LoginForm,
@@ -20,34 +18,6 @@ from .models import *
 
 
 def index(request):
-    if request.method == "POST":
-        login_form = LoginForm(request.POST or None)
-        if login_form.is_valid():
-            member = get_object_or_404(
-                Member, passport=login_form.cleaned_data.get("passport")
-            )
-            if member:
-                if member.is_approved:
-                    user = authenticate(
-                        request,
-                        username=member.user.username,
-                        password=login_form.cleaned_data.get("password"),
-                    )
-                    if user is not None:
-                        login(request, user)
-                        messages.success(request, "Login Success")
-                    else:
-                        messages.info(request, "Login Failed!")
-                else:
-                    messages.warning(request, "Member is not approved.")
-            else:
-                messages.error(request, "Member not found")
-
-            return redirect("home")
-        else:
-            messages.error(request, "Invalid form data")
-            return redirect("home")
-
     context = {
         "login_form": LoginForm(),
         "slides": Slide.objects.all(),
@@ -55,37 +25,35 @@ def index(request):
     return render(request, "pages/home.html", context)
 
 
-# def login(request):
-#     login_form = LoginForm()
-#     if request.method == "POST":
-#         login_form = LoginForm(request.POST or None)
-#         if login_form.is_valid():
-#             member = get_object_or_404(
-#                 Member, passport=login_form.cleaned_data.get("passport")
-#             )
-#             if member:
-#                 if member.is_approved:
-#                     user = authenticate(
-#                         request,
-#                         username=member.user.username,
-#                         password=login_form.cleaned_data.get("password"),
-#                     )
-#                     if user is not None:
-#                         login(request, user)
-#                         messages.success(request, "Login Success")
-#                     else:
-#                         messages.info(request, "Login Failed!")
-#                 else:
-#                     messages.warning(request, "Member is not approved.")
-#             else:
-#                 messages.error(request, "Member not found")
+def login(request):
+    login_form = LoginForm()
 
-#             return redirect("home")
-#         else:
-#             messages.error(request, "Invalid form data")
-#             return redirect("home")
-#     context = {}
-#     return render(request, "pages/login.html", context)
+    if request.method == "POST":
+        login_form = LoginForm(request.POST or None)
+        if login_form.is_valid():
+            member = Member.objects.filter(
+                passport=login_form.cleaned_data.get("passport")
+            ).first()
+            if not member:
+                messages.error(request, "Member not found")
+            else:
+                if not member.is_approved:
+                    messages.error(request, "Member not approved")
+                else:
+                    user = authenticate(
+                        request,
+                        username=member.user.username,
+                        password=login_form.cleaned_data.get("password"),
+                    )
+                    if not user:
+                        messages.error(request, "Invalid credentials!")
+                    else:
+                        auth_login(request, user)
+                        messages.success(request, f"Welcome, {user.member.full_name}")
+                        return redirect("/")
+
+    context = {"login_form": login_form}
+    return render(request, "pages/login.html", context)
 
 
 def logout_user(request):
@@ -396,14 +364,14 @@ def contact(request):
 
 
 # profile
-@login_required(login_url="home")
+@login_required(login_url="login")
 def profile(request):
     user = request.user
     context = {"user": user}
     return render(request, "pages/profile/profile.html", context)
 
 
-@login_required(login_url="home")
+@login_required(login_url="login")
 def profile_edit(request):
     member_form = MemberForm(instance=request.user.member)
     user_form = UserEditForm(instance=request.user)

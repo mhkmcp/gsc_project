@@ -10,10 +10,8 @@
     <p>স্বাগতম <strong>{{request.user.username}}</strong></p>
 
     {% else %}
-    <form class='' action="{% url 'home' %}" method="post">
+    <form class='' action="{% url 'login' %}" method="POST">
       {% csrf_token %}
-
-      <!-- {{ login_form|crispy }} -->
 
       <div id="div_id_passport" class="form-group">
         <input type="text" name="passport" placeholder="পাসপোর্ট" class="textinput textInput form-control" required=""
