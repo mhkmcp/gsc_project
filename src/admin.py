@@ -1,6 +1,7 @@
 from django.contrib.admin.sites import AlreadyRegistered
 from django.contrib import admin
 from django.apps import apps
+from django.contrib.auth.hashers import make_password
 
 from .models import (
     DownloadPolicy,
@@ -10,7 +11,28 @@ from .models import (
     Slide,
     Election,
     Candidate,
+    PasswordResetRequest,
 )
+
+
+@admin.register(PasswordResetRequest)
+class PasswordResetRequestAdmin(admin.ModelAdmin):
+    def set_requested_password(self, request, queryset):
+        queryset.update(done=True)
+        for req in queryset:
+            member = Member.objects.get(passport=req.passport)
+            user = member.user
+            print(req.new_password)
+            user.password = make_password(req.new_password)
+            user.save()
+
+    set_requested_password.short_description = "Reset with requested password."
+
+    exclude = ["new_password"]
+    list_display = ["phone", "passport", "done"]
+    list_filter = ["done"]
+    search_fields = ["phone", "passport"]
+    actions = [set_requested_password]
 
 
 @admin.register(Member)

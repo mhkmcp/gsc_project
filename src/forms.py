@@ -3,9 +3,8 @@ from django.contrib.auth.models import User
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth import password_validation
 from django.forms.models import inlineformset_factory
-from django.contrib.auth.models import User
 
-from .models import Candidate, Contact, Election, Member
+from .models import Candidate, Contact, Election, Member, PasswordResetRequest
 
 
 class CustomUserCreationForm(UserCreationForm):
@@ -26,6 +25,14 @@ class CustomUserCreationForm(UserCreationForm):
         model = User
         fields = ["email", "password1", "password2"]
         labels = {"email": "ইমেইল"}
+
+
+class PasswordResetForm(forms.ModelForm):
+    new_password = forms.CharField(widget=forms.PasswordInput())
+
+    class Meta:
+        model = PasswordResetRequest
+        exclude = ["done"]
 
 
 class UserEditForm(forms.ModelForm):
@@ -78,7 +85,7 @@ class MemberForm(forms.ModelForm):
             "post_office": "পোস্ট অফিস",
             "upazilla": "উপজেলা",
             "zilla": "জেলা",
-            "country": "দেশ",
+            "country": "দেশ (বর্তমান অবস্থানরত)",
             "image": "ছবি",
             "is_agreed": "অঙ্গীকারনামা",
         }

@@ -1,7 +1,18 @@
-from datetime import date, datetime
+from datetime import datetime
+from pickle import FALSE
 
 from django.db import models
 from django.contrib.auth.models import User
+
+
+class PasswordResetRequest(models.Model):
+    passport = models.CharField(max_length=100)
+    phone = models.CharField(max_length=20)
+    new_password = models.CharField(max_length=254)
+    done = models.BooleanField(default=False)
+
+    def __str__(self):
+        return self.phone
 
 
 class Contact(models.Model):
@@ -40,7 +51,7 @@ class Member(models.Model):
     country = models.CharField(max_length=127)
     # image = models.ImageField(upload_to="member/images")
     phone = models.CharField(max_length=32)
-    passport = models.CharField(max_length=63)
+    passport = models.CharField(max_length=63, unique=True)
     date_of_birth = models.DateField()
     image = models.ImageField(upload_to="img/members")
     member_type = models.CharField(choices=choice, max_length=24)

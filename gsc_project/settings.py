@@ -97,7 +97,6 @@ else:
             "PASSWORD": env("DB_PASS"),
             "HOST": env("DB_HOST"),  # Or an IP Address that your DB is hosted on
             "PORT": "",
-            # "OPTION": {"init_command": "SET sql_mode='STRICT_TRANS_TABLE',"},
             "OPTIONS": {
                 "sql_mode": "traditional",
             },
@@ -174,17 +173,16 @@ MESSAGE_TAGS = {
     messages.ERROR: "alert-danger",
 }
 
-# APPEND_SLASH = False
 
 LOGIN_URL = "/login"
 
-# SMTP SETTINGS
-if DEBUG:
-    EMAIL_BACKEND = "django.core.mail.backends.console.EmailBackend"
-else:
-    EMAIL_BACKEND = env("EMAIL_BACKEND")
-    EMAIL_HOST = env("EMAIL_HOST")
-    EMAIL_USE_TLS = env("EMAIL_USE_TLS")
-    EMAIL_PORT = env("EMAIL_PORT")
-    EMAIL_HOST_USER = env("EMAIL_HOST_USER")
-    EMAIL_HOST_PASSWORD = env("EMAIL_HOST_PASSWORD")
+# # SMTP SETTINGS
+# if DEBUG:
+#     EMAIL_BACKEND = "django.core.mail.backends.console.EmailBackend"
+# else:
+#     EMAIL_BACKEND = env("EMAIL_BACKEND")
+#     EMAIL_HOST = env("EMAIL_HOST")
+#     EMAIL_USE_TLS = env("EMAIL_USE_TLS")
+#     EMAIL_PORT = env("EMAIL_PORT")
+#     EMAIL_HOST_USER = env("EMAIL_HOST_USER")
+#     EMAIL_HOST_PASSWORD = env("EMAIL_HOST_PASSWORD")

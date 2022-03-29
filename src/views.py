@@ -1,5 +1,6 @@
 from django.urls import reverse
 from django.core.mail import send_mass_mail
+from django.contrib.auth.hashers import make_password
 from django.contrib.auth.decorators import login_required
 from django.shortcuts import get_object_or_404, redirect, render
 from django.contrib.auth import login as auth_login, logout, authenticate
@@ -14,6 +15,7 @@ from .forms import (
     CustomUserCreationForm,
     LoginForm,
     UserEditForm,
+    PasswordResetForm,
 )
 from .models import *
 
@@ -27,6 +29,9 @@ def index(request):
 
 
 def login(request):
+    if request.user.is_authenticated:
+        return redirect("/")
+
     login_form = LoginForm()
 
     if request.method == "POST":
@@ -63,33 +68,47 @@ def logout_user(request):
 
 
 def request_rest_password(request):
+    if request.user.is_authenticated:
+        return redirect("/")
+
+    form = PasswordResetForm()
+
     if request.method == "POST":
-        passport = request.POST.get("passport")
-        phone = request.POST.get("phone")
+        form = PasswordResetForm(request.POST or None)
 
-        # find member
-        member = Member.objects.filter(passport=passport, phone=phone).first()
-        if not member:
-            messages.error(request, "No member found with provided information")
-            return redirect("./")
-        else:
-            # find admin user
-            admins = User.objects.filter(is_staff=True)
-            admin_emails = [admin.email for admin in admins]
+        if form.is_valid():
+            # find user
+            member = Member.objects.filter(
+                passport=form.cleaned_data.get("passport")
+            ).first()
+            if not member:
+                messages.error(request, "No user found with provided information")
+                return redirect("./")
+            else:
+                # check if any request is pending
+                req_exists = PasswordResetRequest.objects.filter(
+                    passport=form.cleaned_data.get("passport"),
+                    phone=form.cleaned_data.get("phone"),
+                )
+                if req_exists:
+                    messages.error(
+                        request,
+                        "You have already one pending request. Please contact with admin.",
+                    )
+                    return redirect("./")
 
-            # generate message
-            message = f"Name: {member.full_name} \nPassport: {member.passport} \nPhone: {member.phone}"
-            datatuple = (("Reset Password", message, "info@bcpiskp.org", admin_emails),)
+                new_req = form.save(commit=False)
+                new_req.new_password = form.cleaned_data.get("new_password")
+                new_req.save()
+                messages.success(
+                    request,
+                    "Your query has been submitted. Please wait for admin's response.",
+                )
+                return redirect("./")
 
-            # send email
-            send_mass_mail(datatuple)
-            messages.success(
-                request,
-                "Your query has been submitted. Please wait for admin's response.",
-            )
-            return redirect("./")
+    context = {"form": form}
 
-    return render(request, "pages/request_rest_password.html")
+    return render(request, "pages/request_rest_password.html", context)
 
 
 # about us
