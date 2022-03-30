@@ -10,7 +10,7 @@
         <div class="intro-main col-9">
             <div class="card mb-5">
                 <div class="card-header border-bottom-0 text-center">
-                    <h4>শিক্ষা প্রতিষ্ঠান</h4>
+                    <h4>মসজিদের তালিকা</h4>
                 </div>
                 <div class="card-body">
                     <div class="table-responsive">
@@ -18,20 +18,18 @@
                             <thead class="bg-navy-blue text-white">
                                 <tr>
                                     <th>ক্রমিক নং</th>
-                                    <th>প্রতিষ্ঠানের নাম</th>
-                                    <th>স্কুল কোড</th>
+                                    <th>মসজিদের নাম</th>
                                     <th>প্রতিষ্ঠিত</th>
-                                    <th>প্রধান শিক্ষক</th>
+                                    <th>ঈমাম</th>
                                 </tr>
                             </thead>
                             <tbody>
-                                {% for institute in institutes %}
+                                {% for mosque in mosques %}
                                 <tr>
                                     <td>{{ forloop.counter }}</td>
-                                    <td>{{ institute.name }}</td>
-                                    <td>{{ institute.school_code|default_if_none:"" }}</td>
-                                    <td>{{ institute.stablished_at|default_if_none:"" }}</td>
-                                    <td>{{ institute.headmaster|default_if_none:"" }}</td>
+                                    <td>{{ mosque.name }}</td>
+                                    <td>{{ mosque.stablished_at|default_if_none:"" }}</td>
+                                    <td>{{ mosque.imam|default_if_none:"" }}</td>
                                 </tr>
                                 {% endfor %}
                             </tbody>

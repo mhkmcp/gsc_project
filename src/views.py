@@ -1,6 +1,4 @@
 from django.urls import reverse
-from django.core.mail import send_mass_mail
-from django.contrib.auth.hashers import make_password
 from django.contrib.auth.decorators import login_required
 from django.shortcuts import get_object_or_404, redirect, render
 from django.contrib.auth import login as auth_login, logout, authenticate
@@ -384,7 +382,15 @@ def hospital_commiunity_center(request):
 
 
 def institute(request):
-    return render(request, "pages/union/institutes.html")
+    institutes = EducationalInstitute.objects.all()
+    context = {"institutes": institutes}
+    return render(request, "pages/union/institutes.html", context)
+
+
+def mosque(request):
+    mosques = Mosque.objects.all()
+    context = {"mosques": mosques}
+    return render(request, "pages/union/mosques.html", context)
 
 
 # Union institutes

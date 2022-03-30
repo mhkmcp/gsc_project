@@ -241,3 +241,22 @@ class DownloadPolicy(models.Model):
 
     def __str__(self):
         return self.content[:50]
+
+
+class EducationalInstitute(models.Model):
+    name = models.CharField(max_length=254)
+    headmaster = models.CharField(max_length=100, blank=True, null=True)
+    school_code = models.CharField(max_length=100, blank=True, null=True)
+    stablished_at = models.DateField(blank=True, null=True)
+
+    def __str__(self):
+        return self.name
+
+
+class Mosque(models.Model):
+    name = models.CharField(max_length=254)
+    imam = models.CharField(max_length=100, blank=True, null=True)
+    stablished_at = models.DateField(blank=True, null=True)
+
+    def __str__(self):
+        return self.name

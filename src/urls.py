@@ -58,6 +58,7 @@ urlpatterns = [
         name="union_hospital_community_center",
     ),
     path("union/institutes/", institute, name="union_institutes"),
+    path("union/mosques/", mosque, name="union_mosque"),
     # union/institute
     path("union/institute/sonatia/", sonatia, name="institute_sonatia"),
     # contact
