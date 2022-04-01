@@ -1,6 +1,7 @@
 :root {
     --mainColor: #23364B;
     --darkBlue: #17283d;
+    --lightBlue: #009FE1;
 }
 
 a {
@@ -24,6 +25,10 @@ a:hover {
 
 .text-blue {
     color: var(--mainColor);
+}
+
+.text-light-blue {
+    color: var(--lightBlue);
 }
 
 .blue-btn {
