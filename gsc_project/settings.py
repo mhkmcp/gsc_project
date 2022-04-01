@@ -96,7 +96,7 @@ else:
             "USER": env("DB_USER"),
             "PASSWORD": env("DB_PASS"),
             "HOST": env("DB_HOST"),  # Or an IP Address that your DB is hosted on
-            "PORT": "",
+            "PORT": env("DB_PORT"),
             "OPTIONS": {
                 "sql_mode": "traditional",
             },
